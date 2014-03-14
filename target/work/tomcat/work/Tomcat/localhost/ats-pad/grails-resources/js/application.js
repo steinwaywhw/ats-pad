@@ -1,3 +1,3 @@
 
 
-angular.module("ats-pad", []);
+angular.module("ats-pad", ["ngSanitize"]);

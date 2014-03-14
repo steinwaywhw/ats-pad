@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html ng-app="ats-pad">
 <head>
 	<title>Online Editor for ATS</title>
@@ -8,6 +9,7 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js"></script>
@@ -100,10 +102,12 @@
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, voluptas voluptates pariatur neque expedita reiciendis ut magnam deleniti qui quisquam officiis accusamus minima. Qui, nobis, cupiditate provident vel animi eos.
 				</div>
 			</div>
-			<div class="ats-pad-output">
+			<div class="ats-pad-output" ng-show="stdout">
 				<h3>stdout</h3>
 				<div class="content">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, voluptas voluptates pariatur neque expedita reiciendis ut magnam deleniti qui quisquam officiis accusamus minima. Qui, nobis, cupiditate provident vel animi eos.
+					<ul>
+						<li ng-repeat="line in stdout track by $index" ng-bind-html="line"></li>
+					</ul>
 				</div>
 			</div>	
 
@@ -143,7 +147,7 @@
 		
 
 <script type="text/javascript" src="js/application.js"></script>
-<!-- <script type="text/javascript" src="js/directives.js"></script> -->
+<script type="text/javascript" src="js/services.js"></script> 
 <script type="text/javascript" src="js/controllers.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
