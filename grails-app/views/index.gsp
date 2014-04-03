@@ -7,11 +7,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js"></script>
 
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -96,19 +99,10 @@
 
 			</div>
 
-			<div class="ats-pad-input">
-				<h3>stdin</h3>
-				<div class="content">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, voluptas voluptates pariatur neque expedita reiciendis ut magnam deleniti qui quisquam officiis accusamus minima. Qui, nobis, cupiditate provident vel animi eos.
-				</div>
-			</div>
-			<div class="ats-pad-output" ng-show="stdout">
-				<h3>stdout</h3>
-				<div class="content">
-					<ul>
-						<li ng-repeat="line in stdout track by $index" ng-bind-html="line"></li>
-					</ul>
-				</div>
+			
+			<div class="ats-pad-terminal">
+				<h4>terminal</h4>
+				<div id="terminal"></div>
 			</div>	
 
 			
@@ -116,8 +110,8 @@
 
 		<div class="col-md-2">
 			<div class="ats-pad-menu">
-				<button class="btn btn-block btn-default">New Playground</button>
-				<button class="btn btn-block btn-default">Delete Playground</button>
+				<button class="btn btn-block btn-default">New Pad</button>
+				<button class="btn btn-block btn-default">Delete Pad</button>
 			</div>
 			<hr>
 			<div class="ats-pad-controls">
@@ -146,9 +140,11 @@
 	</div>
 		
 
-<script type="text/javascript" src="js/application.js"></script>
-<script type="text/javascript" src="js/services.js"></script> 
-<script type="text/javascript" src="js/controllers.js"></script>
+<script src="js/application.js"></script>
+<script src="js/services.js"></script> 
+<script src="js/controllers.js"></script>
+<script src="js/term.js"></script>
+<script src="js/client.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
 
