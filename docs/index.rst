@@ -5,12 +5,17 @@
 
 The purpose of this is to document the project for further development.
 
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
 Project Structure
 ==================
 
 * atspad-ui
 	An angular-js webapp in front of atspad-api.
-	
+
 * atspad-api
 	A java web application running atspad API.
 
@@ -28,10 +33,7 @@ Project Structure
 
 
 
-Contents:
 
-.. toctree::
-   :maxdepth: 2
 
 
 
