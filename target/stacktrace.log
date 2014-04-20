@@ -10246,3 +10246,2931 @@ Possible solutions: escapeJavaScript(java.lang.String), escapeJavaScript(java.io
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:722)
+2014-04-11 10:59:40,035 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 10:59:40,152 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 10:59:40,167 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 10:59:40,174 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 10:59:40,212 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 10:59:40,219 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: dockerService for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:20)
+2014-04-11 11:00:24,653 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:128)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:00:24,653 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:00:24,654 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:00:24,654 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:00:24,655 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:00:24,655 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:01:13,532 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:128)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:01:13,532 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:01:13,532 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:01:13,532 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:01:13,533 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:01:13,533 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:21)
+2014-04-11 11:03:18,730 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:03:18,730 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:03:18,731 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:03:18,731 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:03:18,731 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:03:18,731 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot invoke method build() on null object
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,417 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,434 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,437 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,438 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,442 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:06:04,444 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: grails.test.GrailsMock.build() is applicable for argument types: (java.lang.String, java.lang.String) values: [docker/docker/bouncy/Dockerfile, atspad/bouncy]
+Possible solutions: find(), wait(), dump(), putAt(java.lang.String, java.lang.Object), find(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:23)
+2014-04-11 11:07:21,324 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerService.build_closure1(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:07:21,325 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:07:21,326 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:07:21,327 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:07:21,327 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:07:21,327 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/docker/bouncy/Dockerfile
+       docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,467 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerService.build_closure1(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,467 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,468 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,468 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,468 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:08:07,468 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,767 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerService.build_closure1(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,767 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,768 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,768 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,768 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:09:19,768 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         /docker/docker/bouncy/Dockerfile
+       /docker/docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,941 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerService.build_closure1(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,979 [main] ERROR StackTrace  - Full Stack Trace:
+Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,979 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,979 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,980 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:11:21,980 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Assertion failed: 
+
+assert (new File(dockerfile)).exists()
+       |         |            |
+       |         |            false
+       |         docker/bouncy/Dockerfile
+       docker/bouncy/Dockerfile
+
+	at ats.pad.DockerService.$tt__build(DockerService.groovy:12)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:22)
+2014-04-11 11:16:59,278 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:16:59,279 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:16:59,281 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:16:59,282 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:16:59,288 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:16:59,289 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.io.File.absolutePath() is applicable for argument types: () values: []
+Possible solutions: getAbsolutePath()
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:17:41,695 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:17:41,696 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:17:41,696 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:17:41,696 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:17:41,696 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:17:41,697 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: ture for class: ats.pad.DockerServiceSpec
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:27)
+2014-04-11 11:20:07,982 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:20:07,983 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:20:07,983 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:20:07,984 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:20:07,985 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:20:07,986 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.UNIXProcess.text() is applicable for argument types: () values: []
+Possible solutions: getAt(java.lang.String), wait(), getText(), wait(long), wait(long, int), getIn()
+	at ats.pad.DockerService$$EOb8b2B6.$tt__build(DockerService.groovy:15)
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:24)
+2014-04-11 11:35:50,609 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerService.ps_closure2(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:35:50,629 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:35:50,631 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:35:50,632 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:35:50,682 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:35:50,682 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: cid for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EOb8ezEe.$tt__ps(DockerService.groovy:26)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:34)
+2014-04-11 11:36:30,510 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:36:30,514 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:36:30,521 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:36:30,526 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:36:30,540 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:36:30,544 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[e21a9cfedb79, 421b8e129812]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,733 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,734 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,736 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,737 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,741 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:04,741 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.debug() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: getAt(java.lang.String), dump(), config(java.lang.String), fine(java.lang.String), finer(java.lang.String), info(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,549 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,550 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,551 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,553 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,555 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:37:28,555 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.error() is applicable for argument types: (java.lang.String) values: [e21a9cfedb79 421b8e129812]
+Possible solutions: finer(java.lang.String), info(java.lang.String), iterator(), grep(), every(), fine(java.lang.String)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:47,853 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:47,884 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:47,937 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:47,962 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:48,067 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-11 11:40:48,091 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.lang.String.join() is applicable for argument types: (java.lang.String) values: [ ]
+Possible solutions: count(java.lang.String), find(java.lang.String), wait(), trim(), find(), wait(long)
+	at ats.pad.DockerServiceSpec.test docker ps(DockerServiceSpec.groovy:35)
+2014-04-13 15:17:41,966 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:41,970 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:41,975 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:41,975 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:41,977 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:41,977 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+output.contains("Successfully built")
+|      |
+|      false
+Step 0 : FROM stackbrew/ubuntu:13.10
+ ---> 24ba2ee5d982
+Step 1 : RUN apt-get update
+ ---> Using cache
+ ---> 1ad40485cd83
+Step 2 : RUN apt-get upgrade -y
+ ---> Using cache
+ ---> 8389bd9e806c
+Step 3 : RUN apt-get install -y wget
+ ---> Using cache
+ ---> 6e5dc405da15
+Step 4 : RUN apt-get install -y bash
+ ---> Using cache
+ ---> 9400b2479cd4
+Step 5 : RUN apt-get install -y make
+ ---> Using cache
+ ---> d1968085372f
+Step 6 : RUN apt-get install -y build-essential
+ ---> Using cache
+ ---> 88b52262c651
+Step 7 : WORKDIR /root
+ ---> Using cache
+ ---> f0d9a1501bdb
+Step 8 : RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+ ---> Using cache
+ ---> aec51b882c80
+Step 9 : RUN tar -xvf nodejs.tgz
+ ---> Using cache
+ ---> 612977b2b9a1
+Step 10 : RUN rm nodejs.tgz
+ ---> Using cache
+ ---> 39b7e888d7b8
+Step 11 : RUN mv node* nodejs
+ ---> Using cache
+ ---> 3b414fd6047d
+Step 12 : ENV PATH $PATH:/root/nodejs/bin
+ ---> Using cache
+ ---> a209a76d936e
+Step 13 : WORKDIR /root
+ ---> Using cache
+ ---> e66b7a133ab7
+Step 14 : RUN wget http://download.redis.io/redis-stable.tar.gz
+ ---> Using cache
+ ---> 32af3532be4a
+Step 15 : RUN tar -xvf redis-stable.tar.gz
+ ---> Using cache
+ ---> 3e498ce8a9aa
+Step 16 : RUN rm redis-stable.tar.gz
+ ---> Using cache
+ ---> ccac2cea89d1
+Step 17 : RUN mv redis-stable redis
+ ---> Using cache
+ ---> 22e970cfb530
+Step 18 : WORKDIR /root/redis
+ ---> Using cache
+ ---> e4424d9979e9
+Step 19 : RUN make
+ ---> Using cache
+ ---> 611be6c85b10
+Step 20 : RUN make install
+ ---> Using cache
+ ---> 1085cfc7a3f8
+Step 21 : WORKDIR /root
+ ---> Using cache
+ ---> b4e397eb3f5a
+Step 22 : RUN npm install -g bouncy
+ ---> Using cache
+ ---> 669651fc62ec
+Step 23 : ADD run.sh /root/run.sh
+ ---> Using cache
+ ---> dd4cd3d8a86b
+Step 24 : RUN chmod +x run.sh
+ ---> Using cache
+ ---> 1a9437384b25
+Step 25 : RUN npm install redis
+ ---> Using cache
+ ---> 3ba8b1797dfd
+Step 26 : RUN npm install bouncy
+ ---> Using cache
+ ---> bda935663efe
+Step 27 : EXPOSE 80
+ ---> Using cache
+ ---> 0afc3aee5052
+Step 28 : ADD xxx
+
+	at ats.pad.DockerServiceSpec.test docker build(DockerServiceSpec.groovy:28)
+2014-04-13 15:17:42,011 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:17:42,013 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:17:42,014 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:17:42,015 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:17:42,017 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:17:42,018 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.run() is applicable for argument types: (java.lang.String, java.lang.String, null, null, null, null) values: [atspad/bouncy, ./run.sh, null, null, null, ...]
+Possible solutions: ps(), dump(), any(), find(), grep(), wait()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,481 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerService.run_closure3(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,482 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,483 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,483 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,483 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:13,484 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: link_h for class: ats.pad.DockerService
+	at ats.pad.DockerService$$EObLFswq.$tt__run(DockerService.groovy:36)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:42)
+2014-04-13 15:18:35,369 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:18:35,370 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:18:35,371 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:18:35,372 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:18:35,374 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:18:35,374 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerService.inspect() is applicable for argument types: (java.lang.String) values: [e56d85cf20eec0f3655dfbe65edb859351c71362708aacdfa227e4013bc5ffc6
+]
+Possible solutions: inspect(), inspect(java.lang.Object, java.lang.Object), inject(groovy.lang.Closure), inject(java.lang.Object, groovy.lang.Closure), collect(), collect(groovy.lang.Closure)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:23:22,616 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:23:22,617 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:23:22,618 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:23:22,619 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:23:22,620 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:23:22,620 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.logging.Logger.info() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/40cbf702616b4d2d0f6f3fac49d65aedfb97103864d84cc4d6f13f899d3fe07f/hostname, ...]]]
+Possible solutions: info(java.lang.String), any(), find(), fine(java.lang.String), finer(java.lang.String), is(java.lang.Object)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,884 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,884 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,885 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,886 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,887 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:24:34,888 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: ats.pad.DockerServiceSpec.typeof() is applicable for argument types: (java.util.ArrayList) values: [[[HostnamePath:/var/lib/docker/containers/41759f10cb28e91911672ea625bc8ea74ba6a757114f9c9f788f5d4ae7d50973/hostname, ...]]]
+Possible solutions: Spy(), grep()
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:29:50,720 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:29:50,720 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:29:50,721 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:29:50,721 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:29:50,721 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:29:50,721 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLIwau.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,745 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,746 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,746 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,747 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,747 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:26,747 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ5xY.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,183 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,184 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,184 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,184 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,184 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:30:40,184 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJ9bM.$tt__inspect(DockerService.groovy:77)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,625 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,626 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,626 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,626 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,626 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:03,626 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJFaK.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,361 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,363 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,363 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,364 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,365 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:31:47,365 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJR20.$tt__inspect(DockerService.groovy:78)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:45)
+2014-04-13 15:33:27,118 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerService.inspect_closure8(DockerService.groovy)
+	at org.springsource.loaded.ri.OriginalClassInvoker.invoke(OriginalClassInvoker.java:47)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:33:27,119 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:33:27,119 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:33:27,120 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:33:27,120 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:33:27,120 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLJqmm.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,789 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,790 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,791 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,791 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,791 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:34:21,791 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLK5M0.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,635 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,640 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,640 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,641 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,641 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:38:54,641 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLE76.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:46)
+2014-04-13 15:41:21,705 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:21,705 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:21,705 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:21,705 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:21,706 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:21,706 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLq5w.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,950 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,950 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,950 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,950 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,951 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:41:57,951 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLLzii.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,355 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,356 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,356 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,356 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,357 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:42:46,357 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMCT2.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,321 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,321 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,322 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,322 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,323 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:43:23,323 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMLpg.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:44:48,380 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:44:48,381 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:44:48,381 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:44:48,382 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:44:48,382 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:44:48,382 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null aa9afba6021bedd505ed71f01e4f4fc026351d3b7f0cac72f5bb8e8d2410607d
+ats.pad.DockerService@4adf0003
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 15:45:49,766 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:45:49,767 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:45:49,767 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:45:49,767 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:45:49,768 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 15:45:49,769 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService$$EObLMy4e.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,900 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at groovy.json.JsonSlurper.parseText(JsonSlurper.java:56)
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerService.inspect_closure8(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,905 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,907 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,907 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,912 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:02:19,913 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.
+	at ats.pad.DockerService.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,895 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrConstructorNewInstance(ReflectiveInterceptor.java:986)
+	at groovy.json.JsonBuilder.invokeMethod(JsonBuilder.groovy:225)
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1283)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,895 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,899 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,899 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,899 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:23,900 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.json.JsonException: Expected no arguments, a single map, a single closure, or a map and closure as arguments.
+	at ats.pad.DockerService$$EObLaRvE.$tt__inspect(DockerService.groovy:82)
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:47)
+2014-04-13 16:39:59,836 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:39:59,838 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:39:59,839 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:39:59,839 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:39:59,840 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:39:59,840 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null f49995e485b7437e413024c7cbd22b0b686cd3092a7df17d421496fcc8b2a760
+ats.pad.DockerService@10fbfc9
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,240 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,241 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,241 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,241 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,242 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 16:40:38,242 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+service.stop(cid)
+|       |    |
+|       null ae1c87aa70a8a2f46dd6f904de9cb4e22742e138deeb11c918e497aae7003be1
+ats.pad.DockerService@4f9fc2bb
+
+	at ats.pad.DockerServiceSpec.test docker inspect(DockerServiceSpec.groovy:51)
+2014-04-13 17:00:32,124 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerService.stopall_closure5(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,179 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,278 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,333 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,540 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,589 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@756b5ac7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.setup(DockerServiceSpec.groovy:14)
+2014-04-13 17:00:32,750 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerService.stopall_closure5(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:32,798 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:32,895 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:32,943 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,139 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,188 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@69dee411]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,343 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.springframework.transaction.support.TransactionSynchronizationManager.bindResource(TransactionSynchronizationManager.java:189)
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.junit.runners.Suite.runChild(Suite.java:127)
+	at org.junit.runners.Suite.runChild(Suite.java:26)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
+	at org.codehaus.groovy.grails.test.spock.GrailsSpecTestType.doRun(GrailsSpecTestType.groovy:149)
+	at org.codehaus.groovy.grails.test.support.GrailsTestTypeSupport.run(GrailsTestTypeSupport.groovy:121)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runTests(GrailsProjectTestRunner.groovy:417)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.processTests(GrailsProjectTestRunner.groovy:397)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests_closure7(GrailsProjectTestRunner.groovy:315)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:301)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:216)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.runInstance(ForkedGrailsTestRunner.groovy:128)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run_closure1(ForkedGrailsProjectClassExecutor.groovy:59)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon_closure3(ForkedGrailsProcess.groovy:130)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon(ForkedGrailsProcess.groovy:107)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run(ForkedGrailsProjectClassExecutor.groovy:57)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.main(ForkedGrailsTestRunner.groovy:75)
+2014-04-13 17:00:33,344 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:33,346 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:33,346 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:33,347 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:33,348 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@55e1e7e3] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:33,378 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerService.stopall_closure5(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,430 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,529 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,588 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,794 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:33,846 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@c824fca]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,008 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.springframework.transaction.support.TransactionSynchronizationManager.bindResource(TransactionSynchronizationManager.java:189)
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.junit.runners.Suite.runChild(Suite.java:127)
+	at org.junit.runners.Suite.runChild(Suite.java:26)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
+	at org.codehaus.groovy.grails.test.spock.GrailsSpecTestType.doRun(GrailsSpecTestType.groovy:149)
+	at org.codehaus.groovy.grails.test.support.GrailsTestTypeSupport.run(GrailsTestTypeSupport.groovy:121)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runTests(GrailsProjectTestRunner.groovy:417)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.processTests(GrailsProjectTestRunner.groovy:397)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests_closure7(GrailsProjectTestRunner.groovy:315)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:301)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:216)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.runInstance(ForkedGrailsTestRunner.groovy:128)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run_closure1(ForkedGrailsProjectClassExecutor.groovy:59)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon_closure3(ForkedGrailsProcess.groovy:130)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon(ForkedGrailsProcess.groovy:107)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run(ForkedGrailsProjectClassExecutor.groovy:57)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.main(ForkedGrailsTestRunner.groovy:75)
+2014-04-13 17:00:34,009 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,010 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,011 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,012 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,012 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@5cad4cc0] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,032 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerService.stopall_closure5(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,083 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,175 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,196 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,243 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,247 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@cee5fe7]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,266 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.springframework.transaction.support.TransactionSynchronizationManager.bindResource(TransactionSynchronizationManager.java:189)
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.junit.runners.Suite.runChild(Suite.java:127)
+	at org.junit.runners.Suite.runChild(Suite.java:26)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138)
+	at org.codehaus.groovy.grails.test.spock.GrailsSpecTestType.doRun(GrailsSpecTestType.groovy:149)
+	at org.codehaus.groovy.grails.test.support.GrailsTestTypeSupport.run(GrailsTestTypeSupport.groovy:121)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runTests(GrailsProjectTestRunner.groovy:417)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.processTests(GrailsProjectTestRunner.groovy:397)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests_closure7(GrailsProjectTestRunner.groovy:315)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:301)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:216)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.runInstance(ForkedGrailsTestRunner.groovy:128)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run_closure1(ForkedGrailsProjectClassExecutor.groovy:59)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon_closure3(ForkedGrailsProcess.groovy:130)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startDaemon(ForkedGrailsProcess.groovy:107)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run(ForkedGrailsProjectClassExecutor.groovy:57)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.main(ForkedGrailsTestRunner.groovy:75)
+2014-04-13 17:00:34,267 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,268 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,268 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,269 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,270 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Already value [org.grails.datastore.mapping.transactions.SessionHolder@35b57d0b] for key [org.grails.datastore.mapping.simple.SimpleMapDatastore@1bc5130a] bound to thread [main]
+	at org.grails.datastore.mapping.core.DatastoreUtils.bindSession(DatastoreUtils.java:337)
+	at grails.test.mixin.domain.DomainClassUnitTestMixin.connectDatastore(DomainClassUnitTestMixin.groovy:118)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.runtime.extension.builtin.JUnitFixtureMethodsExtension$FixtureType$FixtureMethodInterceptor.intercept(JUnitFixtureMethodsExtension.java:145)
+	at org.spockframework.runtime.extension.MethodInvocation.proceed(MethodInvocation.java:84)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+	at org.spockframework.util.ReflectionUtil.invokeMethod(ReflectionUtil.java:138)
+2014-04-13 17:00:34,293 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerService.stopall_closure5(DockerService.groovy)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1254)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at groovy.lang.Closure.call(Closure.java:427)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate$1.doInTransaction(GrailsTransactionTemplate.groovy:62)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:131)
+	at org.codehaus.groovy.grails.orm.support.GrailsTransactionTemplate.execute(GrailsTransactionTemplate.groovy:59)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,295 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,298 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,300 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,304 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:00:34,305 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: java.util.ArrayList.forEach() is applicable for argument types: (ats.pad.DockerService$_$tt__stopall_closure10) values: [ats.pad.DockerService$_$tt__stopall_closure10@5cc47ed0]
+Possible solutions: each(groovy.lang.Closure)
+	at ats.pad.DockerService.$tt__stopall(DockerService.groovy:60)
+	at ats.pad.DockerServiceSpec.cleanup(DockerServiceSpec.groovy:18)
+2014-04-13 17:08:00,653 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:08:00,655 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:08:00,656 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:08:00,657 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:08:00,657 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:08:00,657 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,738 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,739 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,741 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,741 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,741 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:06,741 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,863 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,864 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,865 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,865 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,866 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:09:38,866 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,210 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,212 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,213 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,214 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,216 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)
+2014-04-13 17:12:03,217 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+test == cids
+|    |  |
+|    |  [2e2d7e4d0810, a979213bc068, 7e2598a0ab2f, 6d3c9f6a59d6, 6745db272cae, 923bd17fa050, 5289bda744f3, fe5d38f717a9, b453c2ef062b, 2fb0494bbb0d, 397b001dad00, ae1c87aa70a8, f49995e485b7, ed3d2f9f426d, de6be75186d6, bd21c2bda581, aa9afba6021b, 7651b7644372, f1bdff900a4b, 0cd0f5ccd785, 8bdf92f7ee0a, b60f499e065a, 0ee6361f24b3, 980b348f38c0, 1f36727bf053, 1949a9936888, f347934dd86d, f3c4b503eb96, a4375b0a54bc, 6d853f521f25, 41759f10cb28, a943be54da5c, fe99838413d4, 40cbf702616b, 88281dd4c1d6, 06b3a5e01ff2, 963592eddcb2, 5ce76d4df19e, e56d85cf20ee, 1c5dcc5b4c89, 9ea924353f3a, 463f0ab5dec2, d039f47d0eb2, 126cb708a6a1, e21a9cfedb79, 421b8e129812, 5a207cddc51e]
+|    false
+[2e2d7e4d0810
+, a979213bc068
+, 7e2598a0ab2f
+, 6d3c9f6a59d6
+, 6745db272cae
+, 923bd17fa050
+, 5289bda744f3
+, fe5d38f717a9
+, b453c2ef062b
+, 2fb0494bbb0d
+, 397b001dad00
+, ae1c87aa70a8
+, f49995e485b7
+, ed3d2f9f426d
+, de6be75186d6
+, bd21c2bda581
+, aa9afba6021b
+, 7651b7644372
+, f1bdff900a4b
+, 0cd0f5ccd785
+, 8bdf92f7ee0a
+, b60f499e065a
+, 0ee6361f24b3
+, 980b348f38c0
+, 1f36727bf053
+, 1949a9936888
+, f347934dd86d
+, f3c4b503eb96
+, a4375b0a54bc
+, 6d853f521f25
+, 41759f10cb28
+, a943be54da5c
+, fe99838413d4
+, 40cbf702616b
+, 88281dd4c1d6
+, 06b3a5e01ff2
+, 963592eddcb2
+, 5ce76d4df19e
+, e56d85cf20ee
+, 1c5dcc5b4c89
+, 9ea924353f3a
+, 463f0ab5dec2
+, d039f47d0eb2
+, 126cb708a6a1
+, e21a9cfedb79
+, 421b8e129812
+, 5a207cddc51e
+]
+
+	at ats.pad.DockerServiceSpec.test stop all(DockerServiceSpec.groovy:62)

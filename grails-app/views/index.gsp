@@ -8,18 +8,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
+<!--    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+<!--    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />-->
+    
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script src="js/markdown.min.js"></script>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
 
-	<script src="http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js"></script>
+	<script src="http://cdn.jsdelivr.net/ace/1.1.3/min/ace.js"></script>
 
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/simplex/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/superhero/bootstrap.min.css">
+    
 	
 	<link rel="stylesheet/less" type="text/css" href="css/main.less">
 </head>
@@ -27,87 +31,119 @@
 <body class="container-fluid" ng-controller="MainController" ng-init="init()">
 
 	
-	<div class="row ">
+	<div class="row">
 		<div class="col-md-8 col-md-offset-1 ats-pad-logo">
 			<h1><b>atspad</b></h1>
 			<i>your online ats playground</i>
 		</div>
 	</div>
+     
+    
 	<div class="row">
+        
+        <!------------------------------------------------------------>
+        <!--EDITOR---------------------------------------------------->
+        <!------------------------------------------------------------>
 		<div class="col-md-8 col-md-offset-1">
-			
-			<div class="ats-pad-filetabs">
-				<ul class="nav navbar-nav nav-pills">
-					<li ng-repeat="name in pg.filenames" ng-class="{active: active_file() == $index}">
-						<a href="" ng-click="switch_file($index)">{{name}}</a>
-					</li>
-				</ul>
-				<button class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-new-file">New File</button>
+            <div class="row" ng-controller="MarkdownController">
+                <div class="col-md-12">
+                    <div class="panel panel-info" id="ats-pad-readme">
+                        <div class="panel-heading" ng-click="toggle_readme()">
+                            <h3 class="panel-title">README</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="ats-pad-markdown"></div>
+                        </div>
+                    </div>
 
-				<!-- Modal -->
-				<div class="modal fade" id="modal-new-file" tabindex="-1" role="dialog" aria-labelledby="label-new-file" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="fa fa-times"></span></button>
-								<h4 class="modal-title" id="label-new-file">New File</h4>
-							</div>
-							<div class="modal-body">
+                    
+                </div>   
+            </div>
+            
+            <div class="row">
+            	<div class="col-md-3 helper-no-right-padding" ng-controller="FilelistController" >
+                    
+                    <div class="ats-pad-filetoolbar">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="btn-group btn-group-sm" >
+                                <button class="btn btn-default" disabled="disabled">
+                                    <span class="fa fa-folder-open-o"></span>
+                                </button>
+                            </div>
 
-								<form name="form_new_file" 
-										 
-										class="form"
-										ng-class="{'has-error': form_new_file.$invalid && form_new_file.$dirty}">
+
+                            <div class="pull-right btn-group btn-group-sm">
+                                <button type="button" class="btn btn-default"><span class="fa fa-cloud-upload"></span></button>
+                                <button type="button" class="btn btn-default"><span class="fa fa-cloud-download"></span></button>
+                                <button type="button" class="btn btn-default" ng-click="create_file();"><span class="fa fa-plus"></span></button>
+                            </div>
+                            
+                            <div class="pull-right btn-group btn-group-sm">
+                                <button class="btn btn-default"><span class="fa fa-refresh"></span></button>               
+<!--
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-gear"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                  </ul>
+-->
+                            </div>
+
+                        </div>
+                    </div>
+            		
+                    
+                    <div class="ats-pad-filelist"  >
+                        <div ats-filelist></div>                        
+                    </div>
+            		
+            	</div>
+                
+                
+                 <!-- Editor -->
+            	<div class="col-md-9 helper-no-left-padding">
+            		<div id="ats-pad-editor"></div>
+
+                    <div id="ats-pad-statusbar" ng-controller="StatusBarController">
+                        Line {{env.bar.row}}, Column {{env.bar.col}} 
+                        <span ng-show="env.bar.has_sel">
+                            ({{env.bar.sel.srow}}:{{env.bar.sel.scol}} - {{env.bar.sel.erow}}:{{env.bar.sel.ecol}})
+                        </span>	
+                        
+                    </div>
+            		
+            	</div>
+            	
+            
+            </div>
+           
+
+			<!-- <div> -->
+                
 				
-									<input type="text" 
-										class="form-control" 
-										ng-pattern="/^.+\.(dats|cats|sats|hats)$/" 
-										ng-model="input.filename" 
-										required="required" 
-										id="input-filename" 
-										name="input_filename"
-										placeholder="Please input a file name ...">
-									<label class="control-label" ng-show="form_new_file.$invalid && form_new_file.$dirty">
-								     Please input a filename ending with "sats", "dats", "cats", "hats"</label>	
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-								<button type="button" class="btn btn-primary" ng-click="newfile()" ng-disabled="!form_new_file.$valid">OK</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<!--
+				
+-->
 
-			<div class="clearfix"></div>
+			<!-- </div> -->
 
-			<div>
-
-				<div id="ats-pad-editor">function foo(items) {
-					var x = "All this is syntax highlighted";
-					return x;
-				}
-				</div>
-
-				<div id="ats-pad-statusbar" class="bg-grey">
-					Line {{bar.row}}, Column {{bar.col}} 
-					<span ng-show="bar.has_sel">
-						({{bar.sel.srow}}:{{bar.sel.scol}} - {{bar.sel.erow}}:{{bar.sel.ecol}})
-					</span>	
-				</div>
-
-			</div>
-
-			
-			<div class="ats-pad-terminal">
-				<h4>terminal</h4>
-				<div id="terminal"></div>
-			</div>	
-
+			<div class="row">
+                <div class="col-md-12">
+                    <div class="ats-pad-terminal">
+                        <h4>Terminal</h4>
+                        <div id="terminal"></div>
+                    </div>	
+                </div>
+            </div>
 			
 		</div>
 
+        <!------------------------------------------------------------>
+        <!--SIDEBARS-------------------------------------------------->
+        <!------------------------------------------------------------>
 		<div class="col-md-2">
 			<div class="ats-pad-menu">
 				<button class="btn btn-block btn-default">New Pad</button>
@@ -129,6 +165,8 @@
 
 			</div>
 		</div>
+        <!------------------------------------------------------------>
+        
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -145,6 +183,8 @@
 <script src="js/controllers.js"></script>
 <script src="js/term.js"></script>
 <script src="js/client.js"></script>
+<script src="js/directives.js"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
 

@@ -45,6 +45,33 @@ grails.views.default.codec = "html"
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
 
+
+atspad {
+    proxy {
+        ip = System.getenv("ATSPAD_PROXY_IP") ?: "localhost"
+        port = System.getenv("ATSPAD_PROXY_PORT") ?: 80
+    }
+    redis {
+        ip = System.getenv("ATSPAD_REDIS_IP") ?: "localhost"
+        port = System.getenv("ATSPAD_REDIS_PORT") ?: 6379
+        timeout = 2000
+    }
+    worker {
+        repo = "worker"
+        tag = "atspad/worker"
+        port = 8023
+        cwd = "/root/atspad"
+        base = "/var/tmp/atspad"
+        ttl = 600 //seconds
+    }
+    docker {
+        repo = "docker"
+    }
+    pad {
+        idsize = 16
+    }
+}
+
 // GSP settings
 grails {
     views {
@@ -60,6 +87,25 @@ grails {
         }
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
+    }
+
+    redis {
+        // poolConfig {
+        //     // jedis pool specific tweaks here, see jedis docs & src
+        //     // ex: testWhileIdle = true
+        // }
+        timeout = "${atspad.redis.timeout}" //default in milliseconds
+        //password = "somepassword" //defaults to no password
+
+        // requires either host & port combo, or a sentinels and masterName combo
+
+        // use a single redis server (use only if nore using sentinel cluster)
+        port = "${atspad.redis.port}"
+        host = "${atspad.redis.ip}"
+
+        // use redis-sentinel cluster as opposed to a single redis server (use only if not use host/port)
+        //sentinels = [ "host1:6379", "host2:6379", "host3:6379" ] // list of sentinel instance host/ports
+        //masterName = "mymaster" // the name of a master the sentinel cluster is configured to monitor
     }
 }
 
@@ -103,9 +149,19 @@ environments {
 log4j = {
     // Example of changing the log pattern for the default console appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    appenders {
+       console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
+       rollingFile name:'file', 
+                   file:'/var/logs/atspad.log', 
+                   maxFileSize: 10240,
+                   layout: html
+    }
+
+    root {
+        trace 'file', 'stdout'
+    }
+
+    all   'grails.app'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP

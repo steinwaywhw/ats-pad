@@ -1,5 +1,5 @@
 package ats.pad
-import java.util.UUID
+import org.apache.commons.lang3.RandomStringUtils
 
 class Playground {
 
@@ -16,6 +16,6 @@ class Playground {
 
     def beforeInsert = {
         if (!id) 
-        	id = UUID.randomUUID().toString()
+        	id = RandomStringUtils.randomAlphanumeric(16)
     }
 }
