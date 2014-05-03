@@ -2,7 +2,7 @@ package ats.pad
 import org.apache.commons.lang3.time.DateUtils
 import javax.annotation.PostConstruct
 
-@Transactional
+
 class WorkerService {
 	def dockerService
 	def redisService
@@ -56,7 +56,7 @@ class WorkerService {
     	// already up and running
     	if (redisService.exists(worker.id)) {
     		log.trace "Already up and running"
-    		def worker = getWorker(worker.id)
+    		worker = getWorker(worker.id)
     		keepAlive(worker)
     		return worker
     	}

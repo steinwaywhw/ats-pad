@@ -2,7 +2,7 @@ class BootStrap {
     def appControlService
     
     def init = { servletContext ->
-        appControlServce.startRedis()
+        appControlService.startRedis()
         appControlService.startProxy()
         
     }

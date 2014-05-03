@@ -22,14 +22,16 @@ class AppControlService {
     def startProxy() {
         assert redisCid
         log.info "Starting proxy server"
+
+        dockerService.build(dockerService.getDockerRepo("bouncy").getCanonicalPath(), "atspad/bouncy")
         
-        proxyCid = dockerService.run({
+        proxyCid = dockerService.run([
             img: "atspad/bouncy",
             cmd: "node index.js",
             env: [ATSPAD_REDIS_IP:grailsApplication.config.atspad.redis.guestIp, ATSPAD_REDIS_PORT:redisGuestPort],
             expose: [proxyGuestPort],
-            port: [proxyGuestPort:proxyHostPort]
-        })
+            port: ["${proxyGuestPort}":proxyHostPort]
+        ])
         
         assert dockerService.inspect(proxyCid, "running")
         
@@ -39,10 +41,12 @@ class AppControlService {
     def startRedis() {
         log.info "Starting redis server"
         
-        redisCid = dockerService.run({
+        dockerService.build(dockerService.getDockerRepo("redis").getCanonicalPath(), "atspad/redis")
+
+        redisCid = dockerService.run([
             img: "atspad/redis",
             cmd: "redis-server"
-        })
+        ])
         
         assert dockerService.inspect(redisCid, "running")
         

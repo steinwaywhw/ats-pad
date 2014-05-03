@@ -90,24 +90,24 @@ grails {
         // filteringCodecForContentType.'text/html' = 'html'
     }
 
-    redis {
-        // poolConfig {
-        //     // jedis pool specific tweaks here, see jedis docs & src
-        //     // ex: testWhileIdle = true
-        // }
-        timeout = "${atspad.redis.timeout}" //default in milliseconds
-        //password = "somepassword" //defaults to no password
+    // redis {
+    //     // poolConfig {
+    //     //     // jedis pool specific tweaks here, see jedis docs & src
+    //     //     // ex: testWhileIdle = true
+    //     // }
+    //     timeout = "${atspad.redis.timeout}" //default in milliseconds
+    //     //password = "somepassword" //defaults to no password
 
-        // requires either host & port combo, or a sentinels and masterName combo
+    //     // requires either host & port combo, or a sentinels and masterName combo
 
-        // use a single redis server (use only if nore using sentinel cluster)
-        port = "${atspad.redis.port}"
-        host = "${atspad.redis.ip}"
+    //     // use a single redis server (use only if nore using sentinel cluster)
+    //     port = "${atspad.redis.port}"
+    //     host = "${atspad.redis.ip}"
 
-        // use redis-sentinel cluster as opposed to a single redis server (use only if not use host/port)
-        //sentinels = [ "host1:6379", "host2:6379", "host3:6379" ] // list of sentinel instance host/ports
-        //masterName = "mymaster" // the name of a master the sentinel cluster is configured to monitor
-    }
+    //     // use redis-sentinel cluster as opposed to a single redis server (use only if not use host/port)
+    //     //sentinels = [ "host1:6379", "host2:6379", "host3:6379" ] // list of sentinel instance host/ports
+    //     //masterName = "mymaster" // the name of a master the sentinel cluster is configured to monitor
+    // }
 }
 
 
@@ -153,16 +153,19 @@ log4j = {
     appenders {
        console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
        rollingFile name:'file', 
-                   file:'/var/logs/atspad.log', 
-                   maxFileSize: 10240,
-                   layout: html
+                   file:'/tmp/atspad.log.html', 
+                   maxFileSize: '1MB',
+                   layout: html,
+                   append: false
     }
 
     root {
-        trace 'file', 'stdout'
+        info 'file'
+        additivity: false
     }
 
-    all   'grails.app'
+    // all  file: 'grails.app'
+    //      additivity: false 
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP

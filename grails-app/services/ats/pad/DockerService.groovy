@@ -81,7 +81,7 @@ class DockerService {
     def run(args) {
 
     	assert args?.img
-    	log.info "Running image args.img"
+    	log.info "Running image ${args.img}"
 
     	def c = "docker run -d"
 
@@ -117,7 +117,7 @@ class DockerService {
     	
     	this.dockers << cid
     	if (args?.name)
-    		this.names << [args.name : cid]
+    		this.names << [(args.name) : cid]
 
     	return cid
     }

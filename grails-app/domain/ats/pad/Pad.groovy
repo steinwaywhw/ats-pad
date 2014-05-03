@@ -5,7 +5,7 @@ class Pad {
 	/**
 	 * atspad id
 	 */
-	def id
+	String id
 
 	/**
 	 * File name to file content mappings

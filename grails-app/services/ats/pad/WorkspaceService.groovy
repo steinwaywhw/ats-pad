@@ -1,8 +1,6 @@
 package ats.pad
 import javax.annotation.PostConstruct
-import grails.transaction.Transactional
 
-@Transactional
 class WorkspaceService {
 
 	def grailsApplication
