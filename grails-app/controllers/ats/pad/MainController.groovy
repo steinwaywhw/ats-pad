@@ -5,11 +5,6 @@ import groovy.json.*
 
 class MainController {
 
-	def codeService
-
-    def uuid() {
-    	render UUID.randomUUID().toString()
-    }
 
     def run() {
 		def pg = new Playground(request.JSON)    	

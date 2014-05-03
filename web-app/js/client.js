@@ -6,6 +6,7 @@ client.default = function (options) {
     'use strict';
     
     options = options || {};
+    options.path = options.path || "console"
     options.remote = options.remote || "http://localhost:8080";
     options.reconnection_delay = options.reconnection_delay || 500;
     options.max_reconnection_attempts = options.max_reconnection_attempts || 20;
@@ -29,12 +30,13 @@ client.run = function (options) {
 		cols: options.col,
 		rows: options.row,
 		useStyle: true,
-		screenKeys: true
+		screenKeys: true,
 	});
 
 	term.open(options.parent);
 
-	var socket = io.connect(options.remote, {
+    var socket = io.connect(options.remote, {
+		'resource': options.path,
         'connect timeout': options.connect_timeout,
         'reconnection delay': options.reconnection_delay,
         'max reconnection attempts': options.max_reconnection_attempts 
@@ -60,7 +62,7 @@ client.run = function (options) {
     
     // Fail
     socket.on('disconnect', function() {
-        term.write("\r\nDisconnected.\r\n")
+        term.write("\r\nDisconnected.\r\n");
     });
     
     socket.on('error', function () {
@@ -95,7 +97,4 @@ client.run = function (options) {
             firsttime = false;
         }
 	});
-    
-    
-	
 };

@@ -48,12 +48,13 @@ grails.controllers.defaultScope = 'singleton'
 
 atspad {
     proxy {
-        ip = System.getenv("ATSPAD_PROXY_IP") ?: "localhost"
-        port = System.getenv("ATSPAD_PROXY_PORT") ?: 80
+        guestIp = null
+        guestPort = 80
+        hostPort = 80
     }
     redis {
-        ip = System.getenv("ATSPAD_REDIS_IP") ?: "localhost"
-        port = System.getenv("ATSPAD_REDIS_PORT") ?: 6379
+        guestIp = null
+        guestPort = 6379
         timeout = 2000
     }
     worker {

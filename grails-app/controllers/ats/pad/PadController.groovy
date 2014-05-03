@@ -1,6 +1,7 @@
 package ats.pad
 import grails.converters.*
 import groovy.json.*
+import javax.annotation.PostConstruct
 
 class PadController {
 
@@ -8,28 +9,48 @@ class PadController {
 	def workerService
 	def workspaceService
 	def redisService
+	
+	def idSize
+	
+	@PostConstruct
+	def init() {
+	    idSize = grailsApplication.config.atspad.pad.idsize
+	}
+	
 
     def create() { 
-
-    	def id = RandomStringUtils.randomAlphanumeric(grailsApplication.config.atspad.pad.idsize)
-    	def pad = new Pad(id: id)
+    	def id = RandomStringUtils.randomAlphanumeric(idSize)
+    	def pad = new Pad()
+    	pad.id = id
 
     	def cwd = workspaceService.allocate(pad.id, pad.files)
     	def worker = workerService.start(cwd.getCanonicalPath(), session.id, pad.id)
 
     	pad.save()
 
+        log.trace "${pad as JSON}"
     	render pad as JSON
     }
-
+    
+    def url() {
+        assert params?.id
+        
+        def wid = DockerWorker.generateId(session.id, params.id)
+        
+        render "/console?wid=${wid}" as JSON
+    }
+    
     def show() {
     	assert params.id
 
     	def pad = Pad.get(params.id)
+    	if (!pad)
+    	    render(status: 503, text: 'Not Found')
 
     	def cwd = workspaceService.reallocate(id, pad.files)
     	def worker = workerService.start(cwd.getCanonicalPath(), session.id, id)
 
+        log.trace "${pad as JSON}"
     	render pad as JSON
     }
 
@@ -37,6 +58,9 @@ class PadController {
     	assert params.id
 
     	def pad = Pad.get(params.id)
+    	if (!pad)
+    	    render(status: 503, text: 'Not Found')
+    	    
     	def worker = workerService.getWorker(session.id, id)
     	assert pad && worker 
 
@@ -52,6 +76,9 @@ class PadController {
     	assert params.id
 
     	def pad = Pad.get(params.id)
+    	if (!pad)
+    	    render(status: 503, text: 'Not Found')
+    	    
     	def worker = workerService.getWorker(session.id, id)
     	assert pad && worker
 
@@ -64,10 +91,12 @@ class PadController {
     	assert params.id 
 
     	def pad = Pad.get(params.id)
+    	if (!pad)
+    	    render(status: 503, text: 'Not Found')
+    	    
     	pad.files = request.JSON
-
     	pad.save()
 
-    	render "OK"
+    	render "OK" as JSON
     }
 }

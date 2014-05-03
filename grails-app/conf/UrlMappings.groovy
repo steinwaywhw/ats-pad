@@ -1,13 +1,16 @@
 class UrlMappings {
 
 	static mappings = {
-		"/api/uuid"(controller:"main", action:"uuid")
-        "/api/docker/$atspadid/$action"(controller:"docker")
+		//"/api/uuid"(controller:"main", action:"uuid")
+        //"/api/docker/$atspadid/$action"(controller:"docker")
+        "/api/docker/$id/url"(controller:"docker", action:"url")
 		//"/api/$id/$action?/$fileid?"(controller:"main")
 
 		"/"(view:"/index")
         "/$id"(view:"/index")
-        "500"(view:'/error')
+        
+        
+        "500"(view:"/error")
 
         //$id/console
 
@@ -16,9 +19,13 @@ class UrlMappings {
         //api/pad/$id?(.$format)?/file?
         //api/pad/(index)
         //api/pad/$id
+        
         "/api/pad/"(controller:"pad", action:"create")
         "/api/pad/$id"(controller:"pad") {
             action = [GET:"show", DELETE:"delete"]
+        }
+        "/api/pad/$id/worker"(controller:"pad") {
+            action = [GET:"url"]
         }
         "/api/pad/$id/js"(controler:"pad", action:"embed")
         "/api/pad/$id/file"(controller:"pad") {

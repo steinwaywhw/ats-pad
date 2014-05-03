@@ -28,7 +28,7 @@
 	<link rel="stylesheet/less" type="text/css" href="css/main.less">
 </head>
 
-<body class="container-fluid" ng-controller="MainController" ng-init="init()">
+<body class="container-fluid" ng-controller="MainController">
 
 	
 	<div class="row">
@@ -61,7 +61,7 @@
             </div>
             
             <div class="row">
-            	<div class="col-md-3 helper-no-right-padding" ng-controller="FilelistController" >
+            	<div class="col-md-3 helper-no-right-padding" ng-controller="FileController" >
                     
                     <div class="ats-pad-filetoolbar">
                         <div class="btn-toolbar" role="toolbar">
@@ -104,7 +104,7 @@
                 
                 
                  <!-- Editor -->
-            	<div class="col-md-9 helper-no-left-padding">
+            	<div class="col-md-9 helper-no-left-padding" ng-controller="EditorController">
             		<div id="ats-pad-editor"></div>
 
                     <div id="ats-pad-statusbar" ng-controller="StatusBarController">
@@ -132,7 +132,7 @@
 
 			<div class="row">
                 <div class="col-md-12">
-                    <div class="ats-pad-terminal">
+                    <div class="ats-pad-terminal" ng-controller="TerminalController">
                         <h4>Terminal</h4>
                         <div id="terminal"></div>
                     </div>	
