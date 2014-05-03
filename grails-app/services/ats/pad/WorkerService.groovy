@@ -1,6 +1,6 @@
 package ats.pad
 import org.apache.commons.lang3.time.DateUtils
-import grails.transaction.Transactional
+import javax.annotation.PostConstruct
 
 @Transactional
 class WorkerService {
@@ -8,13 +8,23 @@ class WorkerService {
 	def redisService
 	def grailsApplication
 
-	def workerRepo = grailsApplication.config.atspad.worker.repo
-	def workerTag = grailsApplication.config.atspad.worker.tag
-	def workerGuestPort = grailsApplication.config.atspad.worker.port
-	def workerCwd = grailsApplication.config.atspad.worker.cwd
-	def workerTtl = grailsApplication.config.atspad.worker.ttl
+	def workerRepo 
+	def workerTag 
+	def workerGuestPort
+	def workerCwd
+	def workerTtl
 
 	def timer = new Timer()
+
+    @PostConstruct
+    def init() {
+        workerRepo = grailsApplication.config.atspad.worker.repo
+    	workerTag = grailsApplication.config.atspad.worker.tag
+    	workerGuestPort = grailsApplication.config.atspad.worker.port
+    	workerCwd = grailsApplication.config.atspad.worker.cwd
+    	workerTtl = grailsApplication.config.atspad.worker.ttl
+    }
+
 
 	// def getPort(portsInfo) {
 	// 	assert portsInfo
@@ -36,18 +46,17 @@ class WorkerService {
 	 */
     def start(cwd, sid, atspadid) {
 
-    	log.trace "==================================="
-    	log.trace "Starting new worker - worker/${sid}/${atspadid}"
-    	log.trace "==================================="
+    	log.trace "Starting new worker - worker:${sid}:${atspadid}"
 
     	// check existance
     	log.trace "Checking worker existance"
-    	def worker = new DockerWorker(sid:sid, atspadid:atspadid, id:DockerWorker.generateId(sid, atspadid))
+    	def worker = new DockerWorker(sid:sid, atspadid:atspadid)
+    	worker.id = DockerWorker.generateId(sid, atspadid)
     	
-    	// check running
+    	// already up and running
     	if (redisService.exists(worker.id)) {
     		log.trace "Already up and running"
-    		worker = new DockerWorker(redis.hgetall(wid))
+    		def worker = getWorker(worker.id)
     		keepAlive(worker)
     		return worker
     	}
@@ -62,14 +71,12 @@ class WorkerService {
     	assert repo.exists()
 
     	// build image
-    	log.trace "Building image"
-    	def output = dockerService.build(repo.getPath(), this.workerTag)
-    	log.trace output
-    	assert output.contains("Successfully built")
+    	log.trace "Building worker"
+    	dockerService.build(repo.getPath(), this.workerTag)
 
     	// run image
     	def cid = dockerService.run(img=workerTag, cmd="bash", dir_h=cwd, dir_g=workerCwd)
-    	log.trace "Running image - ${cid}"
+    	log.trace "Running worker - ${cid}"
     	assert cid 
     	assert dockerService.inspect(cid, "running")
 
@@ -78,13 +85,13 @@ class WorkerService {
     	worker.with {
     		ip = dockerService.inspect(cid, "ipaddress")
     		port = workerGuestPort
-    		lastActive = new Date()
+    		lastActive = System.currentTimeMillis()
     	}
 
     	// save to redis
     	def reply = redisService.hmset(worker.id, worker.properties)
     	log.trace "Saving to redis - ${reply}"
-    	assert reply.contains("OK")
+    	//assert reply.contains("OK")
 
     	log.trace "Retuning new worker - ${worker.properties}"
     	return worker
@@ -97,35 +104,44 @@ class WorkerService {
      */
     def stop(worker) {
 
-    	log.trace "==================================="
     	log.trace "Stopping worker - ${worker?.id}"
-    	log.trace "==================================="
 
     	assert worker?.cid && worker?.id
 
     	// stop
-    	def output = dockerService.stop(worker.cid)
-    	log.trace output
+    	dockerService.stop(worker.cid)
 
     	// remove container
-    	output = dockerService.rm(worker.cid)
-    	log.trace "Removing container - ${output}"
+    	log.trace "Removing worker container"
+    	dockerService.rm(worker.cid)
 
     	// deleting
-    	output = redisService.del(worker.id)
+    	def output = redisService.del(worker.id)
     	log.trace "Removing redis record - ${output}"
     }
 
     def getWorker(sid, atspadid) {
     	assert sid 
     	assert atspadid 
-
+    	
     	def id = DockerWorker.generateId(sid, atspadid)
+        return getWorker(id)
+    }
+    
+    def getWorker(wid) {
+        assert wid
+        
+        log.info "Loading worker ${id}"
 
     	if (!redisService.exists(id))
     		return null
-    	else 
-    		return new DockerWorker(redisService.hgetall(id))
+    	else {
+    	    def record = redisService.hgetall(id)
+    	    def worker = new DockerWorker(record)
+    	    worker.id = record.id
+    	    
+    	    return worker
+    	}
     }
 
     /**
@@ -134,16 +150,14 @@ class WorkerService {
      * @return        updated worker
      */
     def keepAlive(worker) {
-    	log.trace "==================================="
-    	log.trace "Keep alive - ${worker?.id}"
-    	log.trace "==================================="
+    	log.info "Keep alive - ${worker?.id}"
 
     	log.trace "Checking existance"
     	assert worker?.id
     	assert redisService.exists(worker.id)
 
     	log.trace "Updating worker record"
-    	worker.lastActive = new Date()
+    	worker.lastActive = System.currentTimeMillis()
     	assert !redisService.hset(worker.id, "lastActive", worker.lastActive)
 
     	return worker
@@ -156,18 +170,16 @@ class WorkerService {
     def cleanup() {
     	def wids = []
 
-    	log.trace "==================================="
-    	log.trace "Cleaning up workers"
-    	log.trace "==================================="
+    	log.info "Cleaning up workers"
 
     	redisService.withRedis { redis ->
 
     		log.trace "Querying died/expired workers"
-    		redis.keys("worker/*").each { key ->
+    		redis.keys("worker:*").each { key ->
     			// check due time
-    			def date = parseToStringDate(redis.hget(key, "lastActive"))
-    			def due = DateUtils.addSeconds(date, this.workerTtl)
-    			if (new Date().after(due)) {
+    			def date = redis.hget(key, "lastActive") / 1000
+    			def due = date + this.workerTtl
+    			if (System.currentTimeMillis() / 1000 > due) {
     				log.trace "expired - ${key}"
     				wids << key
     				return 
@@ -183,7 +195,7 @@ class WorkerService {
 
     		log.trace "Stopping died/expired workers"
     		wids.each { wid ->
-    			def worker = new DockerWorker(redis.hgetall(wid))
+    		    def worker = getWorker(wid)
     			this.stop(worker)
     		}
     	}

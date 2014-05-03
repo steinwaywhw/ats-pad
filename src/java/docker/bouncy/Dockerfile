@@ -27,16 +27,22 @@ RUN make
 RUN make install
 
 # bouncy
-WORKDIR /root
-RUN npm install -g bouncy
-ADD run.sh /root/run.sh
-RUN chmod +x run.sh
+# WORKDIR /root
+# RUN npm install -g bouncy
+# ADD run.sh /root/run.sh
+# RUN chmod +x run.sh
 
 # proxy
+WORKDIR /root
 RUN npm install redis 
 RUN npm install bouncy
+RUN npm install util
+RUN npm install url
+ADD proxyserver.js /root/proxyserver.js
+ADD index.js /root/index.js
 
-EXPOSE 80
+# EXPOSE 80
+# use docker run --expose="" instead
 
 
 

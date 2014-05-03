@@ -1,8 +1,5 @@
 build:
 	docker build -t atspad/bouncy .
 
-run:
-	docker run -t -i -p 80:80 --rm --link worker:worker atspad/bouncy bash
-
-runserver:
-	docker run -d -p 80:80 --link worker:worker atspad/bouncy ./run.sh
+text:
+	docker run -d -p 80:80 --expose 80 -e "ATSPAD_PROXY_PORT=80" atspad/bouncy node /root/index.js

@@ -1,5 +1,5 @@
 package ats.pad
-
+import javax.annotation.PostConstruct
 import grails.transaction.Transactional
 
 @Transactional
@@ -9,12 +9,20 @@ class WorkspaceService {
 
 	def snapshot = [:]
 	def timer = new Timer()
-	def interval = 10000
-	def basedir = grailsApplication.config.atspad.worker.base
+	def interval
+	def basedir
 
+    @PostConstruct
+    def init() {
+        basedir = grailsApplication.config.atspad.worker.base
+        interval = grailsApplication.config.atspad.workspace.watchInterval
+    }
+    
     def allocate(atspadid, files) {
     	assert atspadid
     	assert files
+    	
+    	log.info "Allocating workspace for ${atspadid}"
 
     	def path = this.generatePath(atspadid)
     	def cwd = new File(path)
@@ -22,7 +30,9 @@ class WorkspaceService {
     	assert !cwd.exists()
     	assert cwd.mkdirs()
 
-    	files.each {key, value ->
+    	files.each { key, value ->
+    	    log.trace "Writing file ${key}"
+    	    
     		def file = new File(path, key)
     		assert file.createNewFile()
     		file << value
@@ -34,6 +44,8 @@ class WorkspaceService {
     def reallocate(atspadid, files) {
     	assert atspadid
     	assert files
+    	
+    	log.info "Reallocate workspace for ${atspadid}"
 
     	def path = this.generatePath(atspadid)
     	def cwd = new File(path)
@@ -43,13 +55,14 @@ class WorkspaceService {
 
     	assert cwd.listFiles().length == 0
 
-    	files.each {key, value ->
+    	files.each { key, value ->
+    	    log.trace "Writing file ${key}"
     		def file = new File(path, key)
     		assert file.createNewFile()
     		file << value
     	}
 
-    	return this.allocate(atspadid, files)
+    	return cwd
     }
 
     def generatePath(atspadid) {
@@ -59,6 +72,8 @@ class WorkspaceService {
     def reclaim(atspadid) {
     	assert atspadid
     	assert files
+    	
+    	log.info "Reclaiming workspace for ${atspadid}"
 
     	def path = this.generatePath(atspadid)
     	def cwd = new File(path)

@@ -8,7 +8,7 @@ class DockerWorker {
 	String cid
 	String ip 
 	String port 
-	Date lastActive 
+	Long lastActive 
 	String sid
 
 	/**
@@ -19,7 +19,7 @@ class DockerWorker {
 	 * @return worker id
 	 */
 	static String generateId(sid, atspadid) {
-		return "worker/${sid}/${atspadid}"
+		return "worker:${sid}:${atspadid}"
 	}
 
     static constraints = {
@@ -27,10 +27,5 @@ class DockerWorker {
 
     static mapping = {
         id generator:'assigned'
-    }
-
-    def beforeInsert = {
-        if (!id) 
-        	id = DockerWorker.generateId(this.sid, this.atspadid)
     }
 }

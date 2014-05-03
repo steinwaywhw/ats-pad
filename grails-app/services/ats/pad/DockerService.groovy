@@ -1,17 +1,20 @@
 package ats.pad
 import groovy.json.*
-import grails.transaction.Transactional
 import org.springframework.core.io.ClassPathResource
+import javax.annotation.PostConstruct
 
-
-@Transactional
 class DockerService {
 
 	def dockers = []
 	def names = [:]
 	def grailsApplication
 
-	def repobase = grailsApplication.config.atspad.docker.repo
+	def repobase
+	
+	@PostConstruct
+	def init() {
+	    repobase = grailsApplication.config.atspad.docker.repo
+	}
 
 	/**
 	 * Get the base dir for the dockerfile repo in
@@ -34,11 +37,17 @@ class DockerService {
 	 */
 	def build(localpath, tag=null) {
 		assert (new File(localpath)).exists()
+		
+		log.info "Building ${localpath} ${tag}"
 
+        def stdout
 		if (tag)
-			return "docker build -t ${tag} ${localpath}".execute().getText()
+			stdout = "docker build -t ${tag} ${localpath}".execute().getText()
 		else
-			return "docker build ${localpath}".execute().getText()
+			stdout = "docker build ${localpath}".execute().getText()
+		
+		log.trace stdout
+		assert stdout.contains("Successfully built")
 	}
 
 	/**
@@ -46,9 +55,12 @@ class DockerService {
 	 * @return a list of container id's
 	 */
 	def ps() {
+	    log.info "Docker ps"
+	    
 		def cids = []
 		"docker ps -aq".execute().in.eachLine { line ->
 			cids << line
+			log.trace line
 		}
 
 		return cids
@@ -59,37 +71,55 @@ class DockerService {
 	 * @param  img         image tag
 	 * @param  cmd=null    command to be run
 	 * @param  name=null   optional container name
-	 * @param  link_p=null parent's container name
-	 * @param  link_c=null parent's alias referenced by the child
-	 * @param  port_h=null host port to be bind
-	 * @param  port_g=null guest port to be exposed
-	 * @param  dir_h       host dir to be mount into guest
-	 * @param  dir_g       guest dir to monut host dir
+	 * @param  link=[:]    link [parent:alias_as_in_child]
+	 * @param  port=[:]    port mapping [guest:host]
+	 * @param  dir=[:]     dir mounting [host:guest]
+	 * @param  env=[:]     environment variable [name:value]
+	 * @param  expose=[]   guest ports to be exposed
 	 * @return             container id
 	 */
     def run(args) {
 
     	assert args?.img
+    	log.info "Running image args.img"
 
     	def c = "docker run -d"
 
     	if (args?.name)
-    		c += " --name ${args?.name}"
-    	if (args?.link_p && args?.link_g)
-    		c += " --link ${args?.link_p}:${args?.link_c}"
-    	if (args?.port_h && args?.port_g)
-    		c += " -p ${args?.port_g}:${args?.port_h}"
-    	if (args?.dir_h && args?.dir_g)
-    		c += " -v ${args?.dir_h}:${args?.dir_g}"
-
+    		c += " --name ${args.name}"
+    	if (args?.link)
+    	    args.link.each { key, value ->
+    	        c += " --link ${key}:${value}"
+    	    }
+    	if (args?.port)
+    	    args.port.each { key, value ->
+    	        c += " -p ${key}:${value}"
+    	    }
+    	if (args?.dir)
+    	    args.dir.each { key, value -> 
+    	        c += " -v ${key}:${value}"
+    	    }
+        if (args?.env)
+            args.env.each { key, value ->
+                c += " --env \"${key}=${value}\""
+            }
+        if (args?.expose)
+            args.expose.each { value ->
+                c += " --expose ${value}"
+            }
+        
     	c += " ${args.img} ${args?.cmd}"
+    	
+    	log.info c
 
-    	def cid = c.execute().getText()
+    	def cid = c.execute().getText().trim()
+    	assert inspect(cid, "running")
+    	
     	this.dockers << cid
-    	if (name)
-    		this.names << [name : cid]
+    	if (args?.name)
+    		this.names << [args.name : cid]
 
-    	return cid.trim()
+    	return cid
     }
 
     /**
@@ -99,7 +129,10 @@ class DockerService {
      */
     def stop(cid) {
     	assert cid
+    	log.info "Stopping ${cid}"
     	"docker stop ${cid}".execute().getText()
+    	
+    	return
     }
 
     /**
@@ -107,9 +140,11 @@ class DockerService {
      * @return a list of stopped container id's
      */
     def stopall() {
+        log.info "Stopping all containers"
     	def result = []
     	this.ps().each { cid ->
     		result << this.stop(cid)
+    		log.trace cid
     	}
 
     	return result
@@ -123,14 +158,17 @@ class DockerService {
      */
     def rm(cid) {
     	assert cid
+    	log.info "Removing container ${cid}"
+    	
     	if (this.contains(cid)) {
     		dockers.remove(cid)
-    		this.names.removeAll {key, value ->
-    			value == cid
+    		this.names = this.names.findAll { key, value ->
+    			value != cid
     		}
     	}
 
-    	return "docker rm ${cid}".execute().getText()
+    	log.trace "docker rm ${cid}".execute().getText()
+    	return cid
     }
 
     /**
@@ -138,9 +176,11 @@ class DockerService {
      * @return [description]
      */
     def rmall() {
+        log.info "Removing all containers"
     	def result = []
     	this.ps().each { cid ->
     		result << this.rm(cid)
+    		log.trace cid
     	}
 
     	return result
@@ -153,7 +193,9 @@ class DockerService {
      */
     def rmi(tag) {
     	assert tag
-    	return "docker rmi ${tag}".execute().getText()
+    	log.info "Removing image ${tag}"
+    	log.trace "docker rmi ${tag}".execute().getText()
+    	return 
     }
 
     /**
@@ -181,6 +223,7 @@ class DockerService {
     def inspect(cid, request=null) {
 
     	assert cid
+    	log.info "Inspecting ${cid}"
 
     	def output = "docker inspect ${cid}".execute().getText()
     	def info = new JsonSlurper().parseText(output)[0]
