@@ -69,6 +69,8 @@ grails.project.dependency.resolution = {
         compile 'org.apache.commons:commons-lang3:3.1'
    //     runtime 'org.apache.commons:commons-lang3:3.1'
 
+        compile 'redis.clients:jedis:2.4.2'
+
     }
 
     plugins {
