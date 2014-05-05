@@ -8,7 +8,7 @@ var context = {};
 
 // store the redis connection info
 context.redis = {
-	ip: process.env.ATSPAD_REDIS_HOST,
+	ip: process.env.ATSPAD_REDIS_IP,
 	port: process.env.ATSPAD_REDIS_PORT || 6379
 };
 
@@ -31,7 +31,7 @@ context.init = function () {
 		
 		// get app server address
 		var client = context.client;
-		client.hgetall("server:atspad", function (err, obj) {
+		client.hgetAll("server:app", function (err, obj) {
             if (err)
                 console.log(util.format("Error getting appserver: %s", err));
             else {
@@ -51,6 +51,8 @@ context.init = function () {
 
 // compute the destinatino from url
 proxy.dest = function (req) {
+	//console.dir(req);
+
 	var path = url.parse(req.url).pathname;
 
 	if (path.indexOf("/console") >= 0) 
@@ -61,6 +63,7 @@ proxy.dest = function (req) {
 
 // bounce to app
 proxy.goapp = function (req, res, bounce) {
+	console.log("goapp");
 	var app = proxy.context.app;
 
 	if (!app) {
@@ -68,12 +71,14 @@ proxy.goapp = function (req, res, bounce) {
 		proxy.onerror(res);
 	}
 
-	bounce(app.ip, app.port);
+	var target = app.ip + ":" + app.port;
+	console.log(target);
+    bounce(target);				
 };
 
 // bounce to docker
 proxy.goworker = function (req, res, bounce) {
-
+	console.log("goworker");
 	// UrlMapping: /console/?wid=$wid
     var wid = url.parse(req.url, true).query.wid;
     if (!wid) {
@@ -83,7 +88,7 @@ proxy.goworker = function (req, res, bounce) {
 
 	// find docker
 	var client = proxy.client;
-	client.hgetall(wid, function (err, obj) {
+	client.hgetAll(wid, function (err, obj) {
 		if (err) {
 			console.log(err);
 			proxy.onerror(res);
@@ -95,7 +100,10 @@ proxy.goworker = function (req, res, bounce) {
             }
 
             proxy.keepalive(wid);
-            bounce(docker.ip, docker.port);
+
+            var target = docker.ip + ":" + docker.port;
+            console.log(target);
+            bounce(target);
 		}
 	});
 };
@@ -121,6 +129,7 @@ proxy.init = function () {
 
 	proxy.server = bouncy(function (req, res, bounce) {
 		proxy.dest(req).go(req, res, bounce);
+		//bounce(8080);
 	});
 };
 

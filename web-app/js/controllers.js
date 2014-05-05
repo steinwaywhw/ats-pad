@@ -8,7 +8,7 @@ angular.module("ats-pad").controller("TerminalController", function ($scope, $ht
         options: {
             path: "console",
             remote: "",
-            parent: "terminal"
+            parent: document.getElementById("terminal")
         },
         terminal: client
     };
@@ -16,7 +16,7 @@ angular.module("ats-pad").controller("TerminalController", function ($scope, $ht
     $scope.init_term = function () {
         $log.debug("Init terminal");
         
-        var api = "api/pad/" + $scope.env.id + "/console";
+        var api = "api/pad/" + $scope.env.id + "/worker";
         
         $http
         .get(api)
@@ -34,7 +34,7 @@ angular.module("ats-pad").controller("TerminalController", function ($scope, $ht
         });
     };
     
-    $scope.$on("atspad-created", function () {
+    $scope.$on("atspad-id-ready", function () {
         $scope.init_term();
     });
     
@@ -126,7 +126,9 @@ angular.module("ats-pad").controller("MarkdownController", function ($scope, $in
         }
     };
     
-    $scope.init_markdown();
+    $scope.$on("atspad-editor-ready", function () {
+        $scope.init_markdown();
+    });
 });
 
 angular.module("ats-pad").controller("StatusBarController", function ($scope, $interval) {
@@ -171,7 +173,9 @@ angular.module("ats-pad").controller("StatusBarController", function ($scope, $i
         editor.focus();
     };
     
-    $scope.init_statusbar();
+    $scope.$on("atspad-editor-ready", function () {
+        $scope.init_statusbar();
+    });
     
 });
 
@@ -212,7 +216,14 @@ angular.module("ats-pad").controller("EditorController", function ($scope, $inte
                 editor.focus();
             }, 1, 1);
         });
+
+        $scope.$emit("atspad-editor-ready");
+        $scope.$broadcast("atspad-editor-ready");
 	};
+
+    $scope.$on("atspad-id-ready", function () {
+        $scope.init_editor();
+    });
 });
 
 angular.module("ats-pad").controller("MainController", function ($http, $scope, $location, $interval, $log) {
@@ -223,7 +234,7 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
         filenames: ["README.md"],
         files: ["# Hello World\n\nWelcome to ats-pad! You can use [Markdown](https://daringfireball.net/projects/markdown/) syntax to write README."],
         active: 0,
-        events: ["atspad-created"]
+        events: ["atspad-id-ready"]
     };
     
     $scope.env = env;
@@ -302,8 +313,8 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
         .get(api)
         .success(function (data, status) {
             $scope.pad2env(data);
-            $scope.$emit("atspad-created");
-            $scope.$broadcast("atspad-created");
+            $scope.$emit("atspad-id-ready");
+            $scope.$broadcast("atspad-id-ready");
         })
         .error(function (data, status) {
             alert(data);
@@ -318,8 +329,8 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
 		.get(api)
 		.success(function(data, status) {
             $scope.pad2env(data);
-            $scope.$emit("atspad-created");
-            $scope.$broadcast("atspad-created");
+            $scope.$emit("atspad-id-ready");
+            $scope.$broadcast("atspad-id-ready");
         })
         .error(function(data, status) {
             alert(data);

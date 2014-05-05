@@ -75,7 +75,12 @@ class WorkerService {
     	dockerService.build(repo.getPath(), this.workerTag)
 
     	// run image
-    	def cid = dockerService.run(img=workerTag, cmd="bash", dir_h=cwd, dir_g=workerCwd)
+    	def cid = dockerService.run([
+            img: workerTag, 
+            cmd: "bash",
+            dir: ["${cwd}": workerCwd]
+        ])
+
     	log.trace "Running worker - ${cid}"
     	assert cid 
     	assert dockerService.inspect(cid, "running")
@@ -89,7 +94,7 @@ class WorkerService {
     	}
 
     	// save to redis
-    	def reply = redisService.hmset(worker.id, worker.properties)
+    	def reply = redisService.hmset(worker.id, worker.properties.collectEntries { key, value -> [key.toString(), value.toString()] })
     	log.trace "Saving to redis - ${reply}"
     	//assert reply.contains("OK")
 
@@ -136,7 +141,7 @@ class WorkerService {
     	if (!redisService.exists(id))
     		return null
     	else {
-    	    def record = redisService.hgetall(id)
+    	    def record = redisService.hgetAll(id)
     	    def worker = new DockerWorker(record)
     	    worker.id = record.id
     	    

@@ -47,6 +47,12 @@ grails.controllers.defaultScope = 'singleton'
 
 
 atspad {
+    app {
+        ip = "155.41.72.37"
+        port = "8080"
+        context = "/"
+        url = "http://${atspad.app.ip}:${atspad.app.port}${atspad.app.context}"
+    }
     proxy {
         guestIp = null
         guestPort = 80
@@ -139,10 +145,20 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "${atspad.app.url}"
+        grails.app.context = "${atspad.app.context}"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        // TODO: 
+        //grails.serverURL = "http://localhost:8080/"
+        //
+        // grails.serverURL = "${atspad.app.url}"
+        // grails.app.context = "${atspad.app.context}"
+    }
+    test {
+        grails.serverURL = "${atspad.app.url}"
+        grails.app.context = "${atspad.app.context}"
     }
 }
 

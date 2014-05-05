@@ -48,7 +48,7 @@ server.run = function(options) {
 	server.listen(options.port || 8080);
 
 	// let socket.io handle sockets
-	io = io.listen(server, {log: false});
+	io = io.listen(server, {log: false, resource: "/console"});
 
 	io.sockets.on('connection', function(s) {
 		// when connect, store the socket

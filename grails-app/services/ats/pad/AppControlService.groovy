@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct
 class AppControlService {
     def grailsApplication
     def dockerService
+    def redisService
     
     def proxyGuestPort
     def proxyHostPort
@@ -51,6 +52,17 @@ class AppControlService {
         assert dockerService.inspect(redisCid, "running")
         
         grailsApplication.config.atspad.redis.guestIp = dockerService.inspect(redisCid, "ipaddress")
+    }
+
+    def registerApp() {
+        def appIp = grailsApplication.config.atspad.app.ip 
+        def appPort = grailsApplication.config.atspad.app.port 
+        def map = [ip: appIp, port: appPort]
+
+        log.info "Registering server at ${map}"
+
+        redisService.hmset("server:app", map)
+        assert redisService.hgetAll("server:app") == map 
     }
     
     def stopall() {

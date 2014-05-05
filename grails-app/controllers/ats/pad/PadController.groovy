@@ -37,8 +37,11 @@ class PadController {
         assert params?.id
         
         def wid = DockerWorker.generateId(session.id, params.id)
+        def proxyIp = grailsApplication.config.atspad.proxy.ip
+        def proxyPort = grailsApplication.config.atspad.proxy.port 
+        def url = "http://${proxyIp}:${proxyPort}/console?wid=${wid}"
         
-        render "/console?wid=${wid}" as JSON
+        render url
     }
     
     def show() {
