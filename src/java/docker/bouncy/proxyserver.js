@@ -31,7 +31,7 @@ context.init = function () {
 		
 		// get app server address
 		var client = context.client;
-		client.hgetAll("server:app", function (err, obj) {
+		client.hgetall("server:app", function (err, obj) {
             if (err)
                 console.log(util.format("Error getting appserver: %s", err));
             else {
@@ -54,6 +54,8 @@ proxy.dest = function (req) {
 	//console.dir(req);
 
 	var path = url.parse(req.url).pathname;
+	//console.log(req.url);
+//	console.dir(url.parse(req.url));
 
 	if (path.indexOf("/console") >= 0) 
 		return {go: proxy.goworker};
@@ -88,7 +90,7 @@ proxy.goworker = function (req, res, bounce) {
 
 	// find docker
 	var client = proxy.client;
-	client.hgetAll(wid, function (err, obj) {
+	client.hgetall(wid, function (err, obj) {
 		if (err) {
 			console.log(err);
 			proxy.onerror(res);
@@ -128,6 +130,7 @@ proxy.init = function () {
 	proxy.client = context.client;
 
 	proxy.server = bouncy(function (req, res, bounce) {
+		console.dir(req);
 		proxy.dest(req).go(req, res, bounce);
 		//bounce(8080);
 	});
@@ -135,6 +138,7 @@ proxy.init = function () {
 
 proxy.run = function (port) {
 	proxy.server.listen(port || 8023);
+	console.log("Proxy server is running on " + port);
 };
 
 module.exports = proxy;

@@ -57,6 +57,7 @@ class WorkerService {
     	if (redisService.exists(worker.id)) {
     		log.trace "Already up and running"
     		worker = getWorker(worker.id)
+            log.info "${worker}"
     		keepAlive(worker)
     		return worker
     	}
@@ -77,7 +78,7 @@ class WorkerService {
     	// run image
     	def cid = dockerService.run([
             img: workerTag, 
-            cmd: "bash",
+            cmd: "node index.js",
             dir: ["${cwd}": workerCwd]
         ])
 
@@ -136,17 +137,15 @@ class WorkerService {
     def getWorker(wid) {
         assert wid
         
-        log.info "Loading worker ${id}"
+        log.info "Loading worker ${wid}"
 
-    	if (!redisService.exists(id))
-    		return null
-    	else {
-    	    def record = redisService.hgetAll(id)
-    	    def worker = new DockerWorker(record)
-    	    worker.id = record.id
-    	    
-    	    return worker
-    	}
+    	assert redisService.exists(wid)
+       
+	    def record = redisService.hgetAll(wid)
+	    def worker = new DockerWorker(record)
+	    worker.id = wid
+	    
+	    return worker
     }
 
     /**
@@ -155,15 +154,17 @@ class WorkerService {
      * @return        updated worker
      */
     def keepAlive(worker) {
-    	log.info "Keep alive - ${worker?.id}"
+        assert worker 
+
+    	log.info "Keep alive - ${worker.id}"
 
     	log.trace "Checking existance"
-    	assert worker?.id
+    	assert worker.id
     	assert redisService.exists(worker.id)
 
     	log.trace "Updating worker record"
     	worker.lastActive = System.currentTimeMillis()
-    	assert !redisService.hset(worker.id, "lastActive", worker.lastActive)
+    	assert !redisService.hset(worker.id, "lastActive", worker.lastActive.toString())
 
     	return worker
     }

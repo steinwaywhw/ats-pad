@@ -34,13 +34,13 @@ class PadController {
     }
     
     def url() {
-        assert params?.id
+        assert params.id
         
         def wid = DockerWorker.generateId(session.id, params.id)
-        def proxyIp = grailsApplication.config.atspad.proxy.ip
-        def proxyPort = grailsApplication.config.atspad.proxy.port 
-        def url = "http://${proxyIp}:${proxyPort}/console?wid=${wid}"
-        
+        def appIp = grailsApplication.config.atspad.app.ip
+        def proxyPort = grailsApplication.config.atspad.proxy.hostPort 
+        def url = "http://${appIp}:${proxyPort}/?wid=${wid}"
+
         render url
     }
     
@@ -51,8 +51,8 @@ class PadController {
     	if (!pad)
     	    render(status: 503, text: 'Not Found')
 
-    	def cwd = workspaceService.reallocate(id, pad.files)
-    	def worker = workerService.start(cwd.getCanonicalPath(), session.id, id)
+    	def cwd = workspaceService.reallocate(params.id, pad.files)
+    	def worker = workerService.start(cwd.getCanonicalPath(), session.id, params.id)
 
         log.trace "${pad as JSON}"
     	render pad as JSON

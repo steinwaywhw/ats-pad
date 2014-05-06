@@ -65,7 +65,7 @@ client.run = function (options) {
         term.write("\r\nDisconnected.\r\n");
     });
     
-    socket.on('error', function () {
+    socket.on('error', function (err) {
         term.write('Connection Failed.\r\n');
         term.write('Refresh the page to retry.\r\n');
     });

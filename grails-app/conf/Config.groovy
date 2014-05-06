@@ -48,15 +48,15 @@ grails.controllers.defaultScope = 'singleton'
 
 atspad {
     app {
-        ip = "155.41.72.37"
-        port = "8080"
+        ip = "localhost"
+        port = "80"
         context = "/"
         url = "http://${atspad.app.ip}:${atspad.app.port}${atspad.app.context}"
     }
     proxy {
         guestIp = null
-        guestPort = 80
-        hostPort = 80
+        guestPort = 8023
+        hostPort = 8023
     }
     redis {
         guestIp = null
@@ -147,18 +147,24 @@ environments {
         grails.logging.jul.usebridge = true
         grails.serverURL = "${atspad.app.url}"
         grails.app.context = "${atspad.app.context}"
+        grails.server.port.http = "${atspad.app.port}"
+        grails.server.host = "${atspad.app.ip}"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: 
         //grails.serverURL = "http://localhost:8080/"
         //
-        // grails.serverURL = "${atspad.app.url}"
-        // grails.app.context = "${atspad.app.context}"
+        grails.serverURL = "${atspad.app.url}"
+        grails.app.context = "${atspad.app.context}"
+        grails.server.port.http = "${atspad.app.port}"
+        grails.server.host = "${atspad.app.ip}"
     }
     test {
         grails.serverURL = "${atspad.app.url}"
         grails.app.context = "${atspad.app.context}"
+        grails.server.port.http = "${atspad.app.port}"
+        grails.server.host = "${atspad.app.ip}"
     }
 }
 

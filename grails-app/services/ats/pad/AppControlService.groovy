@@ -29,7 +29,10 @@ class AppControlService {
         proxyCid = dockerService.run([
             img: "atspad/bouncy",
             cmd: "node index.js",
-            env: [ATSPAD_REDIS_IP:grailsApplication.config.atspad.redis.guestIp, ATSPAD_REDIS_PORT:redisGuestPort],
+            env: [
+                ATSPAD_REDIS_IP: grailsApplication.config.atspad.redis.guestIp, 
+                ATSPAD_REDIS_PORT: redisGuestPort,
+                ATSPAD_PROXY_PORT: proxyGuestPort],
             expose: [proxyGuestPort],
             port: ["${proxyGuestPort}":proxyHostPort]
         ])
@@ -56,6 +59,8 @@ class AppControlService {
 
     def registerApp() {
         def appIp = grailsApplication.config.atspad.app.ip 
+        appIp = dockerService.checkLoopbackAndTranslate(appIp)
+
         def appPort = grailsApplication.config.atspad.app.port 
         def map = [ip: appIp, port: appPort]
 

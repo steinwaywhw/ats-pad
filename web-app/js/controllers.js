@@ -24,6 +24,8 @@ angular.module("ats-pad").controller("TerminalController", function ($scope, $ht
             $log.debug("Get worker url: " + data);
             
             $scope.env.term.options.remote = data;
+
+            //$scope.env.term.options.remote = "172.17.0.4:8023/?wid=aaa"
             
             var term = $scope.env.term.terminal;
             var options = $scope.env.term.options;
@@ -100,13 +102,14 @@ angular.module("ats-pad").controller("FileController", function ($scope, $log) {
     $scope.init_file(); 
 });
 
-angular.module("ats-pad").controller("MarkdownController", function ($scope, $interval) {
+angular.module("ats-pad").controller("MarkdownController", function ($scope, $log, $interval) {
     
     $scope.toggle_readme = function () {
         $('#ats-pad-readme > .panel-body').toggleClass('collapse');
     };
     
     $scope.init_markdown = function () {
+        $log.debug("Init markdown");
         $scope.env.marker = markdown;
     
         $scope.env.editor.getSession().on('change', function(e) {
@@ -131,7 +134,7 @@ angular.module("ats-pad").controller("MarkdownController", function ($scope, $in
     });
 });
 
-angular.module("ats-pad").controller("StatusBarController", function ($scope, $interval) {
+angular.module("ats-pad").controller("StatusBarController", function ($scope, $log, $interval) {
     $scope.env.bar = {row: 0, col: 0, has_sel: false};
     
     $scope.update_statusbar = function ($scope) {
@@ -153,7 +156,8 @@ angular.module("ats-pad").controller("StatusBarController", function ($scope, $i
 	};
     
     $scope.init_statusbar = function () {
-        
+        $log.debug("Init statusbar");
+
         var editor = $scope.env.editor;
         
         // has to use interval to bind it
@@ -292,13 +296,16 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
 
 	$scope.init = function () {
         $log.debug("Init main app");
+
+        var path = window.location.pathname;
+        console.log(path);
         
-        if ($location.path() == "/" || $location.path() === "") {
+        if (path == "/" || path === "") {
             // UrlMapping: "/"
 			$scope.create();
         } else {
             // UrlMapping: "/$id"
-			$scope.show($location.path().substr(1));
+			$scope.show(path.substr(1));
         }
 
         // init editor
@@ -328,9 +335,11 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
 		$http
 		.get(api)
 		.success(function(data, status) {
-            $scope.pad2env(data);
-            $scope.$emit("atspad-id-ready");
-            $scope.$broadcast("atspad-id-ready");
+            // $scope.pad2env(data);
+            // $scope.$emit("atspad-id-ready");
+            // $scope.$broadcast("atspad-id-ready");
+
+            window.location.replace(data.id);
         })
         .error(function(data, status) {
             alert(data);

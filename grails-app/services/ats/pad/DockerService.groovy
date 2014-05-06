@@ -2,6 +2,7 @@ package ats.pad
 import groovy.json.*
 import org.springframework.core.io.ClassPathResource
 import javax.annotation.PostConstruct
+import java.net.InetAddress
 
 class DockerService {
 
@@ -15,6 +16,15 @@ class DockerService {
 	def init() {
 	    repobase = grailsApplication.config.atspad.docker.repo
 	}
+
+    def getDockerBridgeIp() {
+        return "ip route show dev docker0".execute().getText().tokenize()[6]
+    }
+
+    def checkLoopbackAndTranslate(ip) {
+        def addr = InetAddress.getByName(ip)
+        return addr.isLoopbackAddress() ? getDockerBridgeIp() : ip  
+    }
 
 	/**
 	 * Get the base dir for the dockerfile repo in
