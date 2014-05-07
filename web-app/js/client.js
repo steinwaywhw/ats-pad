@@ -10,8 +10,8 @@ client.default = function (options) {
     options.remote = options.remote || "http://localhost:8080";
     options.reconnection_delay = options.reconnection_delay || 500;
     options.max_reconnection_attempts = options.max_reconnection_attempts || 20;
-    options.col = options.col || 180;
-    options.row = options.row || 30;
+    options.cols = options.cols || 180;
+    options.rows = options.rows || 30;
     options.parent = options.parent || document.body;
     options.connect_timeout = options.connect_timeout || 10000;
     //options.focus = options.focus || false;
@@ -27,8 +27,8 @@ client.run = function (options) {
 	options = client.default(options);
 
 	var term = new Terminal({
-		cols: options.col,
-		rows: options.row,
+		cols: options.cols,
+		rows: options.rows,
 		useStyle: true,
 		screenKeys: true,
 	});
@@ -65,8 +65,8 @@ client.run = function (options) {
         term.write("\r\nDisconnected.\r\n");
     });
     
-    socket.on('error', function (err) {
-        term.write('Connection Failed.\r\n');
+    socket.on('error', function () {
+        term.write('Connection Error.\r\n');
         term.write('Refresh the page to retry.\r\n');
     });
     

@@ -8,7 +8,6 @@ var io = require('socket.io');
 var pty = require('pty.js');
 var terminal = require('term.js');
 
-var socket;
 var term;
 var buff = [];
 
@@ -23,15 +22,16 @@ server.run = function(options) {
 			name: require('fs').existsSync('/usr/share/terminfo/x/xterm-256color')
 				? 'xterm-256color'
 				: 'xterm',
-			cols: 80,
-			rows: 24,
-			cwd: process.env.HOME
+			cols: 140,
+			rows: 19,
+			//cwd: process.env.HOME
+			cwd: '/root/atspad'
 		}
 	);
 
 	// store term's output into buffer or emit through socket
 	term.on('data', function(data) {
-		return !socket ? buff.push(data) : socket.emit('data', data);
+		return io.sockets.clients('clients').length == 0 ? buff.push(data) : io.sockets.in('clients').emit('data', data);
 	});
 
 	console.log('Created shell with pty master/slave pair (master: %d, pid: %d)', term.fd, term.pid);
@@ -48,11 +48,12 @@ server.run = function(options) {
 	server.listen(options.port || 8080);
 
 	// let socket.io handle sockets
-	io = io.listen(server, {log: false, resource: "/console"});
+	io = io.listen(server, {log: true, resource: "/console"});
 
-	io.sockets.on('connection', function(s) {
-		// when connect, store the socket
-		socket = s;
+	io.sockets.on('connection', function(socket) {
+
+		// join room
+		socket.join('clients');
 
 		// handle incoming data (client -> server)
 		socket.on('data', function(data) {
@@ -61,12 +62,13 @@ server.run = function(options) {
 
 		// handle connection lost
 		socket.on('disconnect', function() {
-			socket = null;
+			socket.leave('clients')
 		});
 
 		// send buffer data to client
 		while (buff.length) {
-			socket.emit('data', buff.shift());
+			io.sockets.in('clients').emit('data', buff.shift());
+			//socket.emit('data', );
 		};
 	});
 };

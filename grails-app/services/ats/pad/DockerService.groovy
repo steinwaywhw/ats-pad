@@ -111,7 +111,7 @@ class DockerService {
     	    }
         if (args?.env)
             args.env.each { key, value ->
-                c += " --env \"${key}=${value}\""
+                c += " --env ${key}=${value}"
             }
         if (args?.expose)
             args.expose.each { value ->

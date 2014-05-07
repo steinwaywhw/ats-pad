@@ -8,7 +8,9 @@ angular.module("ats-pad").controller("TerminalController", function ($scope, $ht
         options: {
             path: "console",
             remote: "",
-            parent: document.getElementById("terminal")
+            parent: document.getElementById("terminal"),
+            cols: 140,
+            rows: 19
         },
         terminal: client
     };

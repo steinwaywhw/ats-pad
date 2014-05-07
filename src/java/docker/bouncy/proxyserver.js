@@ -3,6 +3,8 @@ var bouncy = require('bouncy');
 var url = require('url');
 var util = require('util');
 
+redis.debug_mode = true;
+
 var proxy = {};
 var context = {};
 
@@ -16,37 +18,22 @@ context.redis = {
 context.app = {};
 
 // init proxy context
-context.init = function () {
+context.init = function (client) {
 	console.log("Init proxy context.");
 
-    // get redis address
+	// get redis address
 	var db = context.redis;
+
+	client.hgetall("server:app", function (err, obj) {
+		if (err)
+			console.log(util.format("Error getting appserver: %s", err));
+		else {
+			context.app = obj;
+			console.log(util.format("Appserver: %s:%s", obj.ip, obj.port));
+		}
+	});
 	
-	// create redis client
-	var client = redis.createClient(db.port, db.ip, {});
-	context.client = client;
-
-    // when connected
-	client.on("ready", function () {
-		
-		// get app server address
-		var client = context.client;
-		client.hgetall("server:app", function (err, obj) {
-            if (err)
-                console.log(util.format("Error getting appserver: %s", err));
-            else {
-                context.app = obj;
-                console.log(util.format("Appserver: %s:%s", obj.ip, obj.port));
-            }
-		});
-		
-		console.log(util.format("Redis: %s:%s", db.ip, db.port));
-	});
-
-    // when failed
-	client.on("error", function () {
-		console.log(util.format("Error - Can't connect to Redis on %s:%s", db.ip, db.port));
-	});
+	console.log(util.format("Redis: %s:%s", db.ip, db.port));
 };
 
 // compute the destinatino from url
@@ -75,18 +62,18 @@ proxy.goapp = function (req, res, bounce) {
 
 	var target = app.ip + ":" + app.port;
 	console.log(target);
-    bounce(target);				
+	bounce(target);				
 };
 
 // bounce to docker
 proxy.goworker = function (req, res, bounce) {
 	console.log("goworker");
 	// UrlMapping: /console/?wid=$wid
-    var wid = url.parse(req.url, true).query.wid;
-    if (!wid) {
-        console.log(util.format("Can't read wid from url: %s", req.url));
-        proxy.onerror(res);
-    }
+	var wid = url.parse(req.url, true).query.wid;
+	if (!wid) {
+		console.log(util.format("Can't read wid from url: %s", req.url));
+		proxy.onerror(res);
+	}
 
 	// find docker
 	var client = proxy.client;
@@ -97,15 +84,15 @@ proxy.goworker = function (req, res, bounce) {
 		} else {
 			var docker = obj;
 			if (!docker) {
-                console.log(util.format("Error - Can't find docker %s", wid));
-                proxy.onerror(res);
-            }
+				console.log(util.format("Error - Can't find docker %s", wid));
+				proxy.onerror(res);
+			}
 
-            proxy.keepalive(wid);
+			proxy.keepalive(wid);
 
-            var target = docker.ip + ":" + docker.port;
-            console.log(target);
-            bounce(target);
+			var target = docker.ip + ":" + docker.port;
+			console.log(target);
+			bounce(target);
 		}
 	});
 };
@@ -125,12 +112,29 @@ proxy.keepalive = function (key) {
 proxy.init = function () {
 	console.log("Init proxy server");
 
-	context.init();
 	proxy.context = context;
-	proxy.client = context.client;
+
+	// create redis client
+	var db = context.redis;
+	var client = redis.createClient(db.port, db.ip);
+	proxy.client = client;
+
+	// when connected
+	client.on("ready", function () {
+		context.init(client);
+	});
+
+	// when failed
+	client.on("error", function (err) {
+		console.log(util.format("Error - Can't connect to Redis on %s:%s, %s", db.ip, db.port, err.message));
+	});
+
+	client.on("end", function () {
+		console.log("Connection ended.");
+	});
 
 	proxy.server = bouncy(function (req, res, bounce) {
-		console.dir(req);
+		//console.dir(req);
 		proxy.dest(req).go(req, res, bounce);
 		//bounce(8080);
 	});

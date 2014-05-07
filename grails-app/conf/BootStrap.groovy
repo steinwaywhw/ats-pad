@@ -4,9 +4,9 @@ class BootStrap {
 
     def init = { servletContext ->
         appControlService.startRedis()
-        appControlService.startProxy()
         appControlService.registerApp()
-        
+        appControlService.startProxy()
+
     }
     def destroy = {
         appControlService.stopall()
