@@ -40,110 +40,43 @@
      
     
 	<div class="row">
-        
-        <!------------------------------------------------------------>
-        <!--EDITOR---------------------------------------------------->
-        <!------------------------------------------------------------>
+    
 		<div class="col-md-8 col-md-offset-1">
-            <div class="row" ng-controller="MarkdownController">
+            <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-info" id="ats-pad-readme">
-                        <div class="panel-heading" ng-click="toggle_readme()">
-                            <h3 class="panel-title">README</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div id="ats-pad-markdown"></div>
-                        </div>
-                    </div>
-
-                    
+                    <div class="ats-pad-readme" app-readme></div>
                 </div>   
             </div>
             
             <div class="row">
-            	<div class="col-md-3 helper-no-right-padding" ng-controller="FileController" >
-                    
-                    <div class="ats-pad-filetoolbar">
-                        <div class="btn-toolbar" role="toolbar">
-                            <div class="btn-group btn-group-sm" >
-                                <button class="btn btn-default" disabled="disabled">
-                                    <span class="fa fa-folder-open-o"></span>
-                                </button>
-                            </div>
-
-
-                            <div class="pull-right btn-group btn-group-sm">
-                                <button type="button" class="btn btn-default"><span class="fa fa-cloud-upload"></span></button>
-                                <button type="button" class="btn btn-default"><span class="fa fa-cloud-download"></span></button>
-                                <button type="button" class="btn btn-default" ng-click="create_file();"><span class="fa fa-plus"></span></button>
-                            </div>
-                            
-                            <div class="pull-right btn-group btn-group-sm">
-                                <button class="btn btn-default"><span class="fa fa-refresh"></span></button>               
-<!--
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-gear"></span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                  </ul>
--->
-                            </div>
-
-                        </div>
-                    </div>
-            		
-                    
-                    <div class="ats-pad-filelist"  >
-                        <div ats-filelist></div>                        
-                    </div>
-            		
+            	<div class="col-md-3 helper-no-right-padding" ng-controller="FileController">
+                    <div class="ats-pad-filetoolbar" app-file-toolbar></div>                   
+                    <div class="ats-pad-filelist" ats-file-list></div>
             	</div>
                 
                 
-                 <!-- Editor -->
-            	<div class="col-md-9 helper-no-left-padding" ng-controller="EditorController">
-            		<div id="ats-pad-editor"></div>
-
-                    <div id="ats-pad-statusbar" ng-controller="StatusBarController">
-                        Line {{env.bar.row}}, Column {{env.bar.col}} 
-                        <span ng-show="env.bar.has_sel">
-                            ({{env.bar.sel.srow}}:{{env.bar.sel.scol}} - {{env.bar.sel.erow}}:{{env.bar.sel.ecol}})
-                        </span>	
-                        
-                    </div>
-            		
+                <!-- Editor -->
+            	<div class="col-md-9 helper-no-left-padding" >
+            		<div id="ats-pad-editor" app-editor></div>
+            		<div id="ats-pad-statusbar" app-status-bar></div>
             	</div>
             	
             
             </div>
            
 
-			<!-- <div> -->
-                
-				
-<!--
-				
--->
-
-			<!-- </div> -->
-
 			<div class="row">
                 <div class="col-md-12">
-                    <div class="ats-pad-terminal" ng-controller="TerminalController">
+                    <div class="ats-pad-terminal">
                         <h4>Terminal</h4>
-                        <div id="terminal"></div>
+                        <div id="terminal" cols="140" rows="19" app-terminal></div>
                     </div>	
                 </div>
             </div>
 			
 		</div>
 
-        <!------------------------------------------------------------>
-        <!--SIDEBARS-------------------------------------------------->
-        <!------------------------------------------------------------>
+
 		<div class="col-md-2">
 			<div class="ats-pad-menu">
 				<button class="btn btn-block btn-default">New Pad</button>
@@ -165,7 +98,6 @@
 
 			</div>
 		</div>
-        <!------------------------------------------------------------>
         
 	</div>
 	<div class="row">
@@ -177,12 +109,11 @@
 		</div>
 	</div>
 		
-
+<script src="js/term.js"></script>
+<script src="js/client.js"></script>
 <script src="js/application.js"></script>
 <script src="js/services.js"></script> 
 <script src="js/controllers.js"></script>
-<script src="js/term.js"></script>
-<script src="js/client.js"></script>
 <script src="js/directives.js"></script>
 
 

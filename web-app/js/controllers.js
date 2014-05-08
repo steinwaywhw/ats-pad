@@ -2,50 +2,10 @@
 //atspad-id-ready
 //atspad
 
-angular.module("ats-pad").controller("TerminalController", function ($scope, $http, $log) {
-    
-    $scope.env.term = {
-        options: {
-            path: "console",
-            remote: "",
-            parent: document.getElementById("terminal"),
-            cols: 140,
-            rows: 19
-        },
-        terminal: client
-    };
-    
-    $scope.init_term = function () {
-        $log.debug("Init terminal");
-        
-        var api = "api/pad/" + $scope.env.id + "/worker";
-        
-        $http
-        .get(api)
-        .success(function (data, status) {
-            $log.debug("Get worker url: " + data);
-            
-            $scope.env.term.options.remote = data;
-
-            //$scope.env.term.options.remote = "172.17.0.4:8023/?wid=aaa"
-            
-            var term = $scope.env.term.terminal;
-            var options = $scope.env.term.options;
-            term.run(options);
-        })
-        .error(function (data, status) {
-            alert(data);
-        });
-    };
-    
-    $scope.$on("atspad-id-ready", function () {
-        $scope.init_term();
-    });
-    
-});
 
 
-angular.module("ats-pad").controller("FileController", function ($scope, $log) {
+
+angular.module("ats-pad").controller("FileController", function ($rootScope, $scope, $log) {
    
     $scope.init_file = function () {
         $scope.env.editing = [];
@@ -104,135 +64,8 @@ angular.module("ats-pad").controller("FileController", function ($scope, $log) {
     $scope.init_file(); 
 });
 
-angular.module("ats-pad").controller("MarkdownController", function ($scope, $log, $interval) {
-    
-    $scope.toggle_readme = function () {
-        $('#ats-pad-readme > .panel-body').toggleClass('collapse');
-    };
-    
-    $scope.init_markdown = function () {
-        $log.debug("Init markdown");
-        $scope.env.marker = markdown;
-    
-        $scope.env.editor.getSession().on('change', function(e) {
-            $interval(function () {
-                var re = /readme\.md/i;
-                if (re.test($scope.env.filenames[$scope.env.active]))
-                    $("#ats-pad-markdown").html($scope.env.marker.toHTML($scope.env.editor.getValue()));
-            }, 1, 1);
-        });
-        
-        var readme = $scope.env.filenames.indexOf('README.md');
-        if (readme >= 0) {
-            $("#ats-pad-markdown").html($scope.env.marker.toHTML($scope.env.files[readme]));
-            $('#ats-pad-readme > .panel-body').toggleClass('collapse', false);
-        } else {
-            $('#ats-pad-readme > .panel-body').toggleClass('collapse', true);
-        }
-    };
-    
-    $scope.$on("atspad-editor-ready", function () {
-        $scope.init_markdown();
-    });
-});
 
-angular.module("ats-pad").controller("StatusBarController", function ($scope, $log, $interval) {
-    $scope.env.bar = {row: 0, col: 0, has_sel: false};
-    
-    $scope.update_statusbar = function ($scope) {
-
-		var c = $scope.env.editor.selection.lead;
-        var r = $scope.env.editor.getSelectionRange();
-
-        $scope.env.bar = {
-            row: c.row + 1,
-            col: c.column + 1,
-            has_sel: !$scope.env.editor.selection.isEmpty(),
-            sel: {
-                srow: r.start.row + 1,
-                scol: r.start.column + 1,
-                erow: r.end.row + 1,
-                ecol: r.end.row + 1
-            }
-        };
-	};
-    
-    $scope.init_statusbar = function () {
-        $log.debug("Init statusbar");
-
-        var editor = $scope.env.editor;
-        
-        // has to use interval to bind it
-        editor.getSession().selection.on("changeCursor", function () {
-            $interval(function () {
-                $scope.update_statusbar ($scope);
-            }, 1, 1);
-
-        });
-        
-        editor.getSession().selection.on("changeSelection", function () {
-            $interval(function () {
-                $scope.update_statusbar ($scope);
-            }, 1, 1);
-        });
-        
-        editor.focus();
-    };
-    
-    $scope.$on("atspad-editor-ready", function () {
-        $scope.init_statusbar();
-    });
-    
-});
-
-angular.module("ats-pad").controller("EditorController", function ($scope, $interval, $log) {
-    
-    // init editor
-	$scope.init_editor = function () {
-        $log.debug("Init editor");
-        
-		var editor = ace.edit("ats-pad-editor");
-		editor.getSession().setUseWorker(false);
-		editor.setTheme("ace/theme/idle_fingers");
-		editor.getSession().setMode("ace/mode/markdown"); 
-		editor.getSession().setUseSoftTabs(true);
-		editor.setShowPrintMargin(false);
-        editor.setOption("vScrollBarAlwaysVisible", false);
-        editor.getSession().setUseWrapMode(true);
-        editor.getSession().setWrapLimitRange(null, null);
-        //renderer.setPrintMarginColumn(80);
-
-		$scope.env.editor = editor;
-
-        // bind editor data to env
-		editor.getSession().on('change', function(e) {
-			$interval(function () {
-				$scope.env.files[$scope.env.active] = editor.getValue();
-//              $scope.upload();
-			}, 1, 1);
-		});
-
-        // init to the first file
-		editor.setValue($scope.env.files[0]);
-        
-        // clear selection
-        $(document).ready(function () {
-            $interval(function () {
-                editor.clearSelection();
-                editor.focus();
-            }, 1, 1);
-        });
-
-        $scope.$emit("atspad-editor-ready");
-        $scope.$broadcast("atspad-editor-ready");
-	};
-
-    $scope.$on("atspad-id-ready", function () {
-        $scope.init_editor();
-    });
-});
-
-angular.module("ats-pad").controller("MainController", function ($http, $scope, $location, $interval, $log) {
+angular.module("ats-pad").controller("MainController", function ($rootScope, $http, $scope, $location, $interval, $log) {
 	
     // environment object
     var env = {
@@ -245,62 +78,61 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
     
     $scope.env = env;
 
-    // adapt env to a pad object
-    $scope.env2pad = function () {
-        var env = $scope.env;
-        var pad = {files: {}};
-        pad.id = env.id;
-        $.each(env.filenames, function (index, value) {
-            pad.files[value] = env.files[index];
-        });
+    // // adapt env to a pad object
+    // $scope.env2pad = function () {
+    //     var env = $scope.env;
+    //     var pad = {files: {}};
+    //     pad.id = env.id;
+    //     $.each(env.filenames, function (index, value) {
+    //         pad.files[value] = env.files[index];
+    //     });
 
-        return pad;
-    };
+    //     return pad;
+    // };
 
-    // adapt pad object to env
-    $scope.pad2env = function (pad) {
-        $scope.env.filenames = [];
-        $scope.env.files = [];
-        $scope.env.id = pad.id;
-        $.each(pad.files, function (key, value) {
-            $scope.env.filenames.push(key);
-            $scope.env.files.push(value);
-        });
-    };
+    // // adapt pad object to env
+    // $scope.pad2env = function (pad) {
+    //     $scope.env.filenames = [];
+    //     $scope.env.files = [];
+    //     $scope.env.id = pad.id;
+    //     $.each(pad.files, function (key, value) {
+    //         $scope.env.filenames.push(key);
+    //         $scope.env.files.push(value);
+    //     });
+    // };
 
-    $scope.refresh = function () {
-        $log.debug("Refreshing files");
+    // $scope.refresh = function () {
+    //     $log.debug("Refreshing files");
         
-        var api = "api/pad/" + $scope.env.id + "/file";
-        $http
-        .get(api)
-        .success(function (data, status) {
-            $scope.pad2env(data);
-        })
-        .error(function (data, status) {
-            alert(data);
-        });
-    };
+    //     var api = "api/pad/" + $scope.env.id + "/file";
+    //     $http
+    //     .get(api)
+    //     .success(function (data, status) {
+    //         $scope.pad2env(data);
+    //     })
+    //     .error(function (data, status) {
+    //         alert(data);
+    //     });
+    // };
 
-    $scope.upload = function () {
-        $log.debug("Uploading files");
+    // $scope.upload = function () {
+    //     $log.debug("Uploading files");
         
-        var api = "api/pad/" + $scope.env.id + "/file";
-        $http
-        .post(api, angular.toJson($scope.env2pad()))
-        .success(function (data, status) {
-            alert(data);
-        })
-        .error(function (data, status) {
-            alert(data);
-        });
-    };
+    //     var api = "api/pad/" + $scope.env.id + "/file";
+    //     $http
+    //     .post(api, angular.toJson($scope.env2pad()))
+    //     .success(function (data, status) {
+    //         alert(data);
+    //     })
+    //     .error(function (data, status) {
+    //         alert(data);
+    //     });
+    // };
 
 	$scope.init = function () {
         $log.debug("Init main app");
 
         var path = window.location.pathname;
-        console.log(path);
         
         if (path == "/" || path === "") {
             // UrlMapping: "/"
@@ -314,39 +146,38 @@ angular.module("ats-pad").controller("MainController", function ($http, $scope, 
 		//$scope.init_editor();
 	};
 
-    $scope.show = function (id) {
-        $log.debug("Loading " + id);
+    // $scope.show = function (id) {
+    //     $log.debug("Loading " + id);
 
-        var api = "api/pad/" + id;
-        $http
-        .get(api)
-        .success(function (data, status) {
-            $scope.pad2env(data);
-            $scope.$emit("atspad-id-ready");
-            $scope.$broadcast("atspad-id-ready");
-        })
-        .error(function (data, status) {
-            alert(data);
-        });
-    };
+    //     var api = "api/pad/" + id;
+    //     $http
+    //     .get(api)
+    //     .success(function (data, status) {
+    //         $scope.pad2env(data);
+    //         $rootScope.$emit("atspad-id-ready");
+    //     })
+    //     .error(function (data, status) {
+    //         alert(data);
+    //     });
+    // };
 
-	$scope.create = function () {
-        $log.debug("Creating new pad.");
+	// $scope.create = function () {
+ //        $log.debug("Creating new pad.");
         
-        var api = "api/pad";
-		$http
-		.get(api)
-		.success(function(data, status) {
-            // $scope.pad2env(data);
-            // $scope.$emit("atspad-id-ready");
-            // $scope.$broadcast("atspad-id-ready");
+ //        var api = "api/pad";
+	// 	$http
+	// 	.get(api)
+	// 	.success(function(data, status) {
+ //            // $scope.pad2env(data);
+ //            // $scope.$emit("atspad-id-ready");
+ //            // $scope.$broadcast("atspad-id-ready");
 
-            window.location.replace(data.id);
-        })
-        .error(function(data, status) {
-            alert(data);
-        });
-	};	
+ //            window.location.replace(data.id);
+ //        })
+ //        .error(function(data, status) {
+ //            alert(data);
+ //        });
+	// };	
         
     $scope.init();
 });
