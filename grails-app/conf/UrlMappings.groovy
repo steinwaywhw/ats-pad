@@ -6,7 +6,7 @@ class UrlMappings {
         "/api/docker/$id/url"(controller:"docker", action:"url")
 		//"/api/$id/$action?/$fileid?"(controller:"main")
 
-		"/"(view:"/index")
+		"/"(view:"/loading")
         "/$id"(view:"/index")
         
         

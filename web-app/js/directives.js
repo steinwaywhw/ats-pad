@@ -1,33 +1,19 @@
-angular.module("ats-pad").directive("appFileList", function (appContextService, appFileService) {
-
-	var link = function (scope, element, attrs) {
-		appFileService.init();
-
-		scope.$watchCollection(
-			function (scope) {
-				return appContextService.getEnv("pad");
-			}, 
-			function (newv, oldv, scope) {
-				scope.$apply(function () {
-					scope.files = newv.files;
-					scope.filenames = newv.filenames;
-				});
-			});
-	};
+angular.module("ats-pad").directive("appFileList", function ($log, appContextService, appFileService) {
 
     return {
     	restrict: "AE",
         templateUrl: "snippets/filelist.html",
-        replace: false
+        replace: false,
+       // link: link
     }
 });
 
 
-angular.module("ats-pad").directive("appReadme", function (appContextService, appFileService, appMarkdownService) {
+angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appContextService, appFileService, appMarkdownService, appEditorService) {
 
 	var findDefault = function (pad) {
 		pad.filenames.forEach(function (v, i) {
-			if (appFileService.isReadme(v)) {
+			if (appFileService.isReadme(pad, i)) {
 				return i;
 			}
 		});
@@ -39,13 +25,13 @@ angular.module("ats-pad").directive("appReadme", function (appContextService, ap
 		var index = null;
 
 		// find index
-		if (appFileService.isReadme(pad.filenames[active]))
+		if (appFileService.isReadme(pad, active))
 			index = active;
 		else 
-			index = findDefault();
+			index = findDefault(pad);
 
 		// find content and title
-		if (index)
+		if (index !== null)
 			return {
 				title: pad.filenames[index],
 				content: appMarkdownService.toHtml(pad.files[index])
@@ -63,28 +49,42 @@ angular.module("ats-pad").directive("appReadme", function (appContextService, ap
 			element.find(".panel-body").toggleClass("collapse");
 		}
 
-		var pad = appContextService.getEnv("pad");
+		
+		var pad = scope.pad;
 		var active = appFileService.active();
 
-		scope.$watch(
-			function () {
-				var pad = appContextService.getEnv("pad");
+		scope.$watchCollection(
+			function (scope) {
+				if (!appContextService.isReady())
+					return false;
+				
+				var pad = scope.pad;
 				var active = appFileService.active();
 
 				return toDisplay(pad, active);
 			}, 
-			function (newv, oldv) {
-				scope.$apply(function () {
-					scope.title = newv.title;
-					scope.content = newv.content;
-				});
-		});
+			function (newv, oldv, scope) {
+				if (!appContextService.isReady())
+					return;
 
-		scope.$digest();
+				scope.title = newv.title;
+				scope.content = newv.content;
+			}
+		);
+
+		// var editor = appEditorService.getEditor();
+		// editor.getSession().on("change", function (e) {
+		// 	$timeout(function () {
+		// 		var pad = scope.pad;
+		// 		var active = appFileService.active();
+		// 		var obj = toDisplay(pad, active);
+		// 		scope.title = obj.title;
+		// 		scope.content = obj.content;
+		// 	});
+		// });
 	};
 
 	return {
-		scope: {},
 		restrict: "AE",
 		templateUrl: "snippets/readme.html",
 		replace: false,
@@ -100,24 +100,22 @@ angular.module("ats-pad").directive("appFileToolbar", function () {
 	}
 });
 
-angular.module("ats-pad").directive("appStatusBar", function (appEditorService) {
+angular.module("ats-pad").directive("appStatusBar", function (appEditorService, $timeout) {
 
 	var link = function (scope, element, attrs) {
 
-		scope.$apply(function () {
-			scope.bar = appEditorService.getCursorStatus();
-		});
+		scope.bar = appEditorService.getCursorStatus();
 
 		var editor = appEditorService.getEditor();
 
 		editor.getSession().selection.on("changeSelection", function () {
-			scope.$apply(function () {
+			$timeout(function () {
 				scope.bar = appEditorService.getCursorStatus();
 			});
 		});
 
 		editor.getSession().selection.on("changeCursor", function () {
-			scope.$apply(function () {
+			$timeout(function () {
 				scope.bar = appEditorService.getCursorStatus();
 			});
 		});
@@ -132,7 +130,7 @@ angular.module("ats-pad").directive("appStatusBar", function (appEditorService) 
 	}
 });
 
-angular.module("ats-pad").directive("appTerminal", function (appTerminalService) {
+angular.module("ats-pad").directive("appTerminal", function (appTerminalService, appContextService) {
 
 	var link = function (scope, element, attrs) {
 		var options = {};
@@ -142,7 +140,16 @@ angular.module("ats-pad").directive("appTerminal", function (appTerminalService)
 		if (attrs.rows)
 			options.rows = attrs.rows;
 
-		appTerminalService.init(element.attr('id'), options);
+		scope.$watch(
+			function () {
+				return appContextService.isReady();
+			},
+			function (newv, oldv) {
+				if (newv)
+					appTerminalService.init(element.attr('id'), options);
+			}
+		);
+		
 	};
 
 	return {
@@ -150,7 +157,7 @@ angular.module("ats-pad").directive("appTerminal", function (appTerminalService)
 	};
 });
 
-angular.module("ats-pad").directive("appEditor", function (appEditorService, appContextService, appFileService, $log) {
+angular.module("ats-pad").directive("appEditor", function (appEditorService, appContextService, appFileService, $log, $timeout) {
 
 	var link = function (scope, element, attrs) {
 		var id = element.attr("id");
@@ -158,21 +165,24 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 		appEditorService.init(id);
 
 		var editor = appEditorService.getEditor();
-		var pad = appContextService.getEnv("pad");
-		editor.setValue(pad.files[0]);
+				
 
 		// bind events
 		$(document).ready(function () {
-			var editor = appEditorService.getEditor()
+			var editor = appEditorService.getEditor();
 			editor.clearSelection();
 			editor.focus();
 		});
 
 		editor.getSession().on("change", function (e) {
-			var pad = appContextService.getEnv("pad");
-			var active = appFileService.active();
-			pad.files[active] = editor.getValue();
-			appContextService.setEnv("pad", pad);
+			$timeout(function () {
+				if (!appContextService.isReady())
+					return;
+				
+				var pad = scope.pad;
+				var active = appFileService.active();
+				pad.files[active] = editor.getValue();
+			});
 		});
 
 		scope.$watch(
@@ -180,31 +190,61 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 				return appFileService.active(); 
 			},
 			function (newv, oldv) {
+				if (!appContextService.isReady())
+					return;
+
 				var editor = appEditorService.getEditor();
-				var pad = appContextService.getEnv("pad");
+				var pad = scope.pad;
 				var active = appFileService.active();
 				var filename = pad.filenames[active];
 				var mode = appFileService.guessMode(filename);
 				var content = pad.files[active];
 
 				editor.setValue(content);
-				editor.getSession.setMode(mode);
+				editor.getSession().setMode(mode);
 				editor.clearSelection();
 				editor.focus();
-		});
+
+			}
+		);
 
 		scope.$watch(
 			function () {
-				var pad = appContextService.getEnv("pad");
+				if (!appContextService.isReady())
+					return false;
+
+				var pad = scope.pad;
 				var active = appFileService.active();
 				return pad.files[active];
 			},
 			function (newv, oldv) {
+				if (!appContextService.isReady())
+					return;
+
 				var editor = appEditorService.getEditor();
 				editor.setValue(newv);
 				editor.clearSelection();
 				editor.focus();
-		});
+			}
+		);
+
+		scope.$watch(
+			function () {
+				if (!appContextService.isReady())
+					return false;
+
+				var pad = scope.pad;
+				var active = appFileService.active();
+				return appFileService.guessMode(pad.filenames[active]);
+			},
+			function (newv, oldv) {
+				if (!appContextService.isReady())
+					return;
+
+				var editor = appEditorService.getEditor();
+				editor.getSession().setMode(newv);
+			}
+		);
 	};
 
 	return {

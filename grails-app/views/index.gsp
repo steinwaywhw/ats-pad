@@ -35,8 +35,13 @@
 		<div class="col-md-8 col-md-offset-1 ats-pad-logo">
 			<h1><b>atspad</b></h1>
 			<i>your online ats playground</i>
+			<p>{{ this.pad }}</p>
 		</div>
 	</div>
+
+
+
+
      
     
 	<div class="row">
@@ -51,7 +56,7 @@
             <div class="row">
             	<div class="col-md-3 helper-no-right-padding" ng-controller="FileController">
                     <div class="ats-pad-filetoolbar" app-file-toolbar></div>                   
-                    <div class="ats-pad-filelist" ats-file-list></div>
+                    <div class="ats-pad-filelist" app-file-list></div>
             	</div>
                 
                 

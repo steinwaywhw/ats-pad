@@ -30,7 +30,7 @@ class PadController {
     	pad.save()
 
         log.trace "${pad as JSON}"
-    	render pad as JSON
+    	render pad.id 
     }
     
     def url() {
