@@ -19,6 +19,8 @@ client.default = function (options) {
     return options;
 };
 
+client.term = {};
+
 
 
 client.run = function (options) {
@@ -34,6 +36,8 @@ client.run = function (options) {
 	});
 
 	term.open(options.parent);
+    client.term = term;
+
 
     var socket = io.connect(options.remote, {
 		'resource': options.path,
@@ -63,38 +67,31 @@ client.run = function (options) {
     // Fail
     socket.on('disconnect', function() {
         term.write("\r\nDisconnected.\r\n");
+        term.write('Reconnecting ...\r\n');
     });
     
     socket.on('error', function () {
         term.write('Connection Error.\r\n');
-        term.write('Refresh the page to retry.\r\n');
+        term.write('Reconnecting ...\r\n');
     });
     
     socket.on('reconnect_failed', function () {
 	    term.write('Connection Failed.\r\n');
-        term.write('Refresh the page to retry.\r\n');
+        term.write('Reconnecting ...\r\n');
     });
     
 	socket.on('connect_failed', function(){
 	    term.write('Connection Failed.\r\n');
-        term.write('Refresh the page to retry.\r\n');
+        term.write('Reconnecting ...\r\n');
 	});
     
-    
+
     // Connected
-//    socket.on('reconnect', function () {
-//        
-//        // for displaying the first command line
-//		socket.emit('data', '\r\n');
-//    });
+    socket.on('reconnect', function () {
+        term.emit('data', 'clear\n');
+    });
     
-    // work around
-    var firsttime = true;
 	socket.on('connect', function() {
-		// for displaying the first command line
-        if (firsttime) {
-            socket.emit('data', '\r');
-            firsttime = false;
-        }
+        term.emit('data', 'clear\n');
 	});
 };

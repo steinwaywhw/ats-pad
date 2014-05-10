@@ -8,16 +8,31 @@ angular.module("ats-pad").directive("appFileList", function ($log, appContextSer
     }
 });
 
+angular.module("ats-pad").directive("appLoadingScreen", function ($log, appContextService) {
+
+
+
+	return {
+		restrict: "AE",
+		templateUrl: "snippets/loading.html",
+		replace: false,
+		link: function (scope, element, attrs) {
+			scope.service = appContextService;
+		}
+	};
+})
+
 
 angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appContextService, appFileService, appMarkdownService, appEditorService) {
 
 	var findDefault = function (pad) {
+		var index = null;
 		pad.filenames.forEach(function (v, i) {
 			if (appFileService.isReadme(pad, i)) {
-				return i;
+				index = i;
 			}
 		});
-		return null;
+		return index;
 	};
 
 	var toDisplay = function (pad, active) {
@@ -36,11 +51,12 @@ angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appCo
 				title: pad.filenames[index],
 				content: appMarkdownService.toHtml(pad.files[index])
 			};
-		else
+		else {
 			return {
 				title: "README",
 				content: "Please describe your project :)"
 			};
+		}
 	};
 
 	var link = function (scope, element, attrs) {
@@ -57,18 +73,20 @@ angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appCo
 			function (scope) {
 				if (!appContextService.isReady())
 					return false;
-				
-				var pad = scope.pad;
-				var active = appFileService.active();
+				else {
+					var pad = scope.pad;
+					var active = appFileService.active();
 
-				return toDisplay(pad, active);
+					return toDisplay(pad, active);
+				}
 			}, 
 			function (newv, oldv, scope) {
 				if (!appContextService.isReady())
 					return;
-
-				scope.title = newv.title;
-				scope.content = newv.content;
+				else {
+					scope.title = newv.title;
+					scope.content = newv.content;
+				}		
 			}
 		);
 
@@ -178,10 +196,11 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 			$timeout(function () {
 				if (!appContextService.isReady())
 					return;
-				
-				var pad = scope.pad;
-				var active = appFileService.active();
-				pad.files[active] = editor.getValue();
+				else {
+					var pad = scope.pad;
+					var active = appFileService.active();
+					pad.files[active] = editor.getValue();
+				}
 			});
 		});
 
@@ -204,7 +223,6 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 				editor.getSession().setMode(mode);
 				editor.clearSelection();
 				editor.focus();
-
 			}
 		);
 
@@ -222,9 +240,13 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 					return;
 
 				var editor = appEditorService.getEditor();
+				var cursor = editor.getSelection().getCursor();
 				editor.setValue(newv);
 				editor.clearSelection();
-				editor.focus();
+				editor.moveCursorToPosition(cursor);
+				//editor.getSelection().setCursor(cursor);
+				//editor.clearSelection();
+				//editor.selection.lead = cursor;
 			}
 		);
 

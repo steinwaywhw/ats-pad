@@ -23,19 +23,20 @@
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/superhero/bootstrap.min.css">
-    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.0/spin.min.js"></script>
+
 	
 	<link rel="stylesheet/less" type="text/css" href="css/main.less">
 </head>
 
 <body class="container-fluid" ng-controller="MainController">
+	<div id="ats-pad-loading" app-loading-screen ng-show="!service.isReady()" ></div>
 
-	
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-1 ats-pad-logo">
 			<h1><b>atspad</b></h1>
 			<i>your online ats playground</i>
-			<p>{{ this.pad }}</p>
 		</div>
 	</div>
 
@@ -82,16 +83,15 @@
 		</div>
 
 
-		<div class="col-md-2">
+		<div class="col-md-2" ng-controller="SidebarController">
 			<div class="ats-pad-menu">
-				<button class="btn btn-block btn-default">New Pad</button>
+				<button class="btn btn-block btn-default" ng-click="newpad()">New Pad</button>
 				<button class="btn btn-block btn-default">Delete Pad</button>
 			</div>
 			<hr>
 			<div class="ats-pad-controls">
-			
 				<button class="btn btn-primary btn-block" ng-click="run()">Run</button>
-				<button class="btn btn-default btn-block">Type Check</button>
+				<button class="btn btn-default btn-block" ng-click="typecheck()">Type Check</button>
 			</div>
 			<hr>
 			<div class="ats-pad-embed">

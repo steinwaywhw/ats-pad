@@ -73,7 +73,7 @@ class PadController {
 
     	pad.delete(flush: true)
 
-    	render "OK" as JSON
+    	render ""
     }
 
     def refresh() {
@@ -98,9 +98,11 @@ class PadController {
     	if (!pad)
     	    render(status: 503, text: 'Not Found')
     	    
-    	pad.files = request.JSON
+    	pad.files = request.JSON.files
     	pad.save()
 
-    	render "OK" as JSON
+        workspaceService.reallocate(pad.id, pad.files);
+
+    	render ""
     }
 }

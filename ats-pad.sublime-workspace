@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ng-bind",
+				"ng-bind-html	AngularJS"
+			],
+			[
 				"app",
 				"appContextService"
 			],
@@ -87,7 +91,7 @@
 			"file": "web-app/snippets/filelist.html",
 			"settings":
 			{
-				"buffer_size": 1476,
+				"buffer_size": 1679,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,7 +99,15 @@
 			"file": "grails-app/views/index.gsp",
 			"settings":
 			{
-				"buffer_size": 4011,
+				"buffer_size": 4010,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web-app/snippets/readme.html",
+			"settings":
+			{
+				"buffer_size": 206,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,7 +115,7 @@
 			"file": "web-app/js/services.js",
 			"settings":
 			{
-				"buffer_size": 7601,
+				"buffer_size": 7948,
 				"line_ending": "Unix"
 			}
 		},
@@ -111,7 +123,7 @@
 			"file": "web-app/js/directives.js",
 			"settings":
 			{
-				"buffer_size": 4835,
+				"buffer_size": 5472,
 				"line_ending": "Unix"
 			}
 		},
@@ -134,6 +146,14 @@
 			"settings":
 			{
 				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web-app/snippets/filetoolbar.html",
+			"settings":
+			{
+				"buffer_size": 768,
 				"line_ending": "Unix"
 			}
 		}
@@ -198,6 +218,18 @@
 	},
 	"file_history":
 	[
+		"/home/hwwu/Github/ats-pad/web-app/snippets/filelist.html",
+		"/home/hwwu/Github/ats-pad/web-app/js/markdown.min.js",
+		"/home/hwwu/Github/ats-pad/docs/Makefile",
+		"/home/hwwu/Github/ats-pad/ats-pad.sublime-project",
+		"/home/hwwu/Github/ats-pad/application.properties",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/database-migration-1.3.8/src/resources/changelog.template",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/scripts/CreateHibernateCfgXml.groovy",
+		"/home/hwwu/Github/ats-pad/docs/conf.py",
+		"/home/hwwu/Github/ats-pad/web-app/js/services.js",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/scripts/SchemaExport.groovy",
+		"/home/hwwu/Github/ats-pad/target/stacktrace.log",
+		"/home/hwwu/Github/ats-pad/web-app/js/directives.js",
 		"/home/hwwu/Github/a9/ajbeaton/hw10/README",
 		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/RedisService.groovy",
 		"/home/hwwu/Github/Link to web-app/js/routes.js",
@@ -215,8 +247,6 @@
 		"/home/hwwu/Github/ats-pad/grails-app/conf/UrlMappings.groovy",
 		"/home/hwwu/Github/ats-pad/grails-app/views/index.gsp",
 		"/home/hwwu/Github/ats-pad/src/java/docker/worker/Dockerfile",
-		"/home/hwwu/Github/ats-pad/web-app/js/directives.js",
-		"/home/hwwu/Github/ats-pad/web-app/snippets/filelist.html",
 		"/home/hwwu/Github/ats-pad/web-app/snippets/filetoolbar.html",
 		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/DockerService.groovy",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/index.js",
@@ -224,7 +254,6 @@
 		"/home/hwwu/Github/ats-pad/src/java/docker/worker/server.js",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/BootStrap.groovy",
 		"/home/hwwu/Github/ats-pad/web-app/snippets/statusbar.html",
-		"/home/hwwu/Github/ats-pad/web-app/js/services.js",
 		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/MainController.groovy",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/cookie/test/serialize.js",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/cache-1.1.1/src/java/grails/plugin/cache/web/ContentCacheParameters.java",
@@ -234,7 +263,6 @@
 		"/home/hwwu/Github/ats-pad/target/work/plugins/database-migration-1.3.8/scripts/DbmStatus.groovy",
 		"/home/hwwu/Github/a9/solution/Makefile",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/webxml-1.4.1/grails-app/conf/DefaultWebXmlConfig.groovy",
-		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/scripts/SchemaExport.groovy",
 		"/home/hwwu/Github/a9/thsu8/hw10/solution2",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/resources-1.2.7/src/docs/guide/4.3 Linking to resources explicitly, bypassing modules.gdoc",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/resources-1.2.7/src/docs/guide/1.1.3 Edit your Sitemesh layout.gdoc",
@@ -269,7 +297,6 @@
 		"/home/hwwu/Github/a9/ampy/hw9/assignment9.dats",
 		"/home/hwwu/Github/a9/ajbeaton/hw9/assignment9.dats",
 		"/home/hwwu/.bashrc",
-		"/home/hwwu/Github/ats-pad/target/stacktrace.log",
 		"/home/hwwu/Github/ats-pad/target/work/resources/docker/bouncy/proxyserver.js",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/ats/pad/LogFilters.groovy",
 		"/home/hwwu/Github/ats-pad/web-app/js/application.js",
@@ -287,16 +314,13 @@
 		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/src/docs/ref/Domain/lock.gdoc",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/bouncy/node_modules/optimist/example/line_count_options.js",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/LICENSE",
-		"/home/hwwu/Github/ats-pad/application.properties",
 		"/home/hwwu/Github/ats-pad/web-app/css/utility.less",
 		"/home/hwwu/Github/ats-pad/web-app/js/routes.js",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/bouncy/test/bounce_url.js",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/bouncy/lib/parse_args.js",
 		"/home/hwwu/Github/ats-pad/docs/_build/html/_static/pygments.css",
-		"/home/hwwu/Github/ats-pad/docs/conf.py",
 		"/home/hwwu/Github/ats-pad/docs/_build/html/_static/websupport.js",
 		"/home/hwwu/Github/ats-pad/web-app/css/main.css",
-		"/home/hwwu/Github/ats-pad/docs/Makefile",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Dockerfile",
 		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/DockerController.groovy",
 		"/home/hwwu/Programs/node/Makefile",
@@ -305,7 +329,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -320,6 +344,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"markdown",
+			"appfileservice",
+			"change",
 			"setid",
 			"env",
 			"editor",
@@ -379,7 +406,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -409,7 +436,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -418,19 +445,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1476,
+						"buffer_size": 1679,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								585,
-								585
+								588,
+								588
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -439,7 +467,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -448,15 +476,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4011,
+						"buffer_size": 4010,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								700,
-								700
+								3147,
+								3147
 							]
 						],
 						"settings":
@@ -464,72 +492,102 @@
 							"syntax": "Packages/Grails/View/GSP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 18.0,
+						"translation.y": 1451.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "web-app/js/services.js",
+					"file": "web-app/snippets/readme.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7601,
+						"buffer_size": 206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6025,
-								6025
+								185,
+								185
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "web-app/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6335,
+								6335
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5778.0,
+						"translation.y": 3996.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "web-app/js/directives.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4835,
+						"buffer_size": 5472,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1357,
-								1357
+								5418,
+								5418
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 4196.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "/home/hwwu/Github/Link to web-app/snippets/readme.html",
 					"semi_transient": false,
 					"settings":
@@ -553,11 +611,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "/home/hwwu/Github/Link to web-app/snippets/statusbar.html",
 					"semi_transient": false,
 					"settings":
@@ -581,7 +639,133 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "web-app/js/directives.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4620,
+								4620
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3492.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "web-app/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5857,
+								5857
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4968.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "web-app/snippets/filetoolbar.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "web-app/snippets/filelist.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1648,
+								1648
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -604,6 +788,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -614,6 +804,7 @@
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -634,6 +825,26 @@
 		"selected_items":
 		[
 			[
+				"filelis",
+				"web-app/snippets/filelist.html"
+			],
+			[
+				"filetoo",
+				"web-app/snippets/filetoolbar.html"
+			],
+			[
+				"filelist",
+				"web-app/snippets/filelist.html"
+			],
+			[
+				"ser",
+				"web-app/js/services.js"
+			],
+			[
+				"dire",
+				"web-app/js/directives.js"
+			],
+			[
 				"readme",
 				"Link to web-app/snippets/readme.html"
 			],
@@ -644,10 +855,6 @@
 			[
 				"loading",
 				"Link to web-app/loading.html"
-			],
-			[
-				"filelist",
-				"ats-pad/web-app/snippets/filelist.html"
 			],
 			[
 				"directi",
@@ -668,10 +875,6 @@
 			[
 				"contol",
 				"ats-pad/web-app/js/controllers.js"
-			],
-			[
-				"dire",
-				"ats-pad/web-app/js/directives.js"
 			],
 			[
 				"seriv",
@@ -710,10 +913,6 @@
 				"ats-pad/web-app/js/directives.js"
 			],
 			[
-				"ser",
-				"ats-pad/web-app/js/services.js"
-			],
-			[
 				"controller",
 				"ats-pad/web-app/js/controllers.js"
 			],
@@ -728,10 +927,6 @@
 			[
 				"urlmap",
 				"ats-pad/grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"filetoo",
-				"ats-pad/web-app/snippets/filetoolbar.html"
 			],
 			[
 				"control",
