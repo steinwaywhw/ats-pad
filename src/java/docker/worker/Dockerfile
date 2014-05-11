@@ -23,8 +23,8 @@ ENV PATH $PATH:/root/nodejs/bin
 # /root/server
 RUN mkdir -p /root/server
 WORKDIR /root/server
-RUN npm update node-gyp
-RUN npm update npm
+RUN npm update -g node-gyp
+RUN npm update -g npm
 RUN npm install term.js
 RUN npm install socket.io
 RUN npm install express
