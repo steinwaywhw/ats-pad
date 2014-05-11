@@ -12,11 +12,6 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
             },
             true
         );
-
-        $scope.$watch(
-            function () {
-
-            })
     };
 
 	$scope.init = function () {

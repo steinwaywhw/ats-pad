@@ -105,4 +105,11 @@ class PadController {
 
     	render ""
     }
+
+    def embed() {
+        def id = params.id
+
+        render(view: "/embed", model: [id: id])
+    }
+
 }

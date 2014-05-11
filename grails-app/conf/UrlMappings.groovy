@@ -3,14 +3,17 @@ class UrlMappings {
 	static mappings = {
 		//"/api/uuid"(controller:"main", action:"uuid")
         //"/api/docker/$atspadid/$action"(controller:"docker")
-        "/api/docker/$id/url"(controller:"docker", action:"url")
+        //"/api/docker/$id/url"(controller:"docker", action:"url")
 		//"/api/$id/$action?/$fileid?"(controller:"main")
 
 		"/"(view:"/loading")
         "/$id"(view:"/index")
+        "/$id/embed"(controller:"pad", action:"embed")
+
         
         
         "500"(view:"/error")
+        "404"(view:"/error")
 
         //$id/console
 
@@ -27,10 +30,11 @@ class UrlMappings {
         "/api/pad/$id/worker"(controller:"pad") {
             action = [GET:"url"]
         }
-        "/api/pad/$id/js"(controler:"pad", action:"embed")
+        //"/api/pad/$id/embed"(controler:"pad", action:"embed")
         "/api/pad/$id/file"(controller:"pad") {
             action = [GET:"refersh", POST:"upload"]
         }
+
 
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

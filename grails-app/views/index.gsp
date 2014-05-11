@@ -111,6 +111,9 @@
 			<div class="ats-pad-footer">
 				Copyright Hanwen Wu
 			</div>
+
+			<div ng-include="'snippets/embed.html'"></div>
+
 		</div>
 	</div>
 		
@@ -123,6 +126,9 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
+
+
+
 
 </body>
 </html>
