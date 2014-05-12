@@ -68,7 +68,7 @@ atspad {
         tag = "atspad/worker"
         port = 8023
         cwd = "/root/atspad"
-        base = "/var/tmp/atspad"
+        base = "/home/hwwu/server/atspad"
         ttl = 600 //seconds
     }
     docker {
@@ -176,7 +176,7 @@ log4j = {
     appenders {
        console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
        rollingFile name:'file', 
-                   file:'/tmp/atspad.log.html', 
+                   file:'/home/hwwu/server/atspad.log.html', 
                    maxFileSize: '1MB',
                    layout: html,
                    append: false
