@@ -49,7 +49,7 @@ grails.controllers.defaultScope = 'singleton'
 atspad {
     app {
         ip = "107.170.130.41"
-        port = "80"
+        port = 80
         context = "/"
         url = "http://${atspad.app.ip}:${atspad.app.port}${atspad.app.context}"
     }
@@ -155,6 +155,7 @@ environments {
         // TODO: 
         //grails.serverURL = "http://localhost:8080/"
         //
+        server.port = 80
         grails.serverURL = "${atspad.app.url}"
         grails.app.context = "${atspad.app.context}"
         grails.server.port.http = "${atspad.app.port}"
