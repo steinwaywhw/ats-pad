@@ -11,7 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
+grails.project.groupId = atspad // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
@@ -49,9 +49,10 @@ grails.controllers.defaultScope = 'singleton'
 atspad {
     app {
         ip = "107.170.130.41"
-        port = 80
+        port = "8080"
         context = "/"
         url = "http://${atspad.app.ip}:${atspad.app.port}${atspad.app.context}"
+        workingdir = "/server"
     }
     proxy {
         guestIp = null
@@ -68,7 +69,7 @@ atspad {
         tag = "atspad/worker"
         port = 8023
         cwd = "/root/atspad"
-        base = "/home/hwwu/server/atspad"
+        base = "${atspad.app.workingdir}"
         ttl = 600 //seconds
     }
     docker {
@@ -155,7 +156,7 @@ environments {
         // TODO: 
         //grails.serverURL = "http://localhost:8080/"
         //
-        server.port = 80
+        server.port = 8080
         grails.serverURL = "${atspad.app.url}"
         grails.app.context = "${atspad.app.context}"
         grails.server.port.http = "${atspad.app.port}"
@@ -174,12 +175,17 @@ log4j = {
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
-       console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
-       rollingFile name:'file', 
-                   file:'/home/hwwu/server/atspad.log.html', 
-                   maxFileSize: '1MB',
-                   layout: html,
-                   append: false
+        console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
+
+        rollingFile name:'file', 
+                    file:"${atspad.app.workingdir}/atspad.log", 
+                    maxFileSize: '1MB',
+                    layout: pattern(conversionPattern: '%c{2} %m%n'),
+                    append: false
+
+        rollingFile name:'stacktrace', 
+                    file:"${atspad.app.workingdir}/stacktrace.log", 
+                    maxFileSize:'100KB'
     }
 
     root {

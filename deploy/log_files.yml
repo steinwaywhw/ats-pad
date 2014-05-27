@@ -1,0 +1,6 @@
+files: 
+  - /var/log/tomcat7/*
+  - /server/*log*
+destination:
+  host: logs.papertrailapp.com
+  port: 20895 
