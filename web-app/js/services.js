@@ -138,7 +138,7 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 		});
 	};
 
-	mixin.upload = function (pad) {
+	mixin.syncToServer = function (pad) {
 		$log.debug("Uploading files.");
 
 		var data = angular.toJson(toserver(pad));
@@ -154,7 +154,7 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 		});
 	};
 
-	mixin.refresh = function (callback) {
+	mixin.syncToClient = function (callback) {
 		$log.debug("Refreshing files.");
 
 		$http

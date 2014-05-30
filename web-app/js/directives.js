@@ -5,7 +5,7 @@ angular.module("ats-pad").directive("appFileList", function ($log, appContextSer
         templateUrl: "snippets/filelist.html",
         replace: false,
        // link: link
-    }
+    };
 });
 
 angular.module("ats-pad").directive("appLoadingScreen", function ($log, appContextService) {
@@ -20,7 +20,7 @@ angular.module("ats-pad").directive("appLoadingScreen", function ($log, appConte
 			scope.service = appContextService;
 		}
 	};
-})
+});
 
 
 angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appContextService, appFileService, appMarkdownService, appEditorService) {
@@ -63,7 +63,7 @@ angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appCo
 
 		scope.toggle = function () {
 			element.find(".panel-body").toggleClass("collapse");
-		}
+		};
 
 		
 		var pad = scope.pad;
@@ -108,7 +108,7 @@ angular.module("ats-pad").directive("appReadme", function ($timeout, $log, appCo
 		templateUrl: "snippets/readme.html",
 		replace: false,
 		link: link
-	}
+	};
 });
 
 angular.module("ats-pad").directive("appFileToolbar", function () {
@@ -116,7 +116,7 @@ angular.module("ats-pad").directive("appFileToolbar", function () {
 		restrict: "AE",
 		templateUrl: "snippets/filetoolbar.html",
 		replace: false
-	}
+	};
 });
 
 angular.module("ats-pad").directive("appStatusBar", function (appEditorService, $timeout) {
@@ -146,7 +146,7 @@ angular.module("ats-pad").directive("appStatusBar", function (appEditorService, 
 		templateUrl: "snippets/statusbar.html",
 		replace: false,
 		link: link
-	}
+	};
 });
 
 angular.module("ats-pad").directive("appTerminal", function ($log, appTerminalService, appContextService) {
@@ -281,7 +281,7 @@ angular.module("ats-pad").directive("appEditor", function (appEditorService, app
 
 	return {
 		link: link
-	}
+	};
 });
 
 

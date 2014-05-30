@@ -7,7 +7,7 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
                 if (!appPadService.validate(newv)) {
                     $log.debug("Failed to upload");
                 } else {
-                    appPadService.upload(newv);
+                    appPadService.syncToServer(newv);
                 }
             },
             true
@@ -36,6 +36,9 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
                 appContextService.ready();
 
                 binding();
+
+                $scope.downloadUrl = "/" + pad.id + "/download";
+
             });
         }
 	};
@@ -43,17 +46,18 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
    
        
     $scope.init();
-    
+
+
 });
 
 angular.module("ats-pad").controller("FileController", function ($interval, $scope, $log, appFileService, appContextService, appPadService) {
     $scope.service = appFileService;
 
-    $scope.refresh = function () {
+    $scope.syncToClient = function () {
         if (!appContextService.isReady())
             return;
         else {
-            appPadService.refresh(function (pad) {
+            appPadService.syncToClient(function (pad) {
                 // To avoid different pad in different scope
                 // we only modify attributes of an object
                 $scope.pad.filenames = pad.filenames;

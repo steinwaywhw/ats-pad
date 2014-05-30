@@ -75,7 +75,7 @@ class PadController {
     	render ""
     }
 
-    def refresh() {
+    def syncToClient() {
     	assert params.id
 
     	def pad = Pad.get(params.id)
@@ -94,7 +94,7 @@ class PadController {
     	render pad as JSON
     }
 
-    def upload() {
+    def syncToServer() {
     	assert params.id 
 
     	def pad = Pad.get(params.id)
@@ -131,6 +131,14 @@ class PadController {
 
 
         render newpad.id
+    }
+
+    def download() {
+        assert params.id 
+
+        def tar = workspaceService.zipFiles(params.id)
+
+        render(file:tar, fileName:"atspad-${params.id}.tar.gz", contentType:'application/x-gzip')
     }
 
 }

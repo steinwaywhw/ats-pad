@@ -126,9 +126,26 @@ class WorkspaceService {
 
         log.info "Zipping files from workspace of ${atspadid}"
 
-        def tempDir = File.createTempDir()
-        def tar = new File("${tempDir.path}/${atspadid}.tar.gz")
-        "tar -czf ${tar.path} ${dir.path}".execute()
+        def tar = new File("${dir.path}/${atspadid}.tar.gz")
+        if (tar.exists())
+            tar.delete()
+
+
+        def filenames = []
+
+        // collect file names
+        dir.eachFile(groovy.io.FileType.FILES, { file ->
+
+            // use shell "file" to test if it is binary
+            def test = "file -i ${file.path}".execute().getText()
+
+            if (!test.contains("charset=binary")) {
+                filenames << file.name
+            }
+        })
+
+        def proc = "tar -czf ${atspadid}.tar.gz ${filenames.join(' ')}".execute(null, dir)
+
 
         return tar 
     }

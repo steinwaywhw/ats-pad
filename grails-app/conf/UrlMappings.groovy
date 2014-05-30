@@ -9,6 +9,8 @@ class UrlMappings {
 		"/"(view:"/loading")
         "/$id"(view:"/index")
         "/$id/embed"(controller:"pad", action:"embed")
+        "/$id/download"(controller:"pad", action:"download")
+        "/$id/fork"(controller:"pad", action:"fork")
 
         
         
@@ -26,7 +28,8 @@ class UrlMappings {
         "/api/pad/"(controller:"pad", action:"create")
         "/api/pad/$id"(controller:"pad") {action = [GET:"show", DELETE:"delete"]}
         "/api/pad/$id/worker"(controller:"pad") {action = [GET:"url"]}
-        "/api/pad/$id/file"(controller:"pad") {action = [GET:"refresh", POST:"upload"]}
+        "/api/pad/$id/file"(controller:"pad") {action = [GET:"syncToClient", POST:"syncToServer"]}
+        "/api/pad/$id/file/download"(controller:"pad") {action = [GET:"download"]}
         "/api/pad/$id/fork"(controller:"pad", action:"fork")
 
         "/$controller/$action?/$id?(.$format)?"{
