@@ -19,7 +19,7 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
 
         var path = window.location.pathname;
         
-        if (path == "/" || path === "") {
+        if (path === "/" || path === "") {
             // UrlMapping: "/"
 			appPadService.create();
         } else {
@@ -29,7 +29,9 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
                 $scope.id = pad.id;
                 $scope.pad = pad;
 
+                // TODO
                 appFileService.init(pad);
+
                 appContextService.setId(pad.id);
                 appContextService.ready();
 
@@ -44,8 +46,27 @@ angular.module("ats-pad").controller("MainController", function ($scope, $locati
     
 });
 
-angular.module("ats-pad").controller("FileController", function ($scope, $log, appFileService, appContextService) {
+angular.module("ats-pad").controller("FileController", function ($interval, $scope, $log, appFileService, appContextService, appPadService) {
     $scope.service = appFileService;
+
+    $scope.refresh = function () {
+        if (!appContextService.isReady())
+            return;
+        else {
+            appPadService.refresh(function (pad) {
+                // To avoid different pad in different scope
+                // we only modify attributes of an object
+                $scope.pad.filenames = pad.filenames;
+                $scope.pad.files = pad.files;
+
+                // TODO
+                appFileService.init(pad);
+            });
+        }
+    };
+
+    // refresh every 10 second
+    //$interval($scope.refresh, 10000);
 });
 
 angular.module("ats-pad").controller("SidebarController", function ($scope, $log, appFileService, appTerminalService, appPadService) {
@@ -57,11 +78,11 @@ angular.module("ats-pad").controller("SidebarController", function ($scope, $log
         $scope.pad.filenames.forEach(function (e) {
             if (/.*dats/i.test(e))
                 files.push(e);
-        })
+        });
 
         var filename = files.join(" ");
         return filename;
-    }
+    };
 
     var getCurrentFileForTC = function () {
         var filename = $scope.pad.filenames[appFileService.active()];
@@ -71,7 +92,7 @@ angular.module("ats-pad").controller("SidebarController", function ($scope, $log
             return "-s " + filename;
         else 
             return null;
-    }
+    };
 
     $scope.run = function () {
         if (getAtsFiles().length === 0)
@@ -80,7 +101,7 @@ angular.module("ats-pad").controller("SidebarController", function ($scope, $log
             appTerminalService.cmd("patscc -o main " + getAtsFiles());
             appTerminalService.cmd("./main");
         }
-    }
+    };
 
     $scope.typecheck = function () {
         if (getCurrentFileForTC() === null)
@@ -88,15 +109,21 @@ angular.module("ats-pad").controller("SidebarController", function ($scope, $log
         else {
             appTerminalService.cmd("patsopt -tc " + getCurrentFileForTC());
         }
-    }
+    };
 
     $scope.newpad = function () {
         window.location.href = "/";
-    }
+    };
+
+    $scope.forkpad = function () {
+        appPadService.fork(function (id) {
+            window.location.href = "/" + id;
+        });
+    };
 
     $scope.deletepad = function () {
         appPadService.delete(function (data) {
             window.location.href = "/";
-        })
-    }
+        });
+    };
 });

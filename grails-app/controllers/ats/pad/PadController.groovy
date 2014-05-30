@@ -29,7 +29,6 @@ class PadController {
 
     	pad.save()
 
-        log.trace "${pad as JSON}"
     	render pad.id 
     }
     
@@ -65,7 +64,7 @@ class PadController {
     	if (!pad)
     	    render(status: 503, text: 'Not Found')
     	    
-    	def worker = workerService.getWorker(session.id, id)
+    	def worker = workerService.getWorker(session.id, pad.id)
     	assert pad && worker 
 
     	workerService.stop(worker)
@@ -83,12 +82,16 @@ class PadController {
     	if (!pad)
     	    render(status: 503, text: 'Not Found')
     	    
-    	def worker = workerService.getWorker(session.id, id)
+    	def worker = workerService.getWorker(session.id, pad.id)
     	assert pad && worker
 
     	workerService.keepAlive(worker)
 
-    	render pad.files as JSON
+        def newfiles = workspaceService.collectFiles(pad.id)
+        pad.files = newfiles
+        pad.save()
+
+    	render pad as JSON
     }
 
     def upload() {
@@ -110,6 +113,24 @@ class PadController {
         def id = params.id
 
         render(view: "/embed", model: [id: id])
+    }
+
+    def fork() {
+        assert params.id
+
+        def oldpad = Pad.get(params.id)
+        if (!oldpad)
+            render(status: 503, text: 'Not Found');
+
+        def newpad = oldpad.cloneWithoutId()
+        newpad.id = RandomStringUtils.randomAlphanumeric(idSize)
+        newpad.save()
+
+        def cwd = workspaceService.allocate(newpad.id, newpad.files)
+        def worker = workerService.start(cwd.getCanonicalPath(), session.id, newpad.id)
+
+
+        render newpad.id
     }
 
 }

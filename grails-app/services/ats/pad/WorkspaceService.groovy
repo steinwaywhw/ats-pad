@@ -81,6 +81,58 @@ class WorkspaceService {
     	return cwd.deleteDir()
     }
 
+
+    /**
+     * Collect a map of [filename:content] from the workspace 
+     * of given atspad. Only one level of text based files are
+     * collected.
+     *
+     * TODO
+     * 
+     * @param  atspadid the atspad workspace being collected
+     * @return          a map of filename and content
+     */
+    def collectFiles(atspadid) {
+
+        def dir = new File(this.generatePath(atspadid))
+        if (!dir.exists())
+            return null
+
+        assert atspadid
+
+        log.info "Collecting files from workspace of ${atspadid}"
+
+        def files = [:]
+
+        dir.eachFile(groovy.io.FileType.FILES, { file ->
+
+            // use shell "file" to test if it is binary
+            def test = "file -i ${file.path}".execute().getText()
+
+            if (!test.contains("charset=binary")) {
+                files << [(file.name) : (file.text)]
+            }
+        })
+
+        return files
+    }
+
+    def zipFiles(atspadid) {
+        def dir = new File(this.generatePath(atspadid))
+        if (!dir.exists())
+            return null
+
+        assert atspadid
+
+        log.info "Zipping files from workspace of ${atspadid}"
+
+        def tempDir = File.createTempDir()
+        def tar = new File("${tempDir.path}/${atspadid}.tar.gz")
+        "tar -czf ${tar.path} ${dir.path}".execute()
+
+        return tar 
+    }
+
     /**
      * Run the monitoring service
      * @param  atspadid 
@@ -97,7 +149,7 @@ class WorkspaceService {
     	assert atspadid
 
     	// list all current files
-    	def files = new File(path).listFiles(fileFilter);
+    	def files = dir.listFiles(fileFilter);
     	def checked = []
 
     	// check for add and modify

@@ -24,17 +24,10 @@ class UrlMappings {
         //api/pad/$id
         
         "/api/pad/"(controller:"pad", action:"create")
-        "/api/pad/$id"(controller:"pad") {
-            action = [GET:"show", DELETE:"delete"]
-        }
-        "/api/pad/$id/worker"(controller:"pad") {
-            action = [GET:"url"]
-        }
-        //"/api/pad/$id/embed"(controler:"pad", action:"embed")
-        "/api/pad/$id/file"(controller:"pad") {
-            action = [GET:"refersh", POST:"upload"]
-        }
-
+        "/api/pad/$id"(controller:"pad") {action = [GET:"show", DELETE:"delete"]}
+        "/api/pad/$id/worker"(controller:"pad") {action = [GET:"url"]}
+        "/api/pad/$id/file"(controller:"pad") {action = [GET:"refresh", POST:"upload"]}
+        "/api/pad/$id/fork"(controller:"pad", action:"fork")
 
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

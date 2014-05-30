@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"ser",
+				"service"
+			],
+			[
+				"su",
+				"sup	Tag"
+			],
+			[
+				"tomcat",
+				"tomcat7"
+			],
+			[
+				"remo",
+				"remote_syslog"
+			],
+			[
 				"app",
 				"appTerminalService"
 			],
@@ -100,34 +116,93 @@
 	"buffers":
 	[
 		{
+			"file": "deploy/provision.sh",
+			"settings":
+			{
+				"buffer_size": 730,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy/deploy.sh",
+			"settings":
+			{
+				"buffer_size": 312,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "deploy/Vagrantfile",
 			"settings":
 			{
-				"buffer_size": 5246,
+				"buffer_size": 5666,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "grails-app/conf/BuildConfig.groovy",
+			"file": "web-app/js/services.js",
 			"settings":
 			{
-				"buffer_size": 4348,
+				"buffer_size": 9528,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "grails-app/conf/Config.groovy",
+			"file": "grails-app/services/ats/pad/AppControlService.groovy",
 			"settings":
 			{
-				"buffer_size": 7982,
+				"buffer_size": 2320,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "grails-app/conf/DataSource.groovy",
+			"contents": "package ats.pad\nimport javax.annotation.PostConstruct\n\nclass WorkspaceService {\n\n	def grailsApplication\n\n	def snapshot = [:]\n	def timer = new Timer()\n	def interval\n	def basedir\n\n    @PostConstruct\n    def init() {\n        basedir = grailsApplication.config.atspad.worker.base\n        interval = grailsApplication.config.atspad.workspace.watchInterval\n    }\n    \n    def allocate(atspadid, files) {\n    	assert atspadid\n    	assert files\n    	\n    	log.info \"Allocating workspace for ${atspadid}\"\n\n    	def path = this.generatePath(atspadid)\n    	def cwd = new File(path)\n\n    	assert !cwd.exists()\n    	assert cwd.mkdirs()\n\n    	files.each { key, value ->\n    	    log.trace \"Writing file ${key}\"\n    	    \n    		def file = new File(path, key)\n    		assert file.createNewFile()\n    		file << value\n    	}\n\n    	return cwd\n    }\n\n    def reallocate(atspadid, files) {\n    	assert atspadid\n    	assert files\n    	\n    	log.info \"Reallocate workspace for ${atspadid}\"\n\n    	def path = this.generatePath(atspadid)\n    	def cwd = new File(path)\n\n    	assert cwd.exists()\n    	cwd.listFiles()*.delete()\n\n    	assert cwd.listFiles().length == 0\n\n    	files.each { key, value ->\n    	    log.trace \"Writing file ${key}\"\n    		def file = new File(path, key)\n    		assert file.createNewFile()\n    		file << value\n    	}\n\n    	return cwd\n    }\n\n    def generatePath(atspadid) {\n    	return \"${this.basedir}/${atspadid}\"\n    }\n\n    def reclaim(atspadid) {\n    	assert atspadid\n    	assert files\n    	\n    	log.info \"Reclaiming workspace for ${atspadid}\"\n\n    	def path = this.generatePath(atspadid)\n    	def cwd = new File(path)\n\n    	assert cwd.exists()\n\n    	return cwd.deleteDir()\n    }\n\n    def collectFiles(atspadid, cwd) {\n        def dir = new File(cwd)\n        if (!dir.exists())\n            return null\n\n        assert atspadid\n\n        def files = dir.eachFile(FileType.FILES, {\n\n        })\n\n    }\n\n    /**\n     * Run the monitoring service\n     * @param  atspadid \n     * @param  cwd      dir to watch\n     * @param  callback lam (id:atspadid, f:file, state:string)\n     * @return          TimerTask or null\n     */\n    def runWatch(atspadid, cwd, callback) {\n    	// check if cwd exists\n    	def dir = new File(cwd)\n    	if (!dir.exists())\n    		return null\n\n    	assert atspadid\n\n    	// list all current files\n    	def files = dir.listFiles(fileFilter);\n    	def checked = []\n\n    	// check for add and modify\n    	dir.eachFileRecurse { file ->\n    		checked << file\n\n    		// newly added\n    		if (snapshot[file] == null) {\n    			dir << [file:file.lastModified()]\n    			callback(atspadid, file, \"added\")\n    		}\n\n    		// modified\n    		else if (snapshot[file] != file.lastModified()) {\n    			snapshot[file] = file.lastModified()\n    			callback(atspadid, file, \"modified\")\n    		} \n    	}\n    	\n    	// deleted\n    	(dir - checked).each { file ->\n    		dir.remove(file)\n    		callback(atspadid, file, \"deleted\")\n    	}\n\n    	// run again with the callback\n    	this.timer.runAfter(this.interval, {\n    		this.runWatch(atspadid, cwd, callback)\n    	})\n    }\n\n    def setupWatch(atspadid, cwd, callback) {\n    	def dir = new File(cwd)\n    	assert dir.exists()\n    	assert atspadid\n\n    	dir.eachFileRecurse { file ->\n    		snapshot << [file:file.lastModified()]\n    	}\n\n    	this.timer.runAfter(this.interval, {\n    		this.runWatch(atspadid, cwd, callback)\n    	})\n    }\n\n    // def callback(atspadid, file, states) {\n    // 	switch (states) {\n    // 		case \"added\":\n    // 		case \"modified\":\n    // 		case \"deleted\":\n    // 	}\n    // }\n}\n",
+			"file": "grails-app/services/ats/pad/WorkspaceService.groovy",
+			"file_size": 3337,
+			"file_write_time": 130436277813231994,
 			"settings":
 			{
-				"buffer_size": 1966,
+				"buffer_size": 3544,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/controllers/ats/pad/PadController.groovy",
+			"settings":
+			{
+				"buffer_size": 2903,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/conf/UrlMappings.groovy",
+			"settings":
+			{
+				"buffer_size": 1135,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/domain/ats/pad/Pad.groovy",
+			"settings":
+			{
+				"buffer_size": 577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/views/index.gsp",
+			"settings":
+			{
+				"buffer_size": 4881,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web-app/js/application.js",
+			"settings":
+			{
+				"buffer_size": 87,
 				"line_ending": "Unix"
 			}
 		}
@@ -135,9 +210,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 222.0,
+		"height": 369.0,
 		"selected_items":
 		[
+			[
+				"rub",
+				"Set Syntax: Ruby"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
 			[
 				"ruby",
 				"Set Syntax: Ruby"
@@ -204,27 +287,36 @@
 	},
 	"file_history":
 	[
-		"/home/hwwu/Vagrant/test/Vagrantfile",
-		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/PadController.groovy",
+		"/home/hwwu/Github/ats-pad/deploy/Vagrantfile",
+		"/home/hwwu/Github/ats-pad/deploy/provision.sh",
+		"/home/hwwu/Github/ats-pad/deploy/packer.json",
+		"/home/hwwu/Github/ats-pad/.gitignore",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/ApplicationResources.groovy",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/UrlMappings.groovy",
-		"/home/hwwu/Github/ats-pad/grails-app/views/embed.gsp",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/PadController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/views/index.gsp",
+		"/home/hwwu/Github/ats-pad/web-app/js/controllers.js",
+		"/home/hwwu/Github/ats-pad/web-app/snippets/filetoolbar.html",
+		"/home/hwwu/Github/ats-pad/web-app/snippets/filelist.html",
+		"/home/hwwu/Github/ats-pad/web-app/js/services.js",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/DataSource.groovy",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/Config.groovy",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/BuildConfig.groovy",
-		"/home/hwwu/Github/ats-pad/grails-app/conf/DataSource.groovy",
+		"/home/hwwu/Github/ats-pad/deploy/log_files.yml",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/BootStrap.groovy",
+		"/tmp/digital_ocean.box",
+		"/home/hwwu/.bashrc",
+		"/home/hwwu/Vagrant/test/Vagrantfile",
+		"/home/hwwu/Github/ats-pad/grails-app/views/embed.gsp",
 		"/home/hwwu/Github/ats-pad/src/java/docker/worker/Dockerfile",
-		"/home/hwwu/Github/ats-pad/web-app/js/services.js",
 		"/home/hwwu/Github/ats-pad/target/work/web.xml.tmp",
 		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/WorkspaceService.groovy",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/bouncy/test/bounce_url.js",
-		"/home/hwwu/Github/ats-pad/grails-app/conf/BootStrap.groovy",
 		"/home/hwwu/Github/ats-pad/docs/conf.py",
-		"/home/hwwu/Github/ats-pad/web-app/js/controllers.js",
 		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/proxyserver.js",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/database-migration-1.3.8/scripts/DbmRollbackToDate.groovy",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/resources-1.2.7/src/groovy/org/grails/plugin/resource/util/DispositionsUtils.groovy",
 		"/home/hwwu/Github/ats-pad/target/work/plugins/resources-1.2.7/src/java/org/grails/plugin/resources/artefacts/DefaultResourcesClass.java",
-		"/home/hwwu/Github/ats-pad/web-app/snippets/filelist.html",
-		"/home/hwwu/Github/ats-pad/web-app/snippets/filetoolbar.html",
 		"/home/hwwu/Github/ats-pad/web-app/js/directives.js",
 		"/home/hwwu/Github/Link to web-app/snippets/statusbar.html",
 		"/home/hwwu/Github/Link to web-app/snippets/readme.html",
@@ -232,7 +324,6 @@
 		"/home/hwwu/Github/ats-pad/web-app/snippets/readme.html",
 		"/home/hwwu/Github/ats-pad/web-app/css/main.less",
 		"/home/hwwu/Github/ats-pad/web-app/js/application.js",
-		"/home/hwwu/Github/ats-pad/grails-app/views/index.gsp",
 		"/home/hwwu/Github/ats-pad/web-app/js/client.js",
 		"/home/hwwu/Github/ats-pad/application.properties",
 		"/home/hwwu/Github/ats-pad/ats-pad.sublime-project",
@@ -310,7 +401,6 @@
 		"/home/hwwu/Github/a9/bernardl/hw9/assignment9.dats",
 		"/home/hwwu/Github/a9/ampy/hw9/assignment9.dats",
 		"/home/hwwu/Github/a9/ajbeaton/hw9/assignment9.dats",
-		"/home/hwwu/.bashrc",
 		"/home/hwwu/Github/ats-pad/target/work/resources/docker/bouncy/proxyserver.js",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/ats/pad/LogFilters.groovy",
 		"/home/hwwu/Downloads/AdbeRdr9.5.5-1_i486linux_enu.bin",
@@ -324,15 +414,11 @@
 		"/home/hwwu/Github/ats-pad/web-app/js/routes.js",
 		"/home/hwwu/Github/ats-pad/docs/_build/html/_static/pygments.css",
 		"/home/hwwu/Github/ats-pad/docs/_build/html/_static/websupport.js",
-		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Dockerfile",
-		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/DockerController.groovy",
-		"/home/hwwu/Programs/node/Makefile",
-		"/home/hwwu/Programs/node/config.mk",
-		"/home/hwwu/.bash_aliases"
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Dockerfile"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -347,6 +433,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"id",
+			"/home/vagrant",
+			"8023",
 			"yrzRDRfGuFEGwsLw",
 			"ready",
 			"api",
@@ -421,24 +510,80 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "deploy/Vagrantfile",
+					"file": "deploy/provision.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5246,
+						"buffer_size": 730,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4976,
-								4976
+								652,
+								652
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "deploy/deploy.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								312,
+								312
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "deploy/Vagrantfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5471,
+								5471
 							]
 						],
 						"settings":
@@ -448,93 +593,152 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1767.0,
+						"translation.y": 2290.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "grails-app/conf/BuildConfig.groovy",
+					"buffer": 3,
+					"file": "web-app/js/services.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4348,
+						"buffer_size": 9528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4152,
-								4152
+								8779,
+								8779
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7638.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "grails-app/services/ats/pad/AppControlService.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2316,
+								2316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 1596.0,
+						"translation.x": -0.0,
+						"translation.y": 912.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "grails-app/conf/Config.groovy",
+					"buffer": 5,
+					"file": "grails-app/services/ats/pad/WorkspaceService.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7982,
+						"buffer_size": 3544,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1401,
-								1401
+								1886,
+								1886
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1311.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "grails-app/controllers/ats/pad/PadController.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2029,
+								2029
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Controller/GrailsController.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "grails-app/conf/DataSource.groovy",
+					"buffer": 7,
+					"file": "grails-app/conf/UrlMappings.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1966,
+						"buffer_size": 1135,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1057,
-								1057
+								988,
+								988
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Groovy/Groovy.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -542,6 +746,90 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "grails-app/domain/ats/pad/Pad.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Domain/GrailsDomain.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "grails-app/views/index.gsp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1883,
+								1883
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/View/GSP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "web-app/js/application.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 87,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								48,
+								48
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -594,6 +882,18 @@
 		"selected_items":
 		[
 			[
+				"padcon",
+				"grails-app/controllers/ats/pad/PadController.groovy"
+			],
+			[
+				"urlmap",
+				"grails-app/conf/UrlMappings.groovy"
+			],
+			[
+				"padcontro",
+				"grails-app/controllers/ats/pad/PadController.groovy"
+			],
+			[
 				"buildcon",
 				"grails-app/conf/BuildConfig.groovy"
 			],
@@ -614,15 +914,7 @@
 				"grails-app/conf/UrlMappings.groovy"
 			],
 			[
-				"padcon",
-				"grails-app/controllers/ats/pad/PadController.groovy"
-			],
-			[
 				"url",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"urlmap",
 				"grails-app/conf/UrlMappings.groovy"
 			],
 			[

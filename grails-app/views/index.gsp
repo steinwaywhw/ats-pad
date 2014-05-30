@@ -35,9 +35,18 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-1 ats-pad-logo">
-			<h1><b>atspad</b></h1>
+			<h1><b>atspad</b><sup><small>&beta;</small></sup></h1>
 			<i>your online ats playground</i>
+
+			<br>
+			<div class="alert alert-dismissable alert-warning">
+		  		<button type="button" class="close" data-dismiss="alert">×</button>
+		  		<h4>Warning!</h4>
+		  		<p>This site is still in beta. You may encounter problems, or lose data.</p>
+			</div>
 		</div>
+
+		
 	</div>
 
 
@@ -51,6 +60,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="ats-pad-readme" app-readme></div>
+                    {{pad}}
                 </div>   
             </div>
             
@@ -85,8 +95,9 @@
 
 		<div class="col-md-2" ng-controller="SidebarController">
 			<div class="ats-pad-menu">
-				<button class="btn btn-block btn-default" ng-click="newpad()">New Pad</button>
-				<button class="btn btn-block btn-default">Delete Pad</button>
+				<button class="btn btn-block btn-default" ng-click="newpad()" data-toggle="tooltip" data-placement="auto" title="create a new pad">New Pad</button>
+				<button class="btn btn-block btn-default" ng-click="forkpad()" data-toggle="tooltip" data-placement="auto" title="fork a new pad based on this pad">Fork Pad</button>
+				<button class="btn btn-block btn-default" data-toggle="tooltip" data-placement="auto" title="delete this pad">Delete Pad</button>
 			</div>
 			<hr>
 			<div class="ats-pad-controls">

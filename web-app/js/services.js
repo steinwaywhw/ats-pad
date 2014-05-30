@@ -1,4 +1,4 @@
-angular.module("ats-pad").factory("appContextService", function ($log) {
+angular.module("ats-pad").factory("appContextService", function ($rootScope, $log) {
 	var env = {};
 	var id = null;
 	var ready = false;
@@ -47,32 +47,32 @@ angular.module("ats-pad").factory("appNotificationService", function ($rootScope
 
 	mixin.error = function (message) {
 		errorQueue.push(message);
-	}
+	};
 
 	mixin.info = function (message) {
 		infoQueue.push(message);
-	}
+	};
 
 	mixin.hasNext = function (type) {
-		if (type == ERROR)
-			return errorQueue.length == 0;
-		if (type == INFO)
-			return infoQueue.length == 0;
+		if (type === ERROR)
+			return errorQueue.length === 0;
+		if (type === INFO)
+			return infoQueue.length === 0;
 		else 
-			false;
-	}
+			return false;
+	};
 
 	mixin.next = function (type) {
-		if (type == ERROR)
+		if (type === ERROR)
 			return errorQueue.shift();
-		if (type == INFO)
+		if (type === INFO)
 			return infoQueue.shift();
 		else 
-			"";
-	}
+			return "";
+	};
 
 	return mixin;
-})
+});
 
 angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootScope, appNotificationService, appContextService, appFileService) {
 	var mixin = {};
@@ -89,7 +89,7 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 			id: pad.id,
 			files: files
 		};
-	}
+	};
 
 	var fromserver = function (pad) {
 		var filenames = [];
@@ -158,9 +158,9 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 		$log.debug("Refreshing files.");
 
 		$http
-		.get(API_PREFIX + "/" + id + "/file")
+		.get(API_PREFIX + "/" + appContextService.getId() + "/file")
 		.success(function (pad, status) {
-			$log.debug("Success: " + id);
+			$log.debug("Success: " + appContextService.getId());
 			appNotificationService.info("Files have been refreshed.");
 			callback(fromserver(pad));
 
@@ -168,6 +168,23 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 		.error(function (data, status) {
 			$log.debug("Error: " + data);
 			appNotificationService.error("Failed to load pad: " + data);
+		});
+	};
+
+	mixin.fork = function (callback) {
+		$log.debug("Forking files.");
+
+		$http
+		.get(API_PREFIX + "/" + appContextService.getId() + "/fork")
+		.success(function (id, status) {
+			$log.debug("Success: " + id);
+			appNotificationService.info("Forked.");
+			callback(id);
+
+		})
+		.error(function (data, status) {
+			$log.debug("Error: " + data);
+			appNotificationService.error("Failed to fork pad: " + data);
 		});
 	};
 
@@ -186,7 +203,7 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 			$log.debug("Error: " + data);
 			appNotificationService.error("Failed to load pad: " + data);
 		});
-	}
+	};
 
 	mixin.validate = function (pad) {
 		var result = true;
@@ -208,7 +225,7 @@ angular.module("ats-pad").factory("appPadService", function ($http, $log, $rootS
 		}
 
 		return result;
-	}
+	};
 
 	return mixin;
 });
@@ -261,7 +278,7 @@ angular.module("ats-pad").factory("appEditorService", function ($rootScope, appC
 
 	mixin.setMode = function (mode) {
 		editor.getSession().setMode("ace/mode/" + mode);
-	}
+	};
 
 	return mixin;
 });
@@ -307,7 +324,7 @@ angular.module("ats-pad").factory("appFileService", function ($rootScope, $log, 
 
 	mixin.active = function () {
 		return active;
-	}
+	};
 
 	mixin.select = function (index) {
 		active = index;
@@ -319,22 +336,23 @@ angular.module("ats-pad").factory("appFileService", function ($rootScope, $log, 
 
 	mixin.done = function (pad, index) {
 		if (!this.validate(pad.filenames[index]))
-			return 
+			return; 
 
 		editing[index] = false;
 		active = index;
 	};
 
 	mixin.validate = function (filename) {
-		return filename && /\w+/.test(filename) && filename.length < 64 && filename.length >= 1
+		return filename && /\w+/.test(filename) && filename.length < 64 && filename.length >= 1;
 	};
 
 	mixin.guessMode = function (filename) {
+		// TODO
 		var modes = {
-			"ace/mode/markdown": [".*\.md$", "readme.*"],
-			"ace/mode/ats": [".*\.[ds]ats$"],
-			"ace/mode/c_cpp": [".*\.[ch]$", ".*\.[ch]ats$"],
-			"ace/mode/java": [".*\.java$"]
+			'ace/mode/markdown': [".*\\.md$", "readme.*"],
+			"ace/mode/ats": [".*\\.[ds]ats$"],
+			"ace/mode/c_cpp": [".*\\.[ch]$", ".*\\.[ch]ats$"],
+			"ace/mode/java": [".*\\.java$"]
 		};
 
 		var mode = "ace/mode/text";
@@ -361,13 +379,13 @@ angular.module("ats-pad").factory("appFileService", function ($rootScope, $log, 
 
 	mixin.remove = function (pad, index) {
 		if (this.isReadme(pad, index))
-			return 
+			return; 
 
 		pad.filenames.splice(index, 1);
         pad.files.splice(index, 1);
         editing.splice(index, 1);     
 
-        if (active == pad.files.length)
+        if (active === pad.files.length)
         	active = active - 1;   
 
         return pad;
@@ -385,7 +403,7 @@ angular.module("ats-pad").factory("appFileService", function ($rootScope, $log, 
 
 });
 
-angular.module("ats-pad").factory("appTerminalService", function ($http, $log, appNotificationService, appContextService) {
+angular.module("ats-pad").factory("appTerminalService", function ($timeout, $http, $log, appNotificationService, appContextService) {
 	var id = null;
 	var termclient = client; // client is external
 
@@ -409,18 +427,21 @@ angular.module("ats-pad").factory("appTerminalService", function ($http, $log, a
 		options.cols = opts.cols || options.cols;
 		options.rows = opts.rows || options.rows;
 
-		$http
-		.get(API_PREFIX + "/" + appContextService.getId() + "/worker")
-		.success(function (remote, status) {
-			$log.debug("Success: " + remote);
-			options.remote = remote;
+		// delay 10 seconds for the worker to boot up
+		$timeout(function () {
+			$http
+			.get(API_PREFIX + "/" + appContextService.getId() + "/worker")
+			.success(function (remote, status) {
+				$log.debug("Success: " + remote);
+				options.remote = remote;
 
-			termclient.run(options);
-		})
-		.error(function (data, status) {
-			$log.debug("Error: " + data);
-			appNotificationService.error("Failed to initialize terminal: " + data);
-		});
+				termclient.run(options);
+			})
+			.error(function (data, status) {
+				$log.debug("Error: " + data);
+				appNotificationService.error("Failed to initialize terminal: " + data);
+			});
+		}, 10 * 1000);
 	};
 
 	mixin.cmd = function (cmd) {

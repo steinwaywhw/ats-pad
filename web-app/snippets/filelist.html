@@ -8,14 +8,20 @@
                 <button 
                     type="button" 
                     ng-class="{'btn btn-xs control pull-right': true, 'btn-primary': service.isActive($index), 'btn-default': !service.isActive($index)}" 
-                    ng-click="this.pad = service.remove(pad, $index)">
+                    ng-click="this.pad = service.remove(pad, $index)"
+                    data-toggle="tooltip" 
+                    data-placement="auto" 
+                    title="delete">
                     <span class="fa fa-trash-o"></span>
                 </button>
 
                 <button 
                     type="button" 
                     ng-class="{'btn btn-xs control pull-right': true, 'btn-primary': service.isActive($index), 'btn-default': !service.isActive($index)}"  
-                    ng-click="service.edit($index)">
+                    ng-click="service.edit($index)"
+                    data-toggle="tooltip" 
+                    data-placement="auto" 
+                    title="rename">
                     <span class="fa fa-pencil"></span>
                 </button>
             </span>
@@ -24,7 +30,7 @@
         <div class="input-group" ng-show="service.isEditing($index)">
             <input type="text" ng-class="{'form-control': true, 'has-error': service.validate(pad.filenames[$index])}" ng-model="pad.filenames[$index]" ng-required="true" ng-minlength="1" ng-maxlength="64" ng-pattern="/\w+/" autofocus>
             <div class="input-group-btn">
-                <button type="button" class="btn btn-primary" ng-disabled="!service.validate(pad.filenames[$index])" ng-click="service.done(pad, $index)"><span class="fa fa-check"></span></button>
+                <button type="button" class="btn btn-primary" ng-disabled="!service.validate(pad.filenames[$index])" ng-click="service.done(pad, $index)" data-toggle="tooltip" data-placement="auto" title="done renaming"><span class="fa fa-check"></span></button>
             </div>
         </div>
     </li>

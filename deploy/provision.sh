@@ -24,11 +24,7 @@ ln -sf /usr/bin/docker.io /usr/bin/docker
 gpasswd -a vagrant docker
 gpasswd -a tomcat7 docker
 
-echo "deploying application"
-mkdir -p /server
-chown tomcat7:tomcat7 /server
-rm -rf /var/lib/tomcat7/ROOT /var/lib/tomcat7/ROOT.war
-mv /ROOT.war /var/lib/tomcat7/webapps/
+echo "start service"
 service remote_syslog restart
 service tomcat7 restart
 

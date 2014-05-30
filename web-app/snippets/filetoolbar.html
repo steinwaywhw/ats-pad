@@ -4,13 +4,13 @@
 	</div>
 
 	<div class="pull-right btn-group btn-group-sm">
-		<button type="button" class="btn btn-default"><span class="fa fa-cloud-upload"></span></button>
-		<button type="button" class="btn btn-default"><span class="fa fa-cloud-download"></span></button>
-		<button type="button" class="btn btn-default" ng-click="service.create(pad)"><span class="fa fa-plus"></span></button>
+		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="auto" title="upload local files to this pad (comming soon)"><span class="fa fa-cloud-upload"></span></button>
+		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="auto" title="download this pad to your computer (comming soon)"><span class="fa fa-cloud-download"></span></button>
+		<button type="button" class="btn btn-default" ng-click="service.create(pad)" data-toggle="tooltip" data-placement="auto" title="create a new file"><span class="fa fa-plus"></span></button>
 	</div>
 	
 	<div class="pull-right btn-group btn-group-sm">
 		<!-- todo -->
-		<button class="btn btn-default"  ng-click="refresh()"><span class="fa fa-refresh"></span></button>               
+		<button class="btn btn-default"  ng-click="refresh()" data-toggle="tooltip" data-placement="auto" title="pull remote changes into this pad"><span class="fa fa-refresh"></span></button>               
 	</div>
 </div>	
