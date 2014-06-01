@@ -6,7 +6,7 @@ angular.module('atsPadApp')
     notifier = appNotificationService 
 
   	if not ace?
-  		notifier.error "ace editor is not avaliable"
+  		notifier?.error "ace editor is not avaliable"
 
   	id = null
   	editor = null

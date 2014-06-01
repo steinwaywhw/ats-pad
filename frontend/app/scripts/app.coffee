@@ -14,11 +14,11 @@ angular.module('atsPadApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']
 
 			.when '/',
 				templateUrl : 'views/main.html'
-				controller  : 'MainController'
+				controller  : 'MainCtrl'
 
 			.when '/:filename',
 				templateUrl : 'views/main.html'
-				controller  : 'MainController'	
+				controller  : 'MainCtrl'	
 
 
 			.when '/fork',
