@@ -5,9 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Online Editor for ATS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+   
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -15,22 +17,52 @@
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    
+
+    <link rel="stylesheet" href="" id="appThemeChooser">
+
+
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="" id="appThemeChooser">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,700,700italic">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono|Droid+Sans+Mono|Source+Code+Pro|Inconsolata">
   </head>
-  <body ng-app="atsPadApp">
+  <body ng-app="atsPadApp" class="container-fluid">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <select class="form-control" app-theme-chooser id-css="appThemeChooser"></select>
+
+    <header class="ats-pad-header">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1 ats-pad-logo">
+                <h1><b>atspad</b><sup><small>&beta;</small></sup></h1>
+                <p><i>your online ats playground</i></p>
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <div class="alert alert-dismissable alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>Warning!</h4>
+                    <p>This site is still in beta. You may encounter problems, or lose data.</p>
+                </div>
+            </div>
+       </div>
+    </header>
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div ng-view=""></div>
+
+    <footer class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <hr>
+            <div class="ats-pad-footer">
+                Copyright Hanwen Wu
+            </div>
+        </div>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -48,6 +80,8 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+    <script src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -58,8 +92,10 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/markdown/lib/markdown.js"></script>
+    <script src="bower_components/term.js/src/term.js"></script>
     <script src="bower_components/socket.io-client/socket.io.js"></script>
     <script src="bower_components/spinjs/spin.js"></script>
+    <script src="bower_components/less/dist/less-1.7.0.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -78,6 +114,16 @@
     <script src="scripts/services/appnotificationservice.js"></script>
     <script src="scripts/directives/appfilelist.js"></script>
     <script src="scripts/directives/appthemechooser.js"></script>
+    <script src="scripts/directives/appeditor.js"></script>
+    <script src="scripts/controllers/filelist.js"></script>
+    <script src="scripts/directives/apptooltip.js"></script>
+    <script src="scripts/directives/appreadme.js"></script>
+    <script src="scripts/directives/appterminal.js"></script>
+    <script src="scripts/directives/appstatusbar.js"></script>
+    <script src="scripts/directives/appfiletoolbar.js"></script>
+    <script src="scripts/directives/appsidebar.js"></script>
+    <script src="scripts/directives/appaffix.js"></script>
+    <script src="scripts/services/apptermclient.js"></script>
     <!-- endbuild -->
 </body>
 </html>

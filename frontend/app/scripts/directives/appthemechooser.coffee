@@ -1,7 +1,11 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .directive 'appThemeChooser', ($http) ->
+angular.module('atsPadApp').directive 'appThemeChooser', ($http, $rootScope) ->
+
+	###*
+	 * Use it like this:
+	 * <select class="form-control" app-theme-chooser id-css="appThemeChooser"></select>
+	###
 
 	themes = []
 	css = null
@@ -15,7 +19,6 @@ angular.module('atsPadApp')
 			for theme, index in themes 
 				select.append($("<option/>").val(index).text(theme.name))
 
-	# return
 	{
 		restrict: 'A'
 		link: (scope, element, attrs) ->
@@ -29,6 +32,5 @@ angular.module('atsPadApp')
 				index = $(this).val()
 				theme = themes[index]
 				css.attr("href", theme.cssCdn)
-			
-			
+				$rootScope.$broadcast "app_evt_theme_changed", theme
 	}

@@ -1,0 +1,26 @@
+@import "../bower_components/less-elements/elements.less";
+@import "../bower_components/bootstrap/less/variables.less";
+@import "editor.less";
+
+@statusbar-color: darken(white, 10%);
+@statusbar-bg-color: rgba(255, 255, 255, 0.1);
+
+.ats-pad-editor-container {
+	position: relative;
+}
+
+#ats-pad-statusbar {
+	font-family: @editor-font-family;
+	font-size: @font-size-small;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 4px 8px;
+	z-index: 1000;
+	.rounded(@border-radius-base);
+
+
+
+	color: @statusbar-color;
+	background-color: @statusbar-bg-color;
+}

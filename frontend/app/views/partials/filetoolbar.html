@@ -1,0 +1,50 @@
+<div class="ats-pad-filetoolbar btn-toolbar" role="toolbar">
+	
+	<div class="pull-right btn-group btn-group-sm"> 
+		<button 
+			type="button" 
+			class="btn btn-primary" 
+			ng-click="service.create(pad)" 
+			data-toggle="tooltip" 
+ 			title="create a new file"
+			app-tooltip>
+				<span class="fa fa-plus"></span>
+				Add
+		</button>
+	</div>
+
+	<div class="pull-right btn-group btn-group-sm">
+		<button 
+			type="button" 
+			class="btn btn-default" 
+			data-toggle="tooltip" 
+			title="upload local files to this pad (comming soon)"
+			app-tooltip>
+				<span class="fa fa-cloud-upload"></span>
+		</button>
+
+		<a  ng-href="{{downloadUrl}}"
+			type="button" 
+			class="btn btn-default" 
+			data-toggle="tooltip" 
+ 			title="download this pad to your computer"
+			app-tooltip>
+				<span class="fa fa-cloud-download"></span>
+		</a>
+	</div>
+
+	
+	
+	<div class="pull-left btn-group btn-group-sm">
+		<!-- todo -->
+		<button 
+			class="btn btn-default"  
+			ng-click="syncToClient()" 
+			data-toggle="tooltip" 
+ 			title="pull remote changes into this pad"
+			app-tooltip>
+				<span class="fa fa-refresh"></span>
+				Refresh
+		</button>               
+	</div>
+</div>	

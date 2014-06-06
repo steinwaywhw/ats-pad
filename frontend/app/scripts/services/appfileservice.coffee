@@ -1,45 +1,32 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .factory 'appFileService', (appNotificationService) ->
+angular.module('atsPadApp').factory 'appFileService', (appNotificationService, $routeParams) ->
 
-	editing = []
-	filenames = []
 	active = 0
-	
+	editing = false
+
 	modes = 
 		"ace/mode/markdown" : [".*\\.md$", "readme.*"]
 		"ace/mode/ats"      : [".*\\.[ds]ats$"]
 		"ace/mode/c_cpp"    : [".*\\.[ch]$", ".*\\.[ch]ats$"]
 		"ace/mode/java"     : [".*\\.java$"]
-	
+
 
 	notifier = appNotificationService
 	
 	# Public API here
 	{
-		init: (pad) ->
-			notifier.debug "init file service"
-
-			editing.length = 0
-			for name in [0...pad.filenames.length] 
-				editing.push(false)
-
-			filenames = pad.filenames[..]
-			active = 0
-
-		isActive: (index) -> index is active
-		isEditing: (index) -> editing[index]
-
 		active: -> active
 		select: (index) -> active = index
-		edit: (index) -> editing[index] = true
-		done: (index) -> editing[index] = false
+		edit: (b) -> editing = b
+		isEditing: -> editing
+
 		validate: (filename) ->
-			result = false
-			result = true if filename? and (1 <= filename.length <= 64) and /\w+/.test(filename)
-			
-			result
+			if not filename?
+				false
+			else
+				/^[A-Za-z0-9_\.\-]+$/.test(filename) and filename.length <= 64
+
 
 		guessMode: (filename) ->
 			mode = "ace/mode/text"
@@ -51,19 +38,7 @@ angular.module('atsPadApp')
 
 			mode
 
-		create: () ->
-			filenames.push("")
-			editing.push(true)
-			active = filenames.length - 1
 
-		remove: (index) ->
-			if not @isReadme(index)
-				filenames.splice(index, 1)
-				editing.splice(index, 1)
-
-				if active >= filenames.length
-					active = filenames.length - 1
-
-		isReadme: (index) -> /readme.*/i.test(filenames[index])
+		isReadme: (filename) -> /readme.*/i.test(filename)
 
 	}

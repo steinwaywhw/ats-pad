@@ -39,6 +39,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
         tasks: ['newer:coffee:test', 'karma']
       },
+      recess: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['recess:dist']
+      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -131,6 +135,18 @@ module.exports = function (grunt) {
           src: '{,*/}*.css',
           dest: '.tmp/styles/'
         }]
+      }
+    },
+
+    recess: {
+      options: {
+        compile: true,
+        compress: true
+      },
+      dist: {
+        files: {
+          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/*.less']
+        }
       }
     },
 
@@ -297,26 +313,43 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'styles/{,*/}*.keep', // TODO
+            'bower_components/fontawesome/fonts/*', // TODO
+            'bower_components/ace-builds/src-min-noconflict/*' //TODO
           ]
         }, {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/bower_components',
+          dest: '<%= yeoman.dist %>/styles',
+          src: 'bootswatch/{,*/}variables.less' // TODO
         }]
       },
       styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          dest: '.tmp/styles/',
+          src: ['{,*/}*.css','{,*/}*.keep'] // TODO
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/bower_components',
+          dest: '.tmp/styles/',
+          src: 'bootswatch/{,*/}variables.less' // TODO
+        }]
+        
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'recess:dist',
         'coffee:dist',
         'copy:styles'
       ],
@@ -398,6 +431,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'recess:dist',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

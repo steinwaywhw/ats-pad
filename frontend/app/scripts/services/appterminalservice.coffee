@@ -1,15 +1,12 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .factory 'appTerminalService', ($http, $timeout, appNotificationService, appUrlService) ->
+angular.module('atsPadApp').factory 'appTerminalService', ($http, $timeout, appTermClient, appNotificationService, appUrlService) ->
 
 	notifier = appNotificationService
 	id = null
 	ready = false
 
-
-	if not client?
-		notifier.error "terminal is not available"
+	client = appTermClient
 
 	options = 
 		path: "console"
@@ -34,7 +31,9 @@ angular.module('atsPadApp')
 
 			api = appUrlService.worker
 			request = $http.get(api)
-
+			client.open(options)
+			
+			
 			request.success (remote, status) ->
 				notifier.debug "got remote worker"
 				options.remote = remote
@@ -55,3 +54,8 @@ angular.module('atsPadApp')
 			client.term.write("\n\r#{msg}")
 			@cmd("\n")
 	}
+
+
+
+
+

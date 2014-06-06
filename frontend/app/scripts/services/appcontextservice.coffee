@@ -1,7 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .factory 'appContextService', ->
+angular.module('atsPadApp').factory 'appContextService', ->
     
     id = null
 

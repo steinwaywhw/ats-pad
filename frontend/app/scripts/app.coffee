@@ -6,24 +6,20 @@ angular.module('atsPadApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']
 			
 			.when '/loading',
 				templateUrl : 'views/loading.html'
-				controller  : 'LoadingController'
+				controller  : 'LoadingCtrl'
 
 			.when '/about',
 				templateUrl : 'views/about.html'
-				controller  : 'AboutCountroller'
+				controller  : 'AboutCtrl'
 
 			.when '/',
-				templateUrl : 'views/main.html'
-				controller  : 'MainCtrl'
-
-			.when '/:filename',
 				templateUrl : 'views/main.html'
 				controller  : 'MainCtrl'	
 
 
 			.when '/fork',
 				templateUrl : 'views/loading.html'
-				controller  : 'LoadingController'
+				controller  : 'LoadingCtrl'
 
 			.otherwise
 				redirectTo  : '/'

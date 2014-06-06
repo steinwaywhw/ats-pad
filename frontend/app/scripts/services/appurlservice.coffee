@@ -1,7 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .factory 'appUrlService', (appContextService) ->
+angular.module('atsPadApp').factory 'appUrlService', (appContextService) ->
     
     id = appContextService.getId()
     prefix = "/api/pad"

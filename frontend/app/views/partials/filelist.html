@@ -1,44 +1,76 @@
 
-<ul class="nav nav-pills nav-stacked">
 
-    <li ng-repeat="filename in pad.filenames track by $index" 
-    	ng-class="{active: isActive($index)}">
 
-        <a href="#" 
-           ng-click="service.select($index)" 
-           class="file" 
-           ng-show="!service.isEditing($index)">
+<div class="list-group">
+	<li ng-repeat="name in pad.filenames track by $index"
+	    ng-click="onSelect($index)" 
+	    ng-class="{active: isActive($index) && !isEditing($index), 'list-group-item': true}">
 
-            {{filename}}
-            
-            <span ng-show="!service.isReadme(pad, $index)">
-                <button 
-                    type="button" 
-                    ng-class="{'btn btn-xs control pull-right': true, 'btn-primary': service.isActive($index), 'btn-default': !service.isActive($index)}" 
-                    ng-click="this.pad = service.remove(pad, $index)"
-                    data-toggle="tooltip" 
-                    data-placement="auto" 
-                    title="delete">
-                    <span class="fa fa-trash-o"></span>
-                </button>
+	   	<div ng-switch on="isEditing($index)">
+	   		<span ng-switch-when="false">
+	   			{{name}}
+		   		<span class="pull-right" ng-show="!isReadme(name) && isActive($index)">
+	   				<a 
+	   					ng-click="onDelete($index)"
+	   					data-toggle="tooltip" 
+ 						title="delete"
+	   					app-tooltip>
+	   					<span class="fa fa-trash-o"></span>
+	   				</a>
 
-                <button 
-                    type="button" 
-                    ng-class="{'btn btn-xs control pull-right': true, 'btn-primary': service.isActive($index), 'btn-default': !service.isActive($index)}"  
-                    ng-click="service.edit($index)"
-                    data-toggle="tooltip" 
-                    data-placement="auto" 
-                    title="rename">
-                    <span class="fa fa-pencil"></span>
-                </button>
-            </span>
-        </a>
+	   				<a 
+	   					ng-click="onEdit()"
+	   					data-toggle="tooltip" 
+ 						title="rename"
+	   					app-tooltip>
+	   					<span class="fa fa-pencil"></span>
+	   				</a>
+		   		</span>
+	   		</span>
+	   		
 
-        <div class="input-group" ng-show="service.isEditing($index)">
-            <input type="text" ng-class="{'form-control': true, 'has-error': service.validate(pad.filenames[$index])}" ng-model="pad.filenames[$index]" ng-required="true" ng-minlength="1" ng-maxlength="64" ng-pattern="/\w+/" autofocus>
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-primary" ng-disabled="!service.validate(pad.filenames[$index])" ng-click="service.done(pad, $index)" data-toggle="tooltip" data-placement="auto" title="done renaming"><span class="fa fa-check"></span></button>
-            </div>
-        </div>
-    </li>
-</ul>
+	   		<span ng-switch-when="true" ng-click="$event.stopPropagation()">
+
+	   			<form class="form-inline" 
+	   				role="form" 
+	   				ng-show="isEditing($index)" 
+	   				novalidate 
+	   				ng-submit="onSubmit($index)">
+
+	   				<div class="input-group" ng-class="{'has-error': !validate(form.filenames[$index], $index)}">
+	   					<input type="text" 
+	   						class="form-control"
+	   						ng-model="form.filenames[$index]"
+	   						autofocus>
+
+	   					<div class="input-group-btn">
+		   					<button 
+		   						type="button" 
+		   						class="btn btn-default" 
+		   						data-toggle="tooltip" 
+ 								title="cancel"
+		   						ng-click="onCancel($index)"
+		   						app-tooltip>
+		   						<span class="fa fa-times"></span>
+		   					</button>
+	   						<button 
+	   							type="submit" 
+	   							class="btn btn-primary" 
+		   						ng-disabled="!validate(form.filenames[$index], $index)" 
+	   							data-toggle="tooltip" 
+ 								title="ok"
+	   							app-tooltip>
+	   							<span class="fa fa-check"></span>
+	   						</button>
+	   					</div>
+	   				</div>
+	   				<span 
+	   					class="help-block text-warning" 
+	   					ng-hide="validate(form.filenames[$index], $index)">
+	   					please input a valid filename
+	   				</span>	
+	   			</form>
+	   		</span>
+	   	</div>
+	</li>
+</div>

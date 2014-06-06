@@ -1,0 +1,20 @@
+@import "../bower_components/bootstrap/less/variables.less";
+@import "../bower_components/less-elements/elements.less";
+
+@editor-height: 550px;
+// @editor-gutter-color: #3b3b3b;
+@editor-font-size: @font-size-base;
+@editor-font-family: 'Ubuntu Mono', 'Droid Sans Mono', 'Source Code Pro', 'Inconsolata', monospace;
+@editor-font-color: rgb(240, 240, 240);
+
+
+#ats-pad-editor {
+	height: @editor-height;
+	font-size: @editor-font-size;
+	font-family: @editor-font-family;
+	.rounded(@border-radius-base);
+}
+
+.ace_scrollbar {
+	display: none !important;
+}

@@ -1,7 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp')
-	.factory 'appPadService', ($http, appUrlService, appNotificationService, appContextService) ->
+angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appNotificationService, appContextService) ->
 	 
 
 		notifier = appNotificationService

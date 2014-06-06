@@ -1,36 +1,78 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">ats pad frontend</h3>
+<div class="row">
+  <!-- Left Part -->
+  <section class="col-md-8 col-md-offset-1">
+    <section class="row">
+      <div class="col-md-12">
+        <div class="ats-pad-readme" app-readme></div>
+      </div>
+    </section>
+
+    <section class="row">
+      <section class="col-md-3" ng-controller="FilelistCtrl">
+        <div class="ats-pad-filetoolbar" app-file-toolbar></div>
+        <div class="ats-pad-filelist" app-file-list></div>
+      </section>
+
+      <section class="col-md-9">
+        <div class="ats-pad-editor-container">
+          <div id="ats-pad-editor" app-editor></div>
+          <div id="ats-pad-statusbar" app-status-bar>aaa</div>
+        </div>
+      </section>
+    </section>
+
+    <section class="row">
+      <div class="col-md-12">
+        <div class="ats-pad-terminal">
+          <h4>Terminal</h4>
+          <div id="terminal" cols="140" rows="19" app-terminal></div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Right Part -->
+  <section class="col-md-2 ats-pad-sidebar" app-sidebar>
+
+  </section>
 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
 
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-</div>
+
+   <!--  <div class="col-md-2" ng-controller="SidebarController">
+      <div class="ats-pad-menu">
+        <button class="btn btn-block btn-default" ng-click="newpad()" data-toggle="tooltip" data-placement="auto" title="create a new pad">New Pad</button>
+        <button class="btn btn-block btn-default" ng-click="forkpad()" data-toggle="tooltip" data-placement="auto" title="fork a new pad based on this pad">Fork Pad</button>
+        <button class="btn btn-block btn-default" data-toggle="tooltip" data-placement="auto" title="delete this pad">Delete Pad</button>
+      </div>
+      <hr>
+      <div class="ats-pad-controls">
+        <button class="btn btn-primary btn-block" ng-click="run()">Run</button>
+        <button class="btn btn-default btn-block" ng-click="typecheck()">Type Check</button>
+      </div>
+      <hr>
+      <div class="ats-pad-embed">
+        <h3>Embed</h3>
+        <div class="content">
+          asdlkjasd;lkjdsa
+        </div>
+        <h3>Share</h3>
+
+      </div>
+    </div>
+        
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <hr>
+      <div class="ats-pad-footer">
+        Copyright Hanwen Wu
+      </div>
+
+      <div ng-include="'snippets/embed.html'"></div>
+
+    </div>
+  </div> -->

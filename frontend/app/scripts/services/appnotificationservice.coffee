@@ -1,7 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp')
-  .factory 'appNotificationService', ($log) ->
+angular.module('atsPadApp').factory 'appNotificationService', ($log) ->
 	
 	qError = []
 	qSuccess = []

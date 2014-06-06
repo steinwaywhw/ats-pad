@@ -1,0 +1,40 @@
+<div class="affix" data-top-limit='.ats-pad-readme .panel' data-bottom-limit='#ats-pad-editor' app-affix>
+	<button class="btn btn-primary btn-block" 
+	  ng-click="newpad()" 
+	  data-toggle="tooltip" 
+	  data-placement="auto" 
+	  title="create a new pad">New Pad</button>
+
+	<div class="btn-group-vertical btn-block">
+	  
+	  
+	  <button class="btn btn-default" 
+	    ng-click="forkpad()" 
+	    data-toggle="tooltip" 
+	    data-placement="auto" 
+	    title="fork a new pad based on this pad">Fork Pad</button>
+	  
+	  <button class="btn btn-default" 
+	    data-toggle="tooltip" 
+	    data-placement="auto" 
+	    title="delete this pad">Delete Pad</button>
+	</div>
+
+	<hr/>
+	<section class="ats-pad-embed">
+	  <h4>Embed</h4>
+	  <div class="well">Comming Soon</div>
+	</section>
+
+	<section class="ats-pad-share">
+	  <h4>Share</h4>
+	  <div class="well">Comming Soon</div>
+	</section>
+
+	<hr/>
+	<section>
+		<h4>Theme</h4>
+		<select class="form-control" app-theme-chooser id-css="appThemeChooser"></select>
+	</section>
+</div>
+
