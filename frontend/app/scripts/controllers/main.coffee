@@ -1,12 +1,13 @@
 'use strict'
 
-angular.module('atsPadApp').controller 'MainCtrl', ($scope, $location, $timeout, $routeParams, appNotificationService, appPadService, appContextService, appEditorService, testPad, appTerminalService) ->
+angular.module('atsPadApp').controller 'MainCtrl', ($cookies, $scope, $location, $timeout, $routeParams, appNotificationService, appPadService, appContextService, appEditorService, testPad, appTerminalService) ->
 	
 	notifier = appNotificationService
 	# $scope.pad = 
 	# 	id: testPad.id 
 	# 	filenames: testPad.filenames
 	# 	filecontents: testPad.filecontents
+	
 
 	binding = () ->
 		sync = (newv, oldv, scope) ->

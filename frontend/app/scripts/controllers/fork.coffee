@@ -9,10 +9,8 @@ angular.module('atsPadApp').controller 'ForkCtrl', ($location, $timeout, $scope,
 	else
 		notifier.debug "pad id #{$routeParams.id}, forking"
 		appContextService.reset()
-		appContextService.setId($routeParams.id)
-		appPadService.fork (id) ->
-			appContextService.reset()
-			$timeout -> $location.path("/#{id}")
+		appPadService.fork $routeParams.id, (id) ->
+			$timeout -> $location.path(id)
 
 
 

@@ -97,8 +97,10 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 				request.error (data, status) ->
 					notifier.error("failed to refresh", data)
 
-			fork: (callback) ->
-				notifier.debug "forking"
+			fork: (id, callback) ->
+				notifier.debug "forking #{id}"
+
+				appContextService.setId(id)
 				api = appUrlService.forkApi()
 
 				request = $http.get(api)

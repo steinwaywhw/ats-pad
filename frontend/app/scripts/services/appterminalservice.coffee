@@ -3,45 +3,42 @@
 angular.module('atsPadApp').factory 'appTerminalService', ($http, $timeout, appNotificationService, appUrlService) ->
 
 	notifier = appNotificationService
-	id = null
 	ready = false
 
-	options = 
-		path: "/console"
-		remote: null
-		parent: null
-		cols: 140
-		rows: 19
-		wait: 3 #seconds
 
 	# Public API here
 	{
 		init: (idSelector, opts) ->
 			notifier.debug "init terminal"
-
 			ready = false
 
-			id = idSelector
-			options.parent = document.getElementById(id)
-			options.cols = opts.cols if opts?.cols?
-			options.rows = opts.rows if opts?.rows?
-			options.wait = opts.wait if opts?.wait?
+
+			opts = @default(opts)
+			opts.parent = document.getElementById(idSelector)
+			@open(opts)
 
 			api = appUrlService.worker()
-			@open(options)
-
 			request = $http.get(api)
 			
-			request.success (remote, status) =>
-				notifier.debug "got remote worker: #{remote}"
-				options.remote = remote
+			request.success (url, status) =>
+				notifier.debug "got remote worker: #{url}"
+				opts.url = url
 
-				callback = => @connect(options)
-				$timeout(callback, options.wait * 1000)
-				ready = true
+				#opts.url = "http://107.170.130.41:8023/?wid=worker:54ADF33D09C279D839AA641DBE6983D6:LC59WEwml6UOOZwM"
 
+				$.getScript @scriptUrl(opts.scriptId, url), () =>
+					callback = => @connect(opts)
+					$timeout(callback, opts.initDelay * 1000)
+					ready = true
+				
 			request.error (data, status) ->
 				notifier.error("failed to load worker address", data)
+
+		scriptUrl: (id, workerUrl) ->
+			a = $('<a>', href:workerUrl)[0]
+			scriptUrl = "http://#{a.hostname}:#{a.port}/console/primus.js#{a.search}"
+			return scriptUrl
+
 
 		isReady: () -> ready
 
@@ -49,85 +46,53 @@ angular.module('atsPadApp').factory 'appTerminalService', ($http, $timeout, appN
 			@term.emit("data", "#{cmd}\n")
 
 		msg: (msg) -> 
-			@term.write("#{msg}")
-			@cmd("\n")
+			@term.write("#{msg}\r\n")
+			@cmd("")
+
+		default: (opts) ->
+			scriptId  : opts?.scriptId ? "primus"
+			path      : opts?.path ? "/console"
+			url       : opts?.url ? "http://localhost:8080"
+			cols      : opts?.cols ? 180
+			rows      : opts?.rows ? 30
+			parent    : opts?.parent ? document.body
+			initDelay : opts?.initDelay ? 3 #seconds
 
 		### Terminal Client ###
 		
-		default: (opts) ->
-			path                 : opts?.path ? "/console"
-			remote               : opts?.remote ? "http://localhost:8080"
-			reconnectionDelay    : opts?.reconnectionDelay ? 500
-			reconnectionAttempts : opts?.reconnectionAttempts ? 20
-			cols                 : opts?.cols ? 180
-			rows                 : opts?.rows ? 30
-			parent               : opts?.parent ? document.body;
-			timeout              : opts?.timeout ? 10000
-			focus                : opts?.focus ? false
-			forceNew             : opts?.forceNew ? true 
-
 		term: null
-		socket: null
+		primus: null
 
 		open: (opts) ->
-			if not @term?
-				notifier.debug("opening terminal")
-				opts = @default(opts)
+			if @term?
+				@term.destroy()
 
-				@term = new Terminal 
-					cols: options.cols 
-					rows: options.rows
-					useStyle: true
-					screenKeys: true
+			notifier.debug("opening terminal")
+			opts = @default(opts)
 
-				@term.open(options.parent)	
+			@term = new Terminal 
+				cols: opts.cols 
+				rows: opts.rows
+				useStyle: true
+				screenKeys: true
+
+			@term.open(opts.parent)
+
+			@term.on "data", (data) =>
+				if @primus?
+					@primus.write(data)
 
 		connect: (opts) ->
 			notifier.debug("connecting to worker")
 			opts = @default(opts)
 
-			#opts.remote = "http://107.170.130.41:8023/?wid=worker:C920EE39F2567856EC46ED701F19A061:UFs9ydJdVFAGQU2E"
+			if @primus? then @primus.end()
 
-			@socket = io.connect opts.remote, 
-				path                 : opts.path
-				timeout              : opts.timeout
-				reconnectionDelay    : opts.reconnectionDelay
-				reconnectionAttempts : opts.reconnectionAttempts
-				forceNew             : opts.forceNew 
-
-			@socket.on 'connect', => 
-				notifier.debug("connected")
-				@unbind()
-				@bind(opts)
-				@cmd('\n')
-				@cmd('clear')
-
-		bind: (opts) ->
-			notifier.debug("binding")
-			@term.on 'data', (data) => @socket.emit 'data', data
-			@socket.on 'data', (data) => @term.write(data)
-			@socket.on 'reconnecting', (count) => @msg("Reconnecting: #{count}\n")
-			@socket.on 'disconnect', => 
-				@unbind()
-				@socket.close()
-				@socket = null
-				@connect(opts)
-			
-		unbind: ->
-			notifier.debug("unbinding")
-			@term.removeAllListeners 'data'
-			@socket.removeAllListeners 'data'
-
-				#  connect: 1,
-				# connect_error: 1,
-				# connect_timeout: 1,
-				# disconnect: 1,
-				# error: 1,
-				# reconnect: 1,
-				# reconnect_attempt: 1,
-				# reconnect_failed: 1,
-				# reconnect_error: 1,
-				# reconnecting: 1
+			@primus = Primus.connect opts.url 
+			@primus.on "data", (data) => @term.write(data)
+			@primus.on "open", () => @cmd("clear")
+			@primus.on "error", () => @msg("error")
+			@primus.on "reconnecting", () => @msg("reconnecting")
 	}
 
 

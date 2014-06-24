@@ -1,1 +1,0 @@
-define("ace/snippets/ats",["require","exports","module"],function(e,t,n){t.snippetText="",t.scope="ats"})

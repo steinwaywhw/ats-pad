@@ -79,7 +79,7 @@ angular.module('atsPadApp').constant 'appTermClient',
 			@run(options)
 
 		socket.on 'reconnect_failed', =>
-			@term.write "Reonnection failed\r\n"
+			@term.write "Reconnection failed\r\n"
 			@cleanup()
 			@run(options)
 		

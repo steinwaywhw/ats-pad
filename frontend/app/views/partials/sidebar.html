@@ -27,6 +27,29 @@
 	</div>
 
 	<hr/>
+
+	<button type="button" class="btn btn-primary btn-block"
+			ng-click="run()"
+			data-toggle="tooltip"
+			data-placement="auto"
+			title="run with default options">Run</button>
+	
+	<form role="form">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="flags.ATS_MEMALLOC_LIBC">-DATS_MEMALLOC_LIBC
+			</label>
+		</div>
+	</form>
+
+	<button type="button" class="btn btn-default btn-block"
+			ng-click="typecheck()"
+			data-toggle="tooltip"
+			data-placement="auto"
+			title="typecheck current file">Type Check</button>
+
+	<hr/>
+
 	<section class="ats-pad-embed">
 		<h4>Embed</h4>
 		<div class="well">Comming Soon</div>

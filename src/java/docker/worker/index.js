@@ -1,6 +1,1 @@
-
-
-var server = require('./server.js');
-
-
-server.run({port: 8023});
+require('./server.js').up({port: 8023});

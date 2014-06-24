@@ -29,9 +29,8 @@ RUN curl https://www.npmjs.org/install.sh | clean=no sh
 RUN mkdir -p /root/server
 WORKDIR /root/server
 RUN npm update -g node-gyp
-RUN npm install term.js
-RUN npm install socket.io
-RUN npm install express
+RUN npm install engine.io
+RUN npm install primus
 RUN npm install pty.js
 
 

@@ -1,60 +1,57 @@
 
-
-http    = require 'http'
-express = require 'express'
-io      = require 'socket.io'
-pty     = require 'pty.js'
-termjs  = require 'term.js'
-
-
-
 server = 
 	term   : null
 	buff   : []
-	server : null
-	room   : 'clients'
-	termup : (opts) ->
+	primus : null
+	
+	default: (opts) ->
+		cols        : opts?.cols ? 140
+		rows        : opts?.rows ? 19
+		cwd         : opts?.cwd ? '/root/atspad'
+		pathname    : opts?.pathname ? "/console"
+		transformer : opts?.transformer ? "engine.io"
+		timeout     : opts?.timeout ? false
+		port        : opts?.port ? 8023
+
+	upTerm: (opts) ->
+		opts = @default(opts)
+
 		term_opts = 
 			name : require('fs').existsSync('/usr/share/terminfo/x/xterm-256color') ? 'xterm-256color' : 'xterm'
-			cols : opts?.cols ? 140
-			rows : opts?.rows ? 19
-			cwd  : opts?.cwd ? '/root/atspad'
+			cols : opts.cols
+			rows : opts.rows
+			cwd  : opts.cwd
 
-		@term = pty.fork 'bash', ['--rcfile', '/root/.bashrc'], term_opts
+		@term = require('pty.js').fork 'bash', ['--rcfile', '/root/.bashrc'], term_opts
 
-	binding: ->
-		@term.on 'data', (data) => 
-			if @server.engine.clientsCount isnt 0
-				@server.sockets.in(@room).emit('data', data)
-			else
+	upServer: (opts) ->
+		opts = @default(opts)
+
+		@primus = require('primus').createServer
+			pathname    : opts.pathname 
+			transformer : opts.transformer  
+			timeout     : opts.timeout 
+			port        : opts.port 
+
+		@primus.save "#{__dirname}/primus.js"
+
+		@term.on "data", (data) =>
+			if @primus.connected is 0
 				@buff.push(data)
+			else
+				@primus.write(data)
 
-		@server.on 'connection', (socket) =>
-			socket.join @room
-			socket.on 'data', (data) => @term.write(data)
-			socket.on 'disconnect', () => socket.leave @room
-				
+		@primus.on "connection", (spark) =>
+
 			while @buff.length
-				@server.sockets.in(@room).emit('data', @buff.shift())
+				@primus.write(@buff.shift())
 
-	serverup: (opts) ->
-		app = express()
-		httpserver = http.createServer(app)
+			spark.on 'data', (data) =>
+				@term.write(data)
 
-		app.use(express.static(__dirname))
-		app.use(termjs.middleware())
-
-		httpserver.listen(opts?.port ? 8023)
-
-		server_opts = 
-			path: opts?.path ? "/console"
-			log: true
-
-		@server = new io(httpserver, server_opts)
-
-	run: (opts) ->
-		@termup opts 
-		@serverup opts 
-		@binding()
+	up: (opts) ->
+		opts = @default(opts)
+		@upTerm(opts)
+		@upServer(opts)
 
 module.exports = server;
