@@ -1,3 +1,6 @@
+<section class="ats-pad-loading" app-loading></section>
+
+
 <div class="row">
   <!-- Left Part -->
   <section class="col-md-8 col-md-offset-1">
@@ -8,9 +11,9 @@
     </section>
 
     <section class="row">
-      <section class="col-md-3" ng-controller="FilelistCtrl">
-        <div class="ats-pad-filetoolbar" app-file-toolbar></div>
-        <div class="ats-pad-filelist" app-file-list></div>
+      <section class="col-md-3">
+        <div class="ats-pad-filetoolbar" app-file-toolbar ng-controller="FiletoolbarCtrl"></div>
+        <div class="ats-pad-filelist" app-file-list ng-controller="FilelistCtrl"></div>
       </section>
 
       <section class="col-md-9">
@@ -32,47 +35,5 @@
   </section>
 
   <!-- Right Part -->
-  <section class="col-md-2 ats-pad-sidebar" app-sidebar>
-
-  </section>
+  <section class="col-md-2 ats-pad-sidebar" app-sidebar ng-controller="SidebarCtrl"></section>
 </div>
-
-
-
-
-
-
-   <!--  <div class="col-md-2" ng-controller="SidebarController">
-      <div class="ats-pad-menu">
-        <button class="btn btn-block btn-default" ng-click="newpad()" data-toggle="tooltip" data-placement="auto" title="create a new pad">New Pad</button>
-        <button class="btn btn-block btn-default" ng-click="forkpad()" data-toggle="tooltip" data-placement="auto" title="fork a new pad based on this pad">Fork Pad</button>
-        <button class="btn btn-block btn-default" data-toggle="tooltip" data-placement="auto" title="delete this pad">Delete Pad</button>
-      </div>
-      <hr>
-      <div class="ats-pad-controls">
-        <button class="btn btn-primary btn-block" ng-click="run()">Run</button>
-        <button class="btn btn-default btn-block" ng-click="typecheck()">Type Check</button>
-      </div>
-      <hr>
-      <div class="ats-pad-embed">
-        <h3>Embed</h3>
-        <div class="content">
-          asdlkjasd;lkjdsa
-        </div>
-        <h3>Share</h3>
-
-      </div>
-    </div>
-        
-  </div>
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <hr>
-      <div class="ats-pad-footer">
-        Copyright Hanwen Wu
-      </div>
-
-      <div ng-include="'snippets/embed.html'"></div>
-
-    </div>
-  </div> -->

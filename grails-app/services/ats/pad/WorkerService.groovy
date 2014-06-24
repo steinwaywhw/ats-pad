@@ -55,11 +55,21 @@ class WorkerService {
     	
     	// already up and running
     	if (redisService.exists(worker.id)) {
-    		log.trace "Already up and running"
-    		worker = getWorker(worker.id)
-            log.info "${worker}"
-    		keepAlive(worker)
-    		return worker
+            worker = getWorker(worker.id)
+            
+            // actually running
+            if (dockerService.inspect(worker.cid, "running")) {
+                log.trace "Already up and running"
+                log.info "${worker}"
+                keepAlive(worker)
+                return worker
+
+            // died
+            // TODO
+            } else {
+                log.trace "Died, removed from redis"
+                redisService.del(worker.id)
+            }    		
     	}
 
     	// check working dir existance
@@ -78,7 +88,7 @@ class WorkerService {
     	// run image
     	def cid = dockerService.run([
             img: workerTag, 
-            cmd: "node index.js",
+            cmd: "./run.sh",
             dir: ["${cwd}": workerCwd]
         ])
 
@@ -203,6 +213,7 @@ class WorkerService {
     		wids.each { wid ->
     		    def worker = getWorker(wid)
     			this.stop(worker)
+                redisService.del(wid)
     		}
     	}
 

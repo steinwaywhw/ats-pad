@@ -92,6 +92,8 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.0.2"
         runtime ":resources:1.2.7"
 
+        runtime ":cors:1.1.6"
+
         //
         //compile ":redis:1.5.1"
         // Uncomment these (or add new ones) to enable additional resources capabilities

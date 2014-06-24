@@ -4,7 +4,8 @@
 <div class="list-group">
 	<li ng-repeat="name in pad.filenames track by $index"
 	    ng-click="onSelect($index)" 
-	    ng-class="{active: isActive($index) && !isEditing($index), 'list-group-item': true}">
+	    ng-class="{active: isActive($index) && !isEditing($index), 'list-group-item': true}"
+	    >
 
 	   	<div ng-switch on="isEditing($index)">
 	   		<span ng-switch-when="false">
@@ -31,17 +32,20 @@
 
 	   		<span ng-switch-when="true" ng-click="$event.stopPropagation()">
 
-	   			<form class="form-inline" 
+	   			<form 
+	   				class="form-inline" 
 	   				role="form" 
 	   				ng-show="isEditing($index)" 
 	   				novalidate 
 	   				ng-submit="onSubmit($index)">
 
-	   				<div class="input-group" ng-class="{'has-error': !validate(form.filenames[$index], $index)}">
-	   					<input type="text" 
+	   				<div class="input-group" ng-class="{'has-error': !validate(form.filenames[$index], $index) && renameform.$dirty}" ng-form="renameform">
+	   					<input 
+	   						name="filename"
+	   						type="text" 
 	   						class="form-control"
 	   						ng-model="form.filenames[$index]"
-	   						autofocus>
+	   						autofocus="isEditing($index)">
 
 	   					<div class="input-group-btn">
 		   					<button 
@@ -66,7 +70,7 @@
 	   				</div>
 	   				<span 
 	   					class="help-block text-warning" 
-	   					ng-hide="validate(form.filenames[$index], $index)">
+	   					ng-hide="validate(form.filenames[$index], $index) || renameform.$pristine">
 	   					please input a valid filename
 	   				</span>	
 	   			</form>

@@ -1,4 +1,3 @@
-
 echo "updating apt-get"
 apt-get update
 apt-get upgrade -y

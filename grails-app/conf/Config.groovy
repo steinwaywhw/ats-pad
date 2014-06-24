@@ -195,6 +195,7 @@ log4j = {
 
     // all  file: 'grails.app'
     //      additivity: false 
+    
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP

@@ -46,7 +46,7 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 		{
 			create: (callback) ->
 				notifier.debug "creating new pad"
-				api = appUrlService.create 
+				api = appUrlService.create() 
 
 				request = $http.get(api)
 
@@ -59,7 +59,8 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 
 			show: (id, callback) ->
 				notifier.debug "loading pad #{id}"
-				api = appUrlService.show
+				appContextService.setId(id)
+				api = appUrlService.show()
 
 				request = $http.get(api)
 
@@ -72,10 +73,10 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 
 			syncToServer: (pad) ->
 				notifier.debug "syncing to server: #{pad.id}"
-				api = appUrlService.syncToServer
+				api = appUrlService.syncToServer()
 
 				files = angular.toJson(toserver(pad))
-				request = $http.post(api, data)
+				request = $http.post(api, files)
 
 				request.success (data, status) ->
 					notifier.success "saved"
@@ -85,7 +86,7 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 
 			syncToClient: (callback) ->
 				notifier.debug "syncing from server"
-				api = appUrlService.syncToClient
+				api = appUrlService.syncToClient()
 
 				request = $http.get(api)
 
@@ -98,7 +99,7 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 
 			fork: (callback) ->
 				notifier.debug "forking"
-				api = appUrlService.forkApi
+				api = appUrlService.forkApi()
 
 				request = $http.get(api)
 
@@ -111,7 +112,7 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 
 			delete: (callback) ->
 				notifier.debug "deleting"
-				api = appUrlService.delete
+				api = appUrlService.delete()
 
 				request = $http.delete(api)
 
@@ -125,13 +126,13 @@ angular.module('atsPadApp').factory 'appPadService', ($http, appUrlService, appN
 			validate: (pad) ->
 				result = true
 
-				if not (pad?.id and pad?.filecontents and pad?.filenames)
+				if not (pad?.id? and pad?.filecontents? and pad?.filenames?)
+					notifier.debug("validating: false - pad is not complete")
 					result = false
 				else
-					len1 = (c for c in pad.filecontents when c? and c isnt "").length
-					len2 = (n for n in pad.filenames when n? and n isnt "").length
-
-					result = false if not (len1 is 0 and len2 is 0)
+					len = (n for n in pad.filenames when (not n?) or (n is "")).length
+					result = false if len isnt 0
+					notifier.debug("validating: #{result}")
 
 				# return
 				result

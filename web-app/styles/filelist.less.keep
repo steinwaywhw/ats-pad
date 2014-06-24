@@ -1,0 +1,51 @@
+
+.ats-pad-filelist {
+	a {
+		cursor: pointer;
+	}
+	
+	.list-group-item a {
+		color: @list-group-active-color;
+		margin-left: 5px;
+		opacity: 0.5;
+
+		&:hover,
+	    &:focus {
+	    	text-decoration: none;
+	    	opacity: 1;
+	    }
+	}
+
+	li.list-group-item {
+	  color: @list-group-link-color;
+
+	  .list-group-item-heading {
+	    color: @list-group-link-heading-color;
+	  }
+
+	  // Hover state
+	  &:hover,
+	  &:focus {
+	    text-decoration: none;
+	    background-color: @list-group-hover-bg;
+	  }
+
+	  // Active class on item itself, not parent
+	  &.active,
+	  &.active:hover,
+	  &.active:focus {
+	    z-index: 2; // Place active items above their siblings for proper border styling
+	    color: @list-group-active-color;
+	    background-color: @list-group-active-bg;
+	    border-color: @list-group-active-border;
+
+	    // Force color to inherit for custom content
+	    .list-group-item-heading {
+	      color: inherit;
+	    }
+	    .list-group-item-text {
+	      color: @list-group-active-text-color;
+	    }
+	  }
+	}
+}

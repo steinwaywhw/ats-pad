@@ -10,14 +10,15 @@
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
     "bootstrap": "~3.1.1",
-    "markdown": "~0.5.0",
     "term.js": "https://github.com/chjj/term.js.git#~0.0.4",
     "fontawesome": "~4.1.0",
     "socket.io-client": "~1.0.2",
     "spinjs": "~2.0.1",
     "ace-builds": "~1.1.3",
     "less": "~1.7.0",
-    "bootswatch": "~3.1.1+1"
+    "bootswatch": "v3.1.1+1",
+    "marked": "~0.3.2",
+    "highlightjs": "~8.0.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

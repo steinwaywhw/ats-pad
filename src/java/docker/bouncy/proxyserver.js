@@ -3,7 +3,7 @@ var bouncy = require('bouncy');
 var url = require('url');
 var util = require('util');
 
-redis.debug_mode = true;
+redis.debug_mode = false;
 
 var proxy = {};
 var context = {};
@@ -134,6 +134,8 @@ proxy.init = function () {
 	});
 
 	proxy.server = bouncy(function (req, res, bounce) {
+
+		
 		//console.dir(req);
 		proxy.dest(req).go(req, res, bounce);
 		//bounce(8080);

@@ -10,8 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  #config.vm.box = "chef/ubuntu-14.04"
-  config.vm.box = "digital_ocean"
+  config.vm.box = "chef/ubuntu-14.04"
+  #config.vm.box = "digital_ocean"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -58,6 +58,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.ssh.private_key_path = "~/.ssh/id_rsa"
+  #config.ssh.forward_agent = true
+
   config.vm.provider :digital_ocean do |provider|
     provider.client_id = "bfb3c8153fc5c6ceaa29edfff3dcc64d"
     provider.api_key = "311ddb3af034dd2addb87aba8634e64b"
@@ -137,6 +139,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.provision "file", source: "remote_syslog", destination: "/remote_syslog"
   config.vm.provision "file", source: "../target/atspad.war", destination: "/ROOT.war"
 
+  #config.vm.provision "shell", inline: "chmod 777 /"
   #config.vm.provision "shell", path: "provision.sh"
   config.vm.provision "shell", path: "deploy.sh"
 

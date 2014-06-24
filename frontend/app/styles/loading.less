@@ -1,0 +1,25 @@
+
+
+.ats-pad-loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	z-index: 2000;
+
+	background-color: darken(gray, 40%);
+
+	h3 {
+		color: white;
+		width: 100%;
+		position: absolute;
+		text-align: center;
+		top: calc(~"50% - 3em");  //this is broken in grunt-recess, please move to loading.html
+		margin: 0 auto;
+	}
+
+	
+}

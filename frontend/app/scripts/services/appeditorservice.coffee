@@ -30,6 +30,7 @@ angular.module('atsPadApp').factory 'appEditorService', (appNotificationService)
 
 				session.setUseWorker(options.useWorker)
 				editor.setTheme(options.theme)
+				editor.setAnimatedScroll(true)
 				session.setUseSoftTabs(options.useSoftTabs)
 				editor.setShowPrintMargin(options.showPrintMargin)
 				editor.setOption("vScrollBarAlwaysVisible", options.vScrollBarAlwaysVisible)

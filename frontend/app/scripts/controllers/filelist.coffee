@@ -8,8 +8,12 @@ angular.module('atsPadApp').controller 'FilelistCtrl', ($scope, $timeout, appFil
 
 	$scope.onSelect = (index) -> 
 		if index isnt appFileService.active()
+			oldIndex = appFileService.active()
+			if $scope.isEditing(oldIndex)
+				$scope.onCancel(oldIndex)
+				appFileService.edit(false)
+			
 			appFileService.select(index)
-			appFileService.edit(false)
 
 	$scope.isReadme = (filename) -> appFileService.isReadme(filename)
 	$scope.onDelete = (index) -> 
@@ -17,15 +21,26 @@ angular.module('atsPadApp').controller 'FilelistCtrl', ($scope, $timeout, appFil
 		$scope.pad.filecontents = (c for c, i in $scope.pad.filecontents when i isnt index)
 
 	$scope.onEdit = -> appFileService.edit(true)
+
 	$scope.onCancel = (index) -> 
 		appFileService.edit(false)
-		$scope.form.filenames[index] = $scope.pad.filenames[index]
+		
+		form = $scope.form.filenames[index]
+		if not form or not $scope.pad.filenames[index]
+			$scope.onDelete(index)
+		else
+			$scope.form.filenames[index] = $scope.pad.filenames[index]
 
 	$scope.onSubmit = (index) -> 
 		$scope.pad.filenames[index] = $scope.form.filenames[index]
 		appFileService.edit(false)
 		true
 
+	$scope.debug = (s) -> console.dir(s)
+	$scope.onBlur = (index) ->
+		console.dir("blur")
+		if $scope.isEditing(index)
+			$scope.onCancel(index)
 
 	# TODO
 	$scope.validate = (filename, index) -> 

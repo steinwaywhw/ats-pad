@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp').directive 'appFileList', ->
+angular.module('atsPadApp').directive 'appFileList', (appFileService) ->
 
 	setupLess = ->
 		less.env = 'production'
@@ -39,5 +39,16 @@ angular.module('atsPadApp').directive 'appFileList', ->
 
 			setupLess()
 			scope.$on "app_evt_theme_changed", (event, theme) -> onThemeChanged(element, theme)
+
+			activeToWatch = -> 
+				appFileService.active() in [0...scope.form.filenames.length] 
+
+			activeToDo = (newv, oldv, scope) ->
+				if newv? and not newv
+					select = scope.form.filenames.length - 1
+					select = 0 if select < 0
+					appFileService.select(select)
+
+			scope.$watch(activeToWatch, activeToDo)
 	}
 

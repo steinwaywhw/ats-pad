@@ -316,7 +316,7 @@ module.exports = function (grunt) {
             'fonts/*',
             'styles/{,*/}*.keep', // TODO
             'bower_components/fontawesome/fonts/*', // TODO
-            'bower_components/ace-builds/src-min-noconflict/*' //TODO
+            'bower_components/ace-builds/src-min-noconflict/*', //TODO
           ]
         }, {
           expand: true,
@@ -328,6 +328,11 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/bower_components',
           dest: '<%= yeoman.dist %>/styles',
           src: 'bootswatch/{,*/}variables.less' // TODO
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/ace_modes',
+          src: '{,*/}*.js',
+          dest: '<%= yeoman.dist %>/bower_components/ace-builds/src-min-noconflict'
         }]
       },
       styles: {
@@ -343,6 +348,12 @@ module.exports = function (grunt) {
           src: 'bootswatch/{,*/}variables.less' // TODO
         }]
         
+      },
+      modes: {
+          expand: true,
+          cwd: '<%= yeoman.app %>/ace_modes',
+          src: '{,*/}*.js',
+          dest: '<%= yeoman.app %>/bower_components/ace-builds/src-min-noconflict'
       }
     },
 
@@ -351,7 +362,8 @@ module.exports = function (grunt) {
       server: [
         'recess:dist',
         'coffee:dist',
-        'copy:styles'
+        'copy:styles',
+        'copy:modes'
       ],
       test: [
         'coffee',

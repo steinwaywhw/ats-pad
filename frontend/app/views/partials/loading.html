@@ -1,0 +1,32 @@
+<script>
+	var opts = {
+		lines     : 15, 			// The number of lines to draw
+		length    : 7, 				// The length of each line
+		width     : 2, 				// The line thickness
+		radius    : 10, 			// The radius of the inner circle
+		corners   : 1, 				// Corner roundness (0..1)
+		rotate    : 0, 				// The rotation offset
+		direction : 1, 				// 1: clockwise, -1: counterclockwise
+		color     : '#FFF', 		// rgb or rrggbb or array of colors
+		speed     : 1, 				// Rounds per second
+		trail     : 54, 			// Afterglow percentage
+		shadow    : false, 			// Whether to render a shadow
+		hwaccel   : false, 			// Whether to use hardware acceleration
+		className : 'spinner', 		// The CSS class to assign to the spinner
+		zIndex    : 3000, 			// The z-index (defaults to 2000000000)
+		top       : 'calc(50%)', 	// Top position relative to parent
+		left      : '50%' 			// Left position relative to parent
+	}
+	var target = $("#spinner").get()[0];
+	if ($(".spinner").length === 0) {
+		var spinner = new Spinner(opts).spin(target);
+	}
+</script>
+<style type="text/css">
+	h3 {top: calc(50% - 3em) !important}
+</style>
+<div>
+	<h3>minutes away from your atspad ...</h3>
+	<br>
+	<span id="spinner"></span>
+</div>

@@ -24,13 +24,32 @@ class PadController {
     	def pad = new Pad()
     	pad.id = id
 
+        pad.save()
+
     	def cwd = workspaceService.allocate(pad.id, pad.files)
     	def worker = workerService.start(cwd.getCanonicalPath(), session.id, pad.id)
 
-    	pad.save()
 
     	render pad.id 
     }
+
+    def fork() {
+        assert params.id
+
+        def oldpad = Pad.get(params.id)
+        if (!oldpad)
+            render(status: 503, text: 'Not Found');
+
+        def newpad = oldpad.cloneWithoutId()
+        newpad.id = RandomStringUtils.randomAlphanumeric(idSize)
+        newpad.save()
+
+        def cwd = workspaceService.allocate(newpad.id, newpad.files)
+        def worker = workerService.start(cwd.getCanonicalPath(), session.id, newpad.id)
+
+        render newpad.id
+    }
+
     
     def url() {
         assert params.id
@@ -68,7 +87,7 @@ class PadController {
     	assert pad && worker 
 
     	workerService.stop(worker)
-    	workspaceService.reclaim(id)
+    	workspaceService.reclaim(pad.id)
 
     	pad.delete(flush: true)
 
@@ -115,23 +134,6 @@ class PadController {
         render(view: "/embed", model: [id: id])
     }
 
-    def fork() {
-        assert params.id
-
-        def oldpad = Pad.get(params.id)
-        if (!oldpad)
-            render(status: 503, text: 'Not Found');
-
-        def newpad = oldpad.cloneWithoutId()
-        newpad.id = RandomStringUtils.randomAlphanumeric(idSize)
-        newpad.save()
-
-        def cwd = workspaceService.allocate(newpad.id, newpad.files)
-        def worker = workerService.start(cwd.getCanonicalPath(), session.id, newpad.id)
-
-
-        render newpad.id
-    }
 
     def download() {
         assert params.id 

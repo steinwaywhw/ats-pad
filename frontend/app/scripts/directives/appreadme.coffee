@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('atsPadApp').directive 'appReadme', (appFileService, appMarkdownService) ->
+angular.module('atsPadApp').directive 'appReadme', ($timeout, appFileService, appMarkdownService) ->
 
 	templateUrl: 'views/partials/readme.html'
 	restrict: 'A'
@@ -33,4 +33,5 @@ angular.module('atsPadApp').directive 'appReadme', (appFileService, appMarkdownS
 				scope.title = newv.title
 				scope.content = appMarkdownService.toHtml(newv.content)
 
-		scope.$watch(toWatch, toDo, true)
+		scope.$watch toWatch, toDo, true
+		scope.$watch (-> element.find('article').html()), (newv, oldv, scope) -> appMarkdownService.addClass(element)

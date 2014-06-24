@@ -15,6 +15,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -37,19 +38,25 @@
     <header class="ats-pad-header">
         <div class="row">
             <div class="col-md-8 col-md-offset-1 ats-pad-logo">
-                <h1><b>atspad</b><sup><small>&beta;</small></sup></h1>
+                <h1>
+                    <b>atspad</b><sup><small>&beta;</small></sup>
+                    <span class="ats-pad-navbar" ng-controller="NavbarCtrl">
+                        <a href="#/{{id}}" class="btn btn-lg btn-link">Home</a>
+                        <a href="#/about" class="btn-lg btn btn-link">About</a></li>
+                    </span>
+                </h1>
                 <p><i>your online ats playground</i></p>
             </div>
         </div>
-       <div class="row">
+        <div class="row">
             <div class="col-md-8 col-md-offset-1">
                 <div class="alert alert-dismissable alert-warning">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
                     <h4>Warning!</h4>
                     <p>This site is still in beta. You may encounter problems, or lose data.</p>
                 </div>
             </div>
-       </div>
+        </div>
     </header>
 
     <!-- Add your site or application content here -->
@@ -91,11 +98,12 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/markdown/lib/markdown.js"></script>
     <script src="bower_components/term.js/src/term.js"></script>
     <script src="bower_components/socket.io-client/socket.io.js"></script>
     <script src="bower_components/spinjs/spin.js"></script>
     <script src="bower_components/less/dist/less-1.7.0.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -124,6 +132,13 @@
     <script src="scripts/directives/appsidebar.js"></script>
     <script src="scripts/directives/appaffix.js"></script>
     <script src="scripts/services/apptermclient.js"></script>
+    <script src="scripts/directives/apploading.js"></script>
+    <script src="scripts/services/testpad.js"></script>
+    <script src="scripts/controllers/filetoolbar.js"></script>
+    <script src="scripts/controllers/sidebar.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/fork.js"></script>
     <!-- endbuild -->
 </body>
 </html>

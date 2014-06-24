@@ -69,7 +69,6 @@ class WorkspaceService {
 
     def reclaim(atspadid) {
     	assert atspadid
-    	assert files
     	
     	log.info "Reclaiming workspace for ${atspadid}"
 
@@ -145,6 +144,7 @@ class WorkspaceService {
         })
 
         def proc = "tar -czf ${atspadid}.tar.gz ${filenames.join(' ')}".execute(null, dir)
+        proc.waitFor()                             
 
 
         return tar 

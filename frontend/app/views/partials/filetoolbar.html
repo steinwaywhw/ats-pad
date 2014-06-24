@@ -4,10 +4,11 @@
 		<button 
 			type="button" 
 			class="btn btn-primary" 
-			ng-click="service.create(pad)" 
+			ng-click="add()" 
 			data-toggle="tooltip" 
  			title="create a new file"
-			app-tooltip>
+			app-tooltip
+			ng-disabled="isEditing()">
 				<span class="fa fa-plus"></span>
 				Add
 		</button>
@@ -19,16 +20,18 @@
 			class="btn btn-default" 
 			data-toggle="tooltip" 
 			title="upload local files to this pad (comming soon)"
-			app-tooltip>
+			app-tooltip
+			ng-disabled="isEditing()">
 				<span class="fa fa-cloud-upload"></span>
 		</button>
 
-		<a  ng-href="{{downloadUrl}}"
+		<a  ng-href="{{download()}}"
 			type="button" 
 			class="btn btn-default" 
 			data-toggle="tooltip" 
  			title="download this pad to your computer"
-			app-tooltip>
+			app-tooltip
+			ng-disabled="isEditing()">
 				<span class="fa fa-cloud-download"></span>
 		</a>
 	</div>
@@ -39,12 +42,14 @@
 		<!-- todo -->
 		<button 
 			class="btn btn-default"  
-			ng-click="syncToClient()" 
+			ng-click="refresh()" 
 			data-toggle="tooltip" 
  			title="pull remote changes into this pad"
-			app-tooltip>
+			app-tooltip
+			ng-disabled="isEditing()">
 				<span class="fa fa-refresh"></span>
-				Refresh
+				<span class="hidden-sm">Refresh</span> 	
 		</button>               
 	</div>
 </div>	
+

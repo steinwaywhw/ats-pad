@@ -1,12 +1,12 @@
-FROM stackbrew/ubuntu:13.10
+FROM stackbrew/ubuntu:14.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y apt-utils
 
-RUN apt-get install -y wget
-RUN apt-get install -y bash
-RUN apt-get install -y make
+RUN apt-get install -y wget 
+RUN apt-get install -y curl 
+RUN apt-get install -y bash make
 RUN apt-get install -y build-essential
 RUN apt-get install -y python
 RUN apt-get install -y xterm
@@ -14,24 +14,26 @@ RUN apt-get install -y xterm
 
 # /root/nodejs
 WORKDIR /root
-RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
-RUN tar -xvf nodejs.tgz
-RUN rm nodejs.tgz
-RUN mv node* nodejs
-ENV PATH $PATH:/root/nodejs/bin
+RUN mkdir .npm
+RUN mkdir nodejs
+ENV PATH $PATH:/root/.npm/bin
+
+WORKDIR /root/nodejs
+RUN curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+RUN ./configure --prefix=/root/.npm
+RUN V= make install -j4
+RUN curl https://www.npmjs.org/install.sh | clean=no sh
+
 
 # /root/server
 RUN mkdir -p /root/server
 WORKDIR /root/server
 RUN npm update -g node-gyp
-RUN npm update -g npm
 RUN npm install term.js
 RUN npm install socket.io
 RUN npm install express
 RUN npm install pty.js
 
-ADD ./server.js /root/server/server.js
-ADD ./index.js /root/server/index.js
 
 # color term
 RUN sed -ri 's/#force_color_prompt=yes/force_color_prompt=yes/g' /root/.bashrc
@@ -51,5 +53,11 @@ ENV PATSHOME /root/ats2
 ENV PATH $PATH:$PATSHOME/bin
 
 WORKDIR /root/server
+
+ADD ./server.js /root/server/server.js
+ADD ./index.js /root/server/index.js
+ADD ./run.sh /root/server/run.sh
+RUN chmod +x ./run.sh
+
 # ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 8023

@@ -4,11 +4,22 @@ angular.module('atsPadApp').factory 'appMarkdownService', (appNotificationServic
 
 	notifier = appNotificationService
 
-	if not markdown?
-		notifier.error "markdown is not available"
-		
-		
+	if not marked? or not hljs?
+		notifier.error "marked/highlightjs is not available"
+
+	marked.setOptions
+		gfm: true
+		tables: true
+		breaks: false
+		pedantic: false
+		sanitize: false
+		smartLists: true
+		smartypants: false
+		highlight: (code) -> hljs.highlightAuto(code).value
+
 	# Public API here
 	{
-		toHtml: (md) -> markdown.toHTML(md)
+		toHtml: (md) -> marked(md)
+		addClass: (element) ->
+			$(element).find("table").addClass("table")
 	}
