@@ -1,16 +1,8 @@
-FROM stackbrew/ubuntu:14.04
+FROM ubuntu:14.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y apt-utils
-
-RUN apt-get install -y wget 
-RUN apt-get install -y curl 
-RUN apt-get install -y bash make
-RUN apt-get install -y build-essential
-RUN apt-get install -y python
-RUN apt-get install -y xterm
-#RUN apt-get install -y ncurses-term
+RUN apt-get install -y apt-utils wget curl bash make build-essential python xterm git g++ libgtk-3-dev nano 
 
 # /root/nodejs
 WORKDIR /root
@@ -32,6 +24,7 @@ RUN npm update -g node-gyp
 RUN npm install engine.io
 RUN npm install primus
 RUN npm install pty.js
+RUN npm install winston winston-papertrail
 
 
 # color term
@@ -59,4 +52,4 @@ ADD ./run.sh /root/server/run.sh
 RUN chmod +x ./run.sh
 
 # ENTRYPOINT ["/bin/bash", "-c"]
-EXPOSE 8023
+#EXPOSE 8023

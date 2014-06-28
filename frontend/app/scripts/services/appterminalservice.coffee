@@ -5,15 +5,20 @@ angular.module('atsPadApp').factory 'appTerminalService', ($http, $timeout, appN
 	notifier = appNotificationService
 	ready = false
 
-
 	# Public API here
 	{
+		id: null
+		opts: null
+
 		init: (idSelector, opts) ->
 			notifier.debug "init terminal"
 			ready = false
 
-
 			opts = @default(opts)
+
+			@id = idSelector
+			@opts = opts
+			
 			opts.parent = document.getElementById(idSelector)
 			@open(opts)
 
@@ -83,7 +88,7 @@ angular.module('atsPadApp').factory 'appTerminalService', ($http, $timeout, appN
 					@primus.write(data)
 
 		connect: (opts) ->
-			notifier.debug("connecting to worker")
+			notifier.debug("connecting to worker ${opts.url}")
 			opts = @default(opts)
 
 			if @primus? then @primus.end()

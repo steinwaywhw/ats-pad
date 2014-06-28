@@ -11,11 +11,12 @@ angular.module('atsPadApp').factory 'appUrlService', (appContextService) ->
 		delete       : -> "#{prefix}/#{id()}"
 		syncToServer : -> "#{prefix}/#{id()}/file"
 		syncToClient : -> "#{prefix}/#{id()}/file"
-		forkApi      : -> "#{prefix}/#{id()}/fork"
+		fork         : -> "#{prefix}/#{id()}/fork"
 		downloadApi  : -> "#{prefix}/#{id()}/download"
 		
-		forkLink     : -> "/#{id()}/fork"
 		downloadLink : -> "/#{id()}/download"
 		
 		worker       : -> "#{prefix}/#{id()}/worker"
+		workerStart  : (wid) -> "#{prefix}/worker/${wid}/start"
+		workerStop   : (wid) -> "#{prefix}/worker/${wid}/stop"
 	}

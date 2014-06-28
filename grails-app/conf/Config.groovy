@@ -11,7 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.project.groupId = atspad // change this to alter the default package name and Maven publishing destination
+grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
@@ -35,8 +35,8 @@ grails.mime.types = [ // the first one is the default format
 //grails.urlmapping.cache.maxsize = 1000
 
 // What URL patterns should be processed by the resources plugin
-grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/plugins/**']
+// grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+// grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/plugins/**']
 
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
@@ -48,32 +48,36 @@ grails.controllers.defaultScope = 'singleton'
 
 atspad {
     app {
-        ip = "107.170.130.41"
+        ip = null
         port = "8080"
         context = "/"
-        url = "http://${atspad.app.ip}:${atspad.app.port}${atspad.app.context}"
-        workingdir = "/server"
+        url = null
+        environments {
+            production {
+                workdir = "${userHome}/server"
+            }
+            development {
+                workdir = "/tmp/server"
+            }
+        }
     }
     proxy {
+        dockerTag = "steinwaywhw/atspad:bouncy"
         guestIp = null
         guestPort = 8023
         hostPort = 8023
     }
     redis {
+        dockerTag = "steinwaywhw/atspad:redis"
         guestIp = null
         guestPort = 6379
-        timeout = 2000
+        //timeout = 2000
     }
     worker {
-        repo = "worker"
-        tag = "atspad/worker"
-        port = 8023
-        cwd = "/root/atspad"
-        base = "${atspad.app.workingdir}"
+        dockerTag = "steinwaywhw/atspad:worker"
+        guestPort = 8023
+        guestCwd = "/root/atspad"
         ttl = 600 //seconds
-    }
-    docker {
-        repo = "docker"
     }
     pad {
         idsize = 16
@@ -119,6 +123,7 @@ grails {
 
 
 grails.converters.encoding = "UTF-8"
+
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
 
@@ -146,66 +151,69 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.serverURL = "${atspad.app.url}"
-        grails.app.context = "${atspad.app.context}"
-        grails.server.port.http = "${atspad.app.port}"
-        grails.server.host = "${atspad.app.ip}"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: 
         //grails.serverURL = "http://localhost:8080/"
         //
-        server.port = 8080
-        grails.serverURL = "${atspad.app.url}"
-        grails.app.context = "${atspad.app.context}"
-        grails.server.port.http = "${atspad.app.port}"
-        grails.server.host = "${atspad.app.ip}"
     }
     test {
-        grails.serverURL = "${atspad.app.url}"
-        grails.app.context = "${atspad.app.context}"
-        grails.server.port.http = "${atspad.app.port}"
-        grails.server.host = "${atspad.app.ip}"
     }
 }
 
 // log4j configuration
+import org.apache.log4j.*
+
+// for making variables available during log4j configuring
+import grails.util.Holders
+
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
+    def pattern = new PatternLayout("[%p] [%c{3}] %m%n")
+
     appenders {
-        console name:'stdout'//, layout:pattern(conversionPattern: '%c{2} %m%n')
+        appender new DailyRollingFileAppender(
+                        name:"file",
+                        file:"${Holders.config.atspad.app.workdir}/atspad.log",
+                        layout: pattern,
+                        datePattern: "'.'yyyy-MM-dd")
 
-        rollingFile name:'file', 
-                    file:"${atspad.app.workingdir}/atspad.log", 
-                    maxFileSize: '1MB',
-                    layout: pattern(conversionPattern: '%c{2} %m%n'),
-                    append: false
-
-        rollingFile name:'stacktrace', 
-                    file:"${atspad.app.workingdir}/stacktrace.log", 
+        rollingFile name:"stacktrace", 
+                    file:"${Holders.config.atspad.app.workdir}/stacktrace.log", 
                     maxFileSize:'100KB'
+        
+        console name:"stdout",
+                layout: pattern
     }
 
-    root {
-        info 'file'
-        additivity: false
+    root { 
+        environments {
+            production {
+                error "file"
+            }
+            development {
+                error "file", "stdout"
+            }
+        }
     }
 
-    // all  file: 'grails.app'
-    //      additivity: false 
+    error   'org.codehaus.groovy.grails.web.servlet',        // controllers
+            'org.codehaus.groovy.grails.web.pages',          // GSP
+            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+            'org.codehaus.groovy.grails.commons',            // core / classloading
+            'org.codehaus.groovy.grails.plugins',            // plugins
+            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache.hibernate'
+
+    warn    'org.springframework',
+            'org.hibernate',
+            'grails.plugins.springsecurity',
+            'groovyx.net.http'
+
+    all     'grails.app'
     
-
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
 }

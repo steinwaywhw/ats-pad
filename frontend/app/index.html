@@ -41,8 +41,9 @@
                 <h1>
                     <b>atspad</b><sup><small>&beta;</small></sup>
                     <span class="ats-pad-navbar" ng-controller="NavbarCtrl">
-                        <a href="#/{{id}}" class="btn btn-lg btn-link">Home</a>
-                        <a href="#/about" class="btn-lg btn btn-link">About</a></li>
+                        <a href="#/{{id}}" ng-class="{'btn btn-lg btn-link': true, active: false}" role="button">Home</a>
+                        <a href="#/about" ng-class="{'btn-lg btn btn-link': true, active: false}" role="button">About</a>
+                        <a href="#/help" ng-class="{'btn-lg btn btn-link': true, active: false}" role="button">Help</a>
                     </span>
                 </h1>
                 <p><i>your online ats playground</i></p>
@@ -66,7 +67,7 @@
         <div class="col-md-10 col-md-offset-1">
             <hr>
             <div class="ats-pad-footer">
-                Copyright Hanwen Wu
+                Copyright &copy; 2014 Hanwen Wu 
             </div>
         </div>
     </footer>
@@ -138,6 +139,9 @@
     <script src="scripts/controllers/navbar.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/fork.js"></script>
+    <script src="scripts/directives/appmarkdown.js"></script>
+    <script src="scripts/controllers/dummy.js"></script>
+    <script src="scripts/controllers/terminal.js"></script>
     <!-- endbuild -->
 </body>
 </html>

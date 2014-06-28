@@ -4,3 +4,7 @@ all:
 	mv ../web-app/index.html ../grails-app/views/index.gsp
 	cd ../ && grails prod war
 	vagrant provision
+
+war:
+	cd ../ && grails prod war
+	vagrant provision

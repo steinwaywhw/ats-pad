@@ -6,7 +6,9 @@ angular.module('atsPadApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']
 
 			.when '/about',
 				templateUrl : 'views/about.html'
-				controller  : 'AboutCtrl'
+
+			.when '/help',
+				templateUrl : 'views/help.html'
 
 			.when '/:id?',
 				templateUrl : 'views/main.html'

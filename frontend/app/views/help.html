@@ -1,0 +1,80 @@
+<div class="row">
+<article class="ats-help col-md-8 col-md-offset-1 ats-markdown" >
+<pre app-markdown>
+**atspad** is an online playground for programming in [ATS Programming Language](http://www.ats-lang.org). You can write and run your ATS code on full featured linux containers, and share it with the rest of the world *(comming soon)*.
+
+# Getting Started
+
+A **pad** is a set of your source code files combined with a dedicated runtime environment assigned to it. A `README.md` file is also provided as a document of the pad. 
+
+## Coding
+
+The core functionality of atspad is coding. You can use the **editor** on the right to compose your code. It automatically recognizes syntax based on suffix and applies code highlighting. The changes you made in the broswer are automatically synced to the cloud.
+
+The section on the left contains a **toolbar** and a **file list**. 
+
+* <button class="btn btn-xs btn-default"><i class="fa fa-refresh"></i> Refresh</button> sycning the changes from the cloud to the browser.
+* <button class="btn btn-xs btn-default"><i class="fa fa-cloud-upload"></i> Upload</button> *(comming soon)* upload files from local computer to this pad.
+* <button class="btn btn-xs btn-default"><i class="fa fa-cloud-download"></i> Refresh</button> download all files of the pad to local computer.
+* <button class="btn btn-xs btn-default"><i class="fa fa-plus"></i> Add</button> create a new file in this pad.
+
+<div class="alert alert-warning"><strong>Warning!</strong> You can't and please don't create folders in a pad, at least for now.</div>
+
+The file list shows you all the files in the pad. The highlighted one is the **active file** you are editing. You can always click on other files to start editing them.
+
+When you see the <i class="fa fa-pencil"></i> and <i class="fa fa-trash-o"></i>, it means you can rename or delete it. 
+
+* <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> Rename</button> Rename the active file.
+* <button class="btn btn-xs btn-default"><i class="fa fa-trash-o"></i> Delete</button> Delete the active file.
+
+<div class="alert alert-warning"><strong>Warning!</strong> You can't and please don't rename or delete `README.md` file. It is here to help you document your project.</div>
+
+During renaming, please type a new name in the input box. And you can always click on <button class="btn btn-xs btn-default"><i class="fa fa-times"></i></button> to cancel it, or <kbd>Enter</kbd> / <button class="btn btn-xs btn-default"><i class="fa fa-check"></i></button> to finish renaming.
+
+
+<img src="/images/editorarea.png"
+ alt="Editor Area" title="Editor Area" class="center-block img-responsive img-thumbnail"  />
+
+## Running
+
+The other cool feature is you can run your ATS code as root on a full featured Ubuntu 14.04 linux container (consider it as a lightweight virtual machine). Actually you can do whatever you want, since you are the root user.
+
+The terminal will try to connect to your dedicated container with a certain delay time. It will automatically reconnect.
+
+We have patscc/make/gcc/g++ etc pre-installed on the container. You can just start running your code. But if you need more, just `apt-get install` since you are the root. 
+
+You can also use the run button in the **sidebar** for a quick run.
+
+<div class="alert alert-info"><strong>Tips</strong> As it is still in beta, you might lose connection or can't connect at all. In case it happens, please refresh the page until it connects. Most of the time it is beacuse the worker in the cloud is not fully brought up yet.</div>
+
+<img src="/images/terminal.png"
+ alt="Terminal" title="Terminal" class="center-block img-responsive img-thumbnail"  /> 
+
+## Documenting
+
+**atspad** provides each pad a `README.md` file just like Github does. The file intends to let you document your project, large or small. As you editing your `README.md` file, the content will be rendered in realtime and showed in the **document section** above the editing area.
+
+`README.md` should be composed in Github Flavered Markdown syntax, supporting tables, images, raw html and various other features. Please refer to [GFM](https://help.github.com/articles/github-flavored-markdown) and [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax).
+
+You can click on the panel title to collaspe it.
+
+<img src="/images/readme.png"
+ alt="Readme" title="Readme" class="center-block img-responsive img-thumbnail"  /> 
+## Controlling
+
+The **sidebar** contains several buttons and options to controller the whole pad.
+
+* `New Pad`: leave the current pad and create a new one.
+* `Fork Pad`: start editing a clone of the current pad.
+* `Delete Pad`: delete current pad from the cloud and start a new one.
+* `Run`: compile all files in the pad into a default executable and then execute it. It automatically searches for all ATS source code and compiles them. 
+* `-DATS_MEMALLOC_LIBC`: adds this flag during compiling.
+* `Type Check`: type checks the active file.
+* `Theme`: changes the theme of the webpage.
+<img src="/images/sidebar.png"
+ alt="Sidebar" title="Sidebar" class="center-block img-responsive img-thumbnail"  /> 
+
+</pre>
+</article>
+
+</div>

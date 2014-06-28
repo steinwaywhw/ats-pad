@@ -11,11 +11,11 @@ angular.module('atsPadApp').controller 'MainCtrl', ($cookies, $scope, $location,
 
 	binding = () ->
 		sync = (newv, oldv, scope) ->
-			if appPadService.validate(newv)
+			if appPadService.validate(newv) and appContextService.isReady()
 				notifier.debug("saving")
 				appPadService.syncToServer(newv)
 			else 
-				notifier.debug("not valid, cancel saving")
+				notifier.debug("not valid or ready, cancel saving")
 
 		$scope.$watch "pad", sync, true
 

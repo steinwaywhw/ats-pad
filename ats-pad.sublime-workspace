@@ -4,16 +4,56 @@
 		"selected_items":
 		[
 			[
-				"un",
-				"unbind"
+				"app",
+				"appControlService"
 			],
 			[
-				"app",
-				"appNotificationService"
+				"work",
+				"workerService"
+			],
+			[
+				"gr",
+				"grailsApplication"
+			],
+			[
+				"de",
+				"development"
+			],
+			[
+				"appen",
+				"append"
+			],
+			[
+				"conv",
+				"conversionPattern"
+			],
+			[
+				"max",
+				"maxFileSize"
+			],
+			[
+				"worke",
+				"workerService"
+			],
+			[
+				"back",
+				"background-color"
 			],
 			[
 				"bo",
-				"bottomLimit"
+				"border"
+			],
+			[
+				"scrip",
+				"scriptUrl"
+			],
+			[
+				"up",
+				"upTerm"
+			],
+			[
+				"un",
+				"unbind"
 			],
 			[
 				"re",
@@ -130,10 +170,6 @@
 			[
 				"reconnect",
 				"reconnection"
-			],
-			[
-				"max",
-				"max_reconnection_attempts"
 			],
 			[
 				"wi",
@@ -284,20 +320,12 @@
 				"remote_syslog"
 			],
 			[
-				"back",
-				"background"
-			],
-			[
 				"term",
 				"termclient"
 			],
 			[
 				"ge",
 				"generateCmd"
-			],
-			[
-				"work",
-				"workspaceService"
 			],
 			[
 				"ng-bind",
@@ -352,101 +380,34 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/app/scripts/directives/appterminal.coffee",
+			"file": "grails-app/domain/atspad/DockerWorker.groovy",
 			"settings":
 			{
-				"buffer_size": 409,
+				"buffer_size": 557,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "frontend/app/scripts/services/appurlservice.coffee",
+			"file": "grails-app/conf/BuildConfig.groovy",
 			"settings":
 			{
-				"buffer_size": 606,
+				"buffer_size": 4283,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "frontend/app/scripts/controllers/main.coffee",
+			"file": "grails-app/conf/Config.groovy",
 			"settings":
 			{
-				"buffer_size": 1009,
+				"buffer_size": 7837,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "frontend/app/scripts/controllers/fork.coffee",
+			"file": "grails-app/controllers/atspad/PadController.groovy",
 			"settings":
 			{
-				"buffer_size": 534,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/java/docker/worker/Dockerfile",
-			"settings":
-			{
-				"buffer_size": 1509,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "'use strict'\n\nangular.module('atsPadApp').constant 'appTermClient', \n\n	default: (options) ->\n		path                      : options?.path ? \"/console\"\n		remote                    : options?.remote ? \"http://localhost:8080\"\n		#remote					  : \"http://107.170.130.41:8023/?wid=worker:3B590B3BEC8FAA3906E7BEEFAFABDD4B:bTnmkpX668vKZZFP\"\n		reconnection_delay        : options?.reconnection_delay ? 500\n		max_reconnection_attempts : options?.max_reconnection_attempts ? 20\n		cols                      : options?.cols ? 180\n		rows                      : options?.rows ? 30\n		parent                    : options?.parent ? document.body;\n		connect_timeout           : options?.connect_timeout ? 10000\n		focus                     : options?.focus ? false\n		\n	term: null\n	socket: null\n	\n	open: (options) ->\n		if not @term?\n			console.log(\"OPENING\")\n			options = @default(options)\n			@term = new Terminal \n				cols: options.cols \n				rows: options.rows\n				useStyle: true\n				screenKeys: true\n\n			@term.open(options.parent)\n\n	cleanup: ->\n		console.log(\"CLOSING\")\n		\n		if @socket?\n			console.log(\"cleaning up socket\")\n			console.dir(@socket)\n			@socket.close()\n			delete @socket\n			@socket = null\n		if @term?\n			console.log(\"cleaning up term\")\n			@term.destroy()\n			delete @term\n			@term = null\n		\n	run: (options) ->\n		console.log(\"RUNNING\")\n\n		if not @term?\n			@open(options)\n\n		options = @default(options)\n\n		#localStorage.debug = \"\"\n		console.dir(io)\n		socket = io.connect options.remote, \n			path                      : options.path\n			connectTimeout            : options.connect_timeout\n			reconnectionDelay         : options.reconnection_delay\n			maxReconnectionAttempts   : 2\n			forceNew				  : true \n\n		@socket = socket\n\n		@term.write \"Connecting to #{options.remote}\\r\\n\"\n\n		@term.on 'data', (data) =>\n			socket.emit 'data', data\n		socket.on 'data', (data) =>\n			@term.write(data)\n\n		socket.on 'reconnecting', (count) =>\n			@term.write \"Reconnecting: #{count}\\r\\n\"\n\n		socket.on 'reconnect_error', =>\n			@term.write \"Reconnection error \\r\\n\"\n			@cleanup()\n			@run(options)\n\n		socket.on 'reconnect_failed', =>\n			@term.write \"Reconnection failed\\r\\n\"\n			@cleanup()\n			@run(options)\n		\n		socket.on 'error', =>\n			@term.write \"Connection error \\r\\n\"\n			@cleanup()\n			@run(options)\n\n		socket.on 'reconnect', =>\n			@term.emit 'data', \"\\nclear\\n\"\n\n		socket.on 'connect', =>\n			@term.emit 'data', \"\\nclear\\n\"\n\n		socket.on 'disconnect', =>\n			@term.write \"\\r\\nDisconnected\\r\\n\"\n\n\n",
-			"file": "frontend/app/scripts/services/apptermclient.coffee",
-			"file_size": 2464,
-			"file_write_time": 130477625404122557,
-			"settings":
-			{
-				"buffer_size": 2465,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "grails-app/controllers/ats/pad/PadController.groovy",
-			"settings":
-			{
-				"buffer_size": 3244,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/app/scripts/services/apppadservice.coffee",
-			"settings":
-			{
-				"buffer_size": 3216,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/app/scripts/controllers/sidebar.coffee",
-			"settings":
-			{
-				"buffer_size": 654,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/app/index.html",
-			"settings":
-			{
-				"buffer_size": 6678,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/app/scripts/directives/appaffix.coffee",
-			"settings":
-			{
-				"buffer_size": 1418,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/app/scripts/services/appterminalservice.coffee",
-			"settings":
-			{
-				"buffer_size": 3246,
+				"buffer_size": 4400,
 				"line_ending": "Unix"
 			}
 		},
@@ -454,31 +415,150 @@
 			"file": "src/java/docker/worker/server.coffee",
 			"settings":
 			{
-				"buffer_size": 1309,
+				"buffer_size": 1682,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "grails-app/services/ats/pad/WorkerService.groovy",
+			"file": "grails-app/conf/BootStrap.groovy",
 			"settings":
 			{
-				"buffer_size": 5832,
+				"buffer_size": 696,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "grails-app/services/ats/pad/WorkspaceService.groovy",
+			"file": "deploy/Vagrantfile",
 			"settings":
 			{
-				"buffer_size": 5078,
+				"buffer_size": 5703,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "frontend/app/views/partials/sidebar.html",
+			"file": "frontend/app/scripts/services/appcontextservice.coffee",
 			"settings":
 			{
-				"buffer_size": 1883,
+				"buffer_size": 410,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/controllers/atspad/WorkerController.groovy",
+			"settings":
+			{
+				"buffer_size": 1404,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/domain/atspad/Pad.groovy",
+			"settings":
+			{
+				"buffer_size": 576,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/services/atspad/AppControlService.groovy",
+			"settings":
+			{
+				"buffer_size": 3011,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy/deploy.sh",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy/provision.sh",
+			"settings":
+			{
+				"buffer_size": 729,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/services/atspad/DockerService.groovy",
+			"settings":
+			{
+				"buffer_size": 7127,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy/Makefile",
+			"settings":
+			{
+				"buffer_size": 227,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/services/atspad/RedisService.groovy",
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/services/atspad/WorkerService.groovy",
+			"settings":
+			{
+				"buffer_size": 5749,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "frontend/app/scripts/services/appterminalservice.coffee",
+			"settings":
+			{
+				"buffer_size": 2335,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "frontend/app/scripts/controllers/terminal.coffee",
+			"settings":
+			{
+				"buffer_size": 196,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "frontend/app/views/main.html",
+			"settings":
+			{
+				"buffer_size": 1268,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "frontend/app/scripts/services/appurlservice.coffee",
+			"settings":
+			{
+				"buffer_size": 685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/services/atspad/WorkspaceService.groovy",
+			"settings":
+			{
+				"buffer_size": 4819,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -486,19 +566,51 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 264.0,
 		"selected_items":
 		[
+			[
+				"saveal",
+				"File: Save All"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"saveall",
+				"File: Save All"
+			],
+			[
+				"setsyndoc",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"syntax docker",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"savea",
+				"File: Save All"
+			],
 			[
 				"tab",
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"save",
-				"File: Save All"
+				"inde",
+				"Indentation: Convert to Tabs"
 			],
 			[
-				"savea",
+				"save",
 				"File: Save All"
 			],
 			[
@@ -518,16 +630,8 @@
 				"Coffee: Lint"
 			],
 			[
-				"ruby",
-				"Set Syntax: Ruby"
-			],
-			[
 				"ru",
 				"Set Syntax: Ruby"
-			],
-			[
-				"close",
-				"File: Close All"
 			],
 			[
 				"closeal",
@@ -548,14 +652,6 @@
 			[
 				"instal",
 				"Package Control: Install Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"saveall",
-				"File: Save All"
 			],
 			[
 				"insta",
@@ -610,7 +706,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 593.0
+		"width": 514.0
 	},
 	"console":
 	{
@@ -631,134 +727,134 @@
 	},
 	"file_history":
 	[
-		"/etc/fonts/fonts.conf",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/main.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/ace_modes/mode-ats.js",
-		"/home/hwwu/Github/ats-pad/deploy/Makefile",
 		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/appurlservice.js",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/appnotificationservice.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/app.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/partials/sidebar.html",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/src/array/removeAll.js",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/lib/util/save.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/es5-shim/tests/spec/s-array.js",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/apppadservice.js",
-		"/home/hwwu/Github/ats-pad/test/unit/ats/pad/PadSpec.groovy",
-		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/bouncy/lib/parse_args.js",
-		"/home/hwwu/Github/ats-pad/deploy/packer.json",
-		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/src/docs/ref/Domain/delete.gdoc",
-		"/home/hwwu/Github/ats-pad/target/work/plugins/tomcat-7.0.52.1/src/java/org/grails/plugins/tomcat/ParentDelegatingClassLoader.java",
-		"/home/hwwu/Github/ats-pad/tmp/bower_components/ace/node_modules/jsdom/node_modules/cssstyle/lib/properties/webkitAnimationDelay.js",
-		"/home/hwwu/Github/ats-pad/tmp/bower_components/ace/lib/ace/theme/pastel_on_dark.css",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/socket.io-client/lib/on.js",
-		"/home/hwwu/Github/ats-pad/docs/overview.rst",
-		"/home/hwwu/Github/ats-pad/grails-app/conf/Config.groovy",
-		"/home/hwwu/Github/ats-pad/web-app/js/controllers.js",
-		"/home/hwwu/Github/ats-pad/tmp/bower_components/ace/experiments/worker.html",
-		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/WorkspaceService.groovy",
-		"/home/hwwu/Github/ats-pad/grails-app/views/index.gsp",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/lang/isNull.js",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/directives/appaffix.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appfileservice.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/test/spec/directives/appterminal.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appterminal.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/directives/appterminal.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/apptooltip.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appaffix.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appterminalservice.coffee",
-		"/home/hwwu/Github/ats-pad/src/java/docker/redis/Dockerfile",
-		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Dockerfile",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/karma/lib/reporters/dots_color.js",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-concat/test/expected/default_options",
-		"/home/hwwu/Github/ats-pad/deploy/deploy.sh",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/filelist.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/spec/services/apptermclient.js",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/apptermclient.js",
-		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/AppControlService.groovy",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appcontextservice.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/styles/main.css",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/server.js",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/karma/lib/server.js",
-		"/home/hwwu/Github/ats-pad/deploy/server.xml",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/templates/search-empty.mustache",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/spec/services/appterminalservice.js",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/appterminalservice.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/apptermclient.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/controllers/fork.js",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/karma/node_modules/log4js/examples/flush-on-exit.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/apppadservice.coffee",
 		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appurlservice.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appfilelist.coffee",
-		"/home/hwwu/Github/ats-pad/grails-app/views/layouts/main.gsp",
-		"/home/hwwu/Github/ats-pad/deploy/Vagrantfile",
-		"/home/hwwu/Github/ats-pad/grails-app/conf/UrlMappings.groovy",
-		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/PadController.groovy",
-		"/home/hwwu/Github/ats-pad/deploy/provision.sh",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/filetoolbar.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/testterminal.html",
+		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/appnotificationservice.js",
+		"/home/hwwu/Github/ats-pad/docs/overview.rst",
+		"/home/hwwu/Github/ats-pad/frontend/app/styles/terminal.less",
+		"/home/hwwu/Github/ats-pad/web-app/bower_components/ace-builds/src-min-noconflict/theme-eclipse.js",
+		"/home/hwwu/Github/ats-pad/deploy/tomcat7",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appterminal.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appterminalservice.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/app.coffee",
 		"/home/hwwu/Github/ats-pad/frontend/app/views/about.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/fork.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/sidebar.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/index.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/socket.io-client/History.md",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/socket.io-client/.bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/about.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlight.js/.bower.json",
-		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/proxyserver.js",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/run.sh",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/Dockerfile",
-		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/WorkerService.groovy",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/test.html",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/client.coffee",
-		"/home/hwwu/Github/ats-pad/src/java/docker/worker/client.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/karma/node_modules/log4js/test/connect-logger-test.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/array/toLookup.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-svgmin/node_modules/svgo/plugins/convertStyleToAttrs.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt/CONTRIBUTING.md",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/bouncy/lib/parse_args.js",
+		"/home/hwwu/Github/ats-pad/test/unit/ats/pad/DockerControllerSpec.groovy",
+		"/home/hwwu/Github/ats-pad/src/java/docker/worker/node_modules/socket.io/node_modules/engine.io/node_modules/ws/lib/WebSocketServer.js",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/engine.io/node_modules/ws/lib/WebSocketServer.js",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/url/node_modules/punycode/vendor/requirejs/tests/paths/relativeModuleId.html",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/node_modules/winston/test/fixtures/scripts/exit-on-error.js",
+		"/home/hwwu/Github/ats-pad/web-app/bower_components/ace-builds/src-min-noconflict/ext-keybinding_menu.js",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/cache-1.1.7/src/java/grails/plugin/cache/SimpleKeyGenerator.java",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Dockerfile",
+		"/home/hwwu/Github/ats-pad/deploy/remote_syslog",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt/node_modules/colors/ReadMe.md",
+		"/home/hwwu/Github/ats-pad/deploy/deploy.sh",
+		"/home/hwwu/Github/ats-pad/frontend/app/styles/readme.less",
+		"/home/hwwu/Github/ats-pad/deploy/provision.sh",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-watch/docs/watch-options.md",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/pty.js/wscript",
+		"/home/hwwu/Github/ats-pad/ats-pad.sublime-project",
+		"/home/hwwu/Github/tmp/ats-pad/grails-app/conf/spring/resources.groovy",
+		"/home/hwwu/Github/tmp/ats-pad/web-app/WEB-INF/tld/grails.tld",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/Config.groovy",
+		"/home/hwwu/Github/tmp/ats-pad/grails-app/conf/BuildConfig.groovy",
+		"/home/hwwu/Github/ats-pad/application.properties",
 		"/home/hwwu/Github/ats-pad/grails-app/conf/BuildConfig.groovy",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/main.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appnotificationservice.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/partials/filetoolbar.html",
-		"/home/hwwu/Github/ats-pad/target/work/tomcat/work/Tomcat/localhost/_/grails-resources/js/controllers.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/styles/main.less",
-		"/home/hwwu/Github/ats-pad/frontend/app/styles/header.less",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/navbar.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/styles/editor.less",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/partials/filelist.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/apploading.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/views/partials/loading.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/styles/loading.less",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/marked/.bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appmarkdownservice.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appreadme.coffee",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/DataSource.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/atspad/pad/MainController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/atspad/MainController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/atspad/PadController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/atspad/WorkerController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/AppControlService.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/WorkspaceService.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/UrlMappings.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/WorkerService.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/DockerService.groovy",
+		"/home/hwwu/Github/ats-pad/deploy/log_files.yml",
+		"/home/hwwu/Github/ats-pad/deploy/Vagrantfile",
+		"/home/hwwu/Github/ats-pad/grails-app/conf/BootStrap.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/PadController.groovy",
+		"/home/hwwu/Github/ats-pad/grails-app/controllers/ats/pad/WorkerController.groovy",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/proxy.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/object/deepEquals.js",
+		"/home/hwwu/Github/ats-pad/web-app/WEB-INF/applicationContext.xml",
+		"/home/hwwu/Github/tmp/ats-pad/web-app/WEB-INF/applicationContext.xml",
+		"/home/hwwu/Github/ats-pad/deploy/packer.json",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/ace-builds/kitchen-sink/docs/ruby.rb",
+		"/home/hwwu/Github/ats-pad/src/java/docker/redis/run.sh",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/bootstrap/less/variables.less",
+		"/home/hwwu/Github/ats-pad/frontend/.tmp/styles/bootswatch/amelia/variables.less",
+		"/home/hwwu/Github/ats-pad/grails-app/domain/ats/pad/DockerWorker.groovy",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/formidable/test/fixture/js/workarounds.js",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/cors-1.1.6/dependencies.groovy",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/database-migration-1.4.0/scripts/DbmFutureRollbackSql.groovy",
+		"/home/hwwu/Github/tmp/ats-pad/grails-app/conf/Config.groovy",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/bootstrap/dist/css/bootstrap-theme.css",
+		"/home/hwwu/Github/ats-pad/test/unit/ats/pad/DockerWorkerSpec.groovy",
+		"/home/hwwu/Github/ats-pad/test/unit/ats/pad/DockerServiceSpec.groovy",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appcontextservice.coffee",
+		"/home/hwwu/Github/ats-pad/grails-app/services/ats/pad/RedisService.groovy",
 		"/home/hwwu/Github/ats-pad/src/java/docker/worker/server.coffee",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-deps-on-jquery/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-c/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-b1/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-b/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-a2/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-a1/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-complex-a/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/test/assets/package-bootstrap/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-svgmin/node_modules/svgo/node_modules/js-yaml/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/node_modules/stable/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/json3/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/jquery/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlightjs/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/bootswatch/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/bootstrap/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-scenario/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-sanitize/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-route/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-resource/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-mocks/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular-cookies/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/angular/bower.json",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-autoprefixer/node_modules/autoprefixer/lib/autoprefixer/hacks/border-image.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/karma/node_modules/optimist/example/line_count_options.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-cssmin/node_modules/clean-css/lib/images/url-rebase.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-watch/node_modules/gaze/test/api_test.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-svgmin/node_modules/svgo/plugins/removeDoctype.js",
+		"/home/hwwu/Github/ats-pad/src/java/docker/redis/Dockerfile",
+		"/home/hwwu/Github/ats-pad/src/java/docker/worker/Dockerfile",
+		"/home/hwwu/Github/ats-pad/target/work/resources/docker/bouncy/Dockerfile",
+		"/home/hwwu/Github/ats-pad/target/work/resources/docker/redis/Dockerfile",
+		"/home/hwwu/Github/ats-pad/target/work/resources/docker/worker/Dockerfile",
 		"/home/hwwu/Github/ats-pad/frontend/bower.json",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlightjs/highlight.pack.js",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-concat/test/expected/handling_invalid_files",
-		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-clean/docs/clean-options.md",
-		"/home/hwwu/Github/ats-pad/tmp/bower_components/ace/ChangeLog.txt",
-		"/home/hwwu/Github/ats-pad/web-app/views/partials/sidebar.html",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlight.js/src/highlight.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlight/src/highlight.js",
-		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlight.js/src/styles/school_book.css"
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-svgmin/node_modules/svgo/plugins/removeUnusedNS.js",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/bootstrap/less/responsive-utilities.less",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/engine.io/node_modules/debug/example/worker.js",
+		"/home/hwwu/Github/ats-pad/target/work/resources/docker/worker/node_modules/socket.io/node_modules/socket.io-parser/package.json",
+		"/home/hwwu/Github/ats-pad/target/work/plugins/hibernate-3.6.10.9/src/docs/ref/Domain/isDirty.gdoc",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/array/reduce.js",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/index.js",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/bouncy/index.js",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/.bin/bouncy",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-wiredep/node_modules/bower-config/node_modules/mout/lang/isNull.js",
+		"/home/hwwu/Github/ats-pad/src/java/docker/worker/client.coffee",
+		"/home/hwwu/Github/ats-pad/web-app/bower_components/ace-builds/src-min-noconflict/worker-coffee.js",
+		"/home/hwwu/Github/ats-pad/web-app/js/controllers.js",
+		"/home/hwwu/Github/ats-pad/tmp/node_modules/bouncy/.travis.yml",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/jshint-stylish/index.js",
+		"/home/hwwu/Github/ats-pad/grails-app/views/index.gsp",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt/node_modules/glob/test/pause-resume.js",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/highlightjs/styles/brown_paper.css",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/Makefile",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/marked/test/original/strong_and_em_together.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/views/partials/sidebar.html",
+		"/home/hwwu/Github/ats-pad/src/java/docker/bouncy/proxyserver.js",
+		"/home/hwwu/Github/ats-pad/frontend/app/views/help.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/index.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/styles/main.less",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/directives/appmarkdown.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/appmarkdownservice.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/styles/markdown.less",
+		"/home/hwwu/Github/ats-pad/frontend/dist/views/about.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/views/main.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/navbar.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/.tmp/scripts/services/appmarkdownservice.js",
+		"/home/hwwu/Github/ats-pad/web-app/views/about.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/ace-builds/textarea/src/ace-bookmarklet.js",
+		"/home/hwwu/Github/ats-pad/frontend/app/styles/header.less",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-contrib-htmlmin/docs/htmlmin-examples.md",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/templates/help-link.mustache",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-newer/test/helper.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt/lib/grunt/help.js",
+		"/home/hwwu/Github/ats-pad/frontend/node_modules/grunt-google-cdn/node_modules/bower/templates/help.mustache",
+		"/home/hwwu/Github/ats-pad/frontend/app/bower_components/marked/test/original/hard_wrapped_paragraphs_with_list_like_lines.html",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/main.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/services/apppadservice.coffee",
+		"/home/hwwu/Github/ats-pad/frontend/app/scripts/controllers/fork.coffee"
 	],
 	"find":
 	{
@@ -777,6 +873,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/server",
+			"favicon",
+			"generatePath",
+			"ttl",
+			"worker.id",
+			"workingdir",
+			"work",
+			"'",
+			":",
+			"<button>",
+			"button>",
+			"kbd",
+			"):",
+			":",
+			"?",
+			"options",
+			"remote",
 			"40",
 			"options",
 			"then",
@@ -887,15 +1000,7 @@
 			"    		\n",
 			"hgetall",
 			"hgetAll",
-			"ATSPAD_REDIS_HOST",
-			"ENV",
-			"server:",
-			"atspad-created",
-			".run",
-			"grailsApplcation",
-			"jedis",
-			"Transactional",
-			"destdir"
+			"ATSPAD_REDIS_HOST"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -914,198 +1019,112 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 19,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/app/scripts/directives/appterminal.coffee",
+					"file": "grails-app/domain/atspad/DockerWorker.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 409,
+						"buffer_size": 557,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								409,
-								409
+								148,
+								148
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Grails/Domain/GrailsDomain.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "frontend/app/scripts/services/appurlservice.coffee",
+					"file": "grails-app/conf/BuildConfig.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 606,
+						"buffer_size": 4283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								353,
-								353
+								3102,
+								3102
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 969.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "frontend/app/scripts/controllers/main.coffee",
+					"file": "grails-app/conf/Config.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1009,
+						"buffer_size": 7837,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								631,
-								631
+								2993,
+								2993
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 912.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "frontend/app/scripts/controllers/fork.coffee",
+					"file": "grails-app/controllers/atspad/PadController.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 534,
+						"buffer_size": 4400,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								506,
-								506
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/java/docker/worker/Dockerfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1509,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1207,
-								1207
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 513.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "frontend/app/scripts/services/apptermclient.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2465,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								793,
-								793
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "grails-app/controllers/ats/pad/PadController.groovy",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1975,
-								1975
+								1070,
+								1070
 							]
 						],
 						"settings":
@@ -1115,27 +1134,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1159.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "frontend/app/scripts/services/apppadservice.coffee",
+					"buffer": 4,
+					"file": "src/java/docker/worker/server.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3216,
+						"buffer_size": 1682,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3216,
-								3216
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1144,31 +1163,470 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2147.0,
+						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "frontend/app/scripts/controllers/sidebar.coffee",
+					"buffer": 5,
+					"file": "grails-app/conf/BootStrap.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 654,
+						"buffer_size": 696,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								654,
-								654
+								687,
+								687
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "deploy/Vagrantfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5425,
+								5425
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2280.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "frontend/app/scripts/services/appcontextservice.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								283,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "grails-app/controllers/atspad/WorkerController.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								632,
+								632
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Controller/GrailsController.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "grails-app/domain/atspad/Pad.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11,
+								11
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Domain/GrailsDomain.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "grails-app/services/atspad/AppControlService.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								732,
+								732
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "deploy/deploy.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								399,
+								399
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "deploy/provision.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								217
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "grails-app/services/atspad/DockerService.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6702,
+								6702
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5086.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "deploy/Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "grails-app/services/atspad/RedisService.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								570,
+								570
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "grails-app/services/atspad/WorkerService.groovy",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2478,
+								2478
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1482.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "frontend/app/scripts/services/appterminalservice.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1818,
+								1818
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1235.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "frontend/app/scripts/controllers/terminal.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								125,
+								125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 14.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "frontend/app/views/main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1016,
+								1016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "frontend/app/scripts/services/appurlservice.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								173
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -1180,381 +1638,56 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "frontend/app/index.html",
+					"buffer": 21,
+					"file": "grails-app/services/atspad/WorkspaceService.groovy",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6678,
+						"buffer_size": 4819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1789,
-								1789
+								11,
+								11
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 608.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "frontend/app/scripts/directives/appaffix.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1195,
-								1195
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "frontend/app/scripts/services/appterminalservice.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								679,
-								679
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "src/java/docker/worker/server.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1309,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								407,
-								407
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
+					"stack_index": 24,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 3,
-					"file": "frontend/app/scripts/controllers/fork.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 534,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
+					"buffer": 17,
 					"file": "frontend/app/scripts/services/appterminalservice.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3246,
+						"buffer_size": 2335,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2522,
-								2522
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "frontend/app/scripts/directives/appaffix.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								663,
-								663
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 152.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "grails-app/services/ats/pad/WorkerService.groovy",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5832,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3726,
-								3726
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2299.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "frontend/app/scripts/controllers/sidebar.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								654,
-								654
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "grails-app/services/ats/pad/WorkspaceService.groovy",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5078,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1393,
-								1393
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Grails/Service/GrailsService.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "frontend/app/views/partials/sidebar.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1883,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1452,
-								1452
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 684.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "frontend/app/scripts/services/apptermclient.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2465,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1204,
-								1204
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 266.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 0,
-					"file": "frontend/app/scripts/directives/appterminal.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 409,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								409,
-								409
+								378,
+								378
 							]
 						],
 						"settings":
@@ -1567,7 +1700,64 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "frontend/app/scripts/services/appurlservice.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								531
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1601,7 +1791,7 @@
 		"cols":
 		[
 			0.0,
-			0.41875,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1631,12 +1821,368 @@
 		"selected_items":
 		[
 			[
-				"fork.coffee",
-				"frontend/app/scripts/controllers/fork.coffee"
+				"appurlservicecoffee",
+				"frontend/app/scripts/services/appurlservice.coffee"
+			],
+			[
+				"terminal",
+				"frontend/app/scripts/controllers/terminal.coffee"
+			],
+			[
+				"appterminalservice",
+				"frontend/app/scripts/services/appterminalservice.coffee"
+			],
+			[
+				"contolterminal",
+				"frontend/app/scripts/controllers/terminal.coffee"
+			],
+			[
+				"appurlservice",
+				"frontend/.tmp/scripts/services/appurlservice.js"
+			],
+			[
+				"appcontextservice",
+				"frontend/app/scripts/services/appcontextservice.coffee"
+			],
+			[
+				"padcon",
+				"grails-app/controllers/atspad/PadController.groovy"
+			],
+			[
+				"workerservice",
+				"grails-app/services/atspad/WorkerService.groovy"
+			],
+			[
+				"workerser",
+				"src/java/docker/worker/server.coffee"
+			],
+			[
+				"config.groovy",
+				"grails-app/conf/Config.groovy"
+			],
+			[
+				"dockerservi",
+				"grails-app/services/atspad/DockerService.groovy"
+			],
+			[
+				"dockerworker",
+				"grails-app/domain/atspad/DockerWorker.groovy"
+			],
+			[
+				"workercon",
+				"grails-app/controllers/atspad/WorkerController.groovy"
+			],
+			[
+				"workerservi",
+				"grails-app/services/atspad/WorkerService.groovy"
+			],
+			[
+				"padcont",
+				"grails-app/controllers/atspad/PadController.groovy"
+			],
+			[
+				"appcontro",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"dockerser",
+				"grails-app/services/atspad/DockerService.groovy"
+			],
+			[
+				"appcontrole",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"dockerservice",
+				"grails-app/services/atspad/DockerService.groovy"
+			],
+			[
+				"vagrantfile",
+				"deploy/Vagrantfile"
+			],
+			[
+				"provision",
+				"deploy/provision.sh"
+			],
+			[
+				"deploy",
+				"deploy/deploy.sh"
+			],
+			[
+				"vagrant",
+				"deploy/Vagrantfile"
+			],
+			[
+				"deploy.sh",
+				"deploy/deploy.sh"
+			],
+			[
+				"appcontrol",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"bootst",
+				"grails-app/conf/BootStrap.groovy"
+			],
+			[
+				"apco",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"appcon",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"redisservice",
+				"grails-app/services/atspad/RedisService.groovy"
+			],
+			[
+				"boot",
+				"grails-app/conf/BootStrap.groovy"
+			],
+			[
+				"appcontrols",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"appcontrolser",
+				"grails-app/services/atspad/AppControlService.groovy"
+			],
+			[
+				"vag",
+				"deploy/Vagrantfile"
+			],
+			[
+				"appcont",
+				"frontend/app/scripts/services/appcontextservice.coffee"
+			],
+			[
+				"bootstr",
+				"grails-app/conf/BootStrap.groovy"
+			],
+			[
+				"padco",
+				"grails-app/controllers/atspad/PadController.groovy"
+			],
+			[
+				"vagran",
+				"deploy/Vagrantfile"
+			],
+			[
+				"config",
+				"grails-app/conf/Config.groovy"
+			],
+			[
+				"vagra",
+				"deploy/Vagrantfile"
+			],
+			[
+				"provisio",
+				"deploy/provision.sh"
+			],
+			[
+				"applicationcontex",
+				"web-app/WEB-INF/applicationContext.xml"
+			],
+			[
+				"provision.sh",
+				"deploy/provision.sh"
+			],
+			[
+				"ruby",
+				"frontend/app/bower_components/ace-builds/kitchen-sink/docs/ruby.rb"
+			],
+			[
+				"log",
+				"deploy/log_files.yml"
+			],
+			[
+				"pad",
+				"grails-app/controllers/ats/pad/PadController.groovy"
+			],
+			[
+				"dockerwor",
+				"grails-app/domain/ats/pad/DockerWorker.groovy"
+			],
+			[
+				"url",
+				"grails-app/conf/UrlMappings.groovy"
+			],
+			[
+				"workers",
+				"grails-app/services/ats/pad/WorkerService.groovy"
+			],
+			[
+				"urlm",
+				"grails-app/conf/UrlMappings.groovy"
+			],
+			[
+				"config.",
+				"grails-app/conf/Config.groovy"
+			],
+			[
+				"workspacese",
+				"grails-app/services/ats/pad/WorkspaceService.groovy"
+			],
+			[
+				"boo",
+				"grails-app/conf/BootStrap.groovy"
+			],
+			[
+				"appcontr",
+				"grails-app/services/ats/pad/AppControlService.groovy"
+			],
+			[
+				"buildcon",
+				"grails-app/conf/BuildConfig.groovy"
+			],
+			[
+				"boots",
+				"grails-app/conf/BootStrap.groovy"
+			],
+			[
+				"workerserver.cof",
+				"src/java/docker/worker/server.coffee"
+			],
+			[
+				"urlma",
+				"grails-app/conf/UrlMappings.groovy"
+			],
+			[
+				"redisser",
+				"grails-app/services/ats/pad/RedisService.groovy"
+			],
+			[
+				"worker/server.",
+				"src/java/docker/worker/server.coffee"
+			],
+			[
+				"about.html",
+				"frontend/app/views/about.html"
+			],
+			[
+				"run.sh",
+				"src/java/docker/redis/run.sh"
+			],
+			[
+				"workerdoc",
+				"src/java/docker/worker/Dockerfile"
+			],
+			[
+				"redisdocker",
+				"src/java/docker/redis/Dockerfile"
+			],
+			[
+				"bouncy/index.js",
+				"src/java/docker/bouncy/index.js"
+			],
+			[
+				"bouncyindex",
+				"tmp/node_modules/bouncy/index.js"
+			],
+			[
+				"workerclient",
+				"src/java/docker/worker/client.coffee"
+			],
+			[
+				"workerdokerfile",
+				"src/java/docker/worker/Dockerfile"
+			],
+			[
+				"proxy.co",
+				"src/java/docker/bouncy/proxy.coffee"
+			],
+			[
+				"workerserver.coff",
+				"src/java/docker/worker/server.coffee"
+			],
+			[
+				"workspace",
+				"grails-app/services/ats/pad/WorkspaceService.groovy"
+			],
+			[
+				"index.js",
+				"tmp/node_modules/bouncy/index.js"
+			],
+			[
+				"proxy.coffee",
+				"src/java/docker/bouncy/proxy.coffee"
+			],
+			[
+				"dockerfile",
+				"src/java/docker/bouncy/Dockerfile"
+			],
+			[
+				"pro",
+				"src/java/docker/bouncy/proxyserver.js"
+			],
+			[
+				"appmarkdownservice.coffee",
+				"frontend/app/scripts/services/appmarkdownservice.coffee"
+			],
+			[
+				"appmarkdown",
+				"frontend/app/scripts/directives/appmarkdown.coffee"
 			],
 			[
 				"main.coffee",
 				"frontend/app/scripts/controllers/main.coffee"
+			],
+			[
+				"appterminalser",
+				"frontend/app/scripts/services/appterminalservice.coffee"
+			],
+			[
+				"main.html",
+				"frontend/app/views/main.html"
+			],
+			[
+				"app.coffee",
+				"frontend/app/scripts/app.coffee"
+			],
+			[
+				"appterminal.co",
+				"frontend/app/scripts/directives/appterminal.coffee"
+			],
+			[
+				"web-app/con",
+				"web-app/js/controllers.js"
+			],
+			[
+				"sidebar.coffee",
+				"frontend/app/scripts/controllers/sidebar.coffee"
+			],
+			[
+				"appterminal",
+				"frontend/app/scripts/directives/appterminal.coffee"
+			],
+			[
+				"sidebar",
+				"frontend/app/views/partials/sidebar.html"
+			],
+			[
+				"apppadservice.coffee",
+				"frontend/app/scripts/services/apppadservice.coffee"
+			],
+			[
+				"fork.coffee",
+				"frontend/app/scripts/controllers/fork.coffee"
+			],
+			[
+				"proxyserver",
+				"src/java/docker/bouncy/proxyserver.js"
+			],
+			[
+				"workerindex.js",
+				"src/java/docker/worker/index.js"
+			],
+			[
+				"server.coffee",
+				"src/java/docker/worker/server.coffee"
+			],
+			[
+				"server.",
+				"src/java/docker/worker/server.coffee"
 			],
 			[
 				"appurlser",
@@ -1644,14 +2190,6 @@
 			],
 			[
 				"appterminal.coffe",
-				"frontend/app/scripts/directives/appterminal.coffee"
-			],
-			[
-				"appterminalservice",
-				"frontend/app/scripts/services/appterminalservice.coffee"
-			],
-			[
-				"appterminal",
 				"frontend/app/scripts/directives/appterminal.coffee"
 			],
 			[
@@ -1663,24 +2201,12 @@
 				"frontend/app/views/partials/sidebar.html"
 			],
 			[
-				"sidebar.coffee",
-				"frontend/app/scripts/controllers/sidebar.coffee"
-			],
-			[
-				"workspace",
-				"grails-app/services/ats/pad/WorkspaceService.groovy"
-			],
-			[
 				"padservice.coffee",
 				"frontend/app/scripts/services/apppadservice.coffee"
 			],
 			[
 				"sidebarc",
 				"frontend/app/scripts/controllers/sidebar.coffee"
-			],
-			[
-				"padcon",
-				"grails-app/controllers/ats/pad/PadController.groovy"
 			],
 			[
 				"apptermclient",
@@ -1723,10 +2249,6 @@
 				"frontend/app/scripts/directives/appaffix.coffee"
 			],
 			[
-				"dockerfile",
-				"src/java/docker/worker/Dockerfile"
-			],
-			[
 				"fork",
 				"frontend/app/scripts/controllers/fork.coffee"
 			],
@@ -1737,10 +2259,6 @@
 			[
 				"appterm.coffee",
 				"frontend/app/scripts/directives/appterminal.coffee"
-			],
-			[
-				"server.coffee",
-				"src/java/docker/worker/server.coffee"
 			],
 			[
 				"apptermser",
@@ -1803,14 +2321,6 @@
 				"frontend/app/scripts/services/appcontextservice.coffee"
 			],
 			[
-				"appcon",
-				"frontend/app/scripts/services/appcontextservice.coffee"
-			],
-			[
-				"buildcon",
-				"grails-app/conf/BuildConfig.groovy"
-			],
-			[
 				"bootstrapvariable",
 				"frontend/app/bower_components/bootstrap/less/variables.less"
 			],
@@ -1821,326 +2331,6 @@
 			[
 				"appurls",
 				"frontend/.tmp/scripts/services/appurlservice.js"
-			],
-			[
-				"appcontextser",
-				"frontend/app/scripts/services/appcontextservice.coffee"
-			],
-			[
-				"controll",
-				"web-app/js/controllers.js"
-			],
-			[
-				"loading.gsp",
-				"grails-app/views/loading.gsp"
-			],
-			[
-				"grunt",
-				"frontend/Gruntfile.js"
-			],
-			[
-				"gruntfil",
-				"frontend/Gruntfile.js"
-			],
-			[
-				"gruntfile",
-				"frontend/Gruntfile.js"
-			],
-			[
-				"editor",
-				"frontend/app/styles/editor.less"
-			],
-			[
-				"main.less",
-				"web-app/css/main.less"
-			],
-			[
-				"directi",
-				"web-app/js/directives.js"
-			],
-			[
-				"appside",
-				"frontend/app/scripts/directives/appsidebar.coffee"
-			],
-			[
-				"sidebar",
-				"frontend/app/views/partials/sidebar.html"
-			],
-			[
-				"rea",
-				"frontend/app/styles/readme.less"
-			],
-			[
-				"main.html",
-				"frontend/app/views/main.html"
-			],
-			[
-				"appfileser",
-				"frontend/app/scripts/services/appfileservice.coffee"
-			],
-			[
-				"readme",
-				"web-app/snippets/readme.html"
-			],
-			[
-				"directive",
-				"web-app/js/directives.js"
-			],
-			[
-				"index.gsp",
-				"grails-app/views/index.gsp"
-			],
-			[
-				"snippets/",
-				"web-app/snippets/filetoolbar.html"
-			],
-			[
-				"variabl",
-				"frontend/app/bower_components/bootstrap/less/variables.less"
-			],
-			[
-				"",
-				"frontend/app/scripts/directives/appstatusbar.coffee"
-			],
-			[
-				"appeditorservice",
-				"frontend/app/scripts/services/appeditorservice.coffee"
-			],
-			[
-				"statusbar",
-				"web-app/snippets/statusbar.html"
-			],
-			[
-				"appstatus",
-				"frontend/app/scripts/directives/appstatusbar.coffee"
-			],
-			[
-				"main.les",
-				"web-app/css/main.less"
-			],
-			[
-				"appeditor",
-				"frontend/app/scripts/directives/appeditor.coffee"
-			],
-			[
-				"filelist.html",
-				"frontend/app/views/partials/filelist.html"
-			],
-			[
-				"filelist.coff",
-				"frontend/app/scripts/controllers/filelist.coffee"
-			],
-			[
-				"appfilelist.c",
-				"frontend/app/scripts/directives/appfilelist.coffee"
-			],
-			[
-				"filelist",
-				"frontend/app/scripts/controllers/filelist.coffee"
-			],
-			[
-				"filelist.cof",
-				"frontend/app/scripts/controllers/filelist.coffee"
-			],
-			[
-				"app.co",
-				"frontend/app/scripts/app.coffee"
-			],
-			[
-				"filelist.coffee",
-				"frontend/app/scripts/controllers/filelist.coffee"
-			],
-			[
-				"appfilelist",
-				"frontend/app/scripts/directives/appfilelist.coffee"
-			],
-			[
-				"apptool",
-				"frontend/app/scripts/directives/apptooltip.coffee"
-			],
-			[
-				"filelist.ht",
-				"web-app/snippets/filelist.html"
-			],
-			[
-				"service.js",
-				"web-app/js/services.js"
-			],
-			[
-				"filelist.co",
-				"frontend/app/scripts/controllers/filelist.coffee"
-			],
-			[
-				"direct",
-				"web-app/js/directives.js"
-			],
-			[
-				"appedi",
-				"frontend/app/scripts/services/appeditorservice.coffee"
-			],
-			[
-				"direc",
-				"web-app/js/directives.js"
-			],
-			[
-				"apptermin",
-				"ats-pad-frontend/app/scripts/services/appterminalservice.coffee"
-			],
-			[
-				"apppda",
-				"ats-pad-frontend/app/scripts/services/apppadservice.coffee"
-			],
-			[
-				"appnotifi",
-				"ats-pad-frontend/app/scripts/services/appnotificationservice.coffee"
-			],
-			[
-				"appfile",
-				"ats-pad-frontend/app/scripts/services/appfileservice.coffee"
-			],
-			[
-				"appeditorser",
-				"ats-pad-frontend/app/scripts/services/appeditorservice.coffee"
-			],
-			[
-				"dir",
-				"ats-pad/web-app/js/directives.js"
-			],
-			[
-				"apppad",
-				"ats-pad-frontend/app/scripts/services/apppadservice.coffee"
-			],
-			[
-				"appnoti",
-				"ats-pad-frontend/app/scripts/services/appnotificationservice.coffee"
-			],
-			[
-				"apptermi",
-				"ats-pad-frontend/app/scripts/services/appterminalservice.coffee"
-			],
-			[
-				"appedit",
-				"ats-pad-frontend/app/scripts/services/appeditorservice.coffee"
-			],
-			[
-				"appmarkdown",
-				"ats-pad-frontend/app/scripts/services/appmarkdownservice.coffee"
-			],
-			[
-				"appurl",
-				"ats-pad-frontend/app/scripts/services/appurlservice.coffee"
-			],
-			[
-				"work",
-				"grails-app/services/ats/pad/WorkspaceService.groovy"
-			],
-			[
-				"pad",
-				"grails-app/controllers/ats/pad/PadController.groovy"
-			],
-			[
-				"urlmap",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"worksp",
-				"grails-app/services/ats/pad/WorkspaceService.groovy"
-			],
-			[
-				"ser",
-				"web-app/js/services.js"
-			],
-			[
-				"serv",
-				"web-app/js/services.js"
-			],
-			[
-				"control",
-				"web-app/js/controllers.js"
-			],
-			[
-				"hint",
-				"web-app/js/.jshintrc"
-			],
-			[
-				"jshintrc",
-				"web-app/js/.jshintrc"
-			],
-			[
-				"service",
-				"web-app/js/services.js"
-			],
-			[
-				"workspe",
-				"grails-app/services/ats/pad/WorkspaceService.groovy"
-			],
-			[
-				"urlma",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"padcontro",
-				"grails-app/controllers/ats/pad/PadController.groovy"
-			],
-			[
-				"config",
-				"grails-app/conf/Config.groovy"
-			],
-			[
-				"embed.gsp",
-				"grails-app/views/embed.gsp"
-			],
-			[
-				"urlm",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"url",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"cont",
-				"web-app/js/controllers.js"
-			],
-			[
-				"servi",
-				"web-app/js/services.js"
-			],
-			[
-				"applicatoin.js",
-				"web-app/js/application.js"
-			],
-			[
-				"index",
-				"grails-app/views/index.gsp"
-			],
-			[
-				"urlmappin",
-				"grails-app/conf/UrlMappings.groovy"
-			],
-			[
-				"loading.",
-				"web-app/snippets/loading.html"
-			],
-			[
-				"loading",
-				"web-app/snippets/loading.html"
-			],
-			[
-				"client.js",
-				"web-app/js/client.js"
-			],
-			[
-				"filelis",
-				"web-app/snippets/filelist.html"
-			],
-			[
-				"filetoo",
-				"web-app/snippets/filetoolbar.html"
-			],
-			[
-				"dire",
-				"web-app/js/directives.js"
 			]
 		],
 		"width": 0.0
@@ -2167,7 +2357,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 292.0,
 	"status_bar_visible": true,
 	"template_settings":

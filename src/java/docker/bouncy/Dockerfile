@@ -1,20 +1,21 @@
-FROM stackbrew/ubuntu:13.10
+FROM ubuntu:14.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y wget
-RUN apt-get install -y bash
-RUN apt-get install -y make
-RUN apt-get install -y build-essential
+RUN apt-get install -y apt-utils wget curl python bash make build-essential
 
 # /root/nodejs
 WORKDIR /root
-RUN wget -O nodejs.tgz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
-RUN tar -xvf nodejs.tgz
-RUN rm nodejs.tgz
-RUN mv node* nodejs
-ENV PATH $PATH:/root/nodejs/bin
+RUN mkdir .npm
+RUN mkdir nodejs
+ENV PATH $PATH:/root/.npm/bin
+
+WORKDIR /root/nodejs
+RUN curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+RUN ./configure --prefix=/root/.npm
+RUN V= make install -j4
+RUN curl https://www.npmjs.org/install.sh | clean=no sh
 
 # /root/redis
 WORKDIR /root
@@ -36,9 +37,10 @@ RUN make install
 WORKDIR /root
 RUN npm install redis 
 RUN npm install bouncy
-RUN npm install util
+RUN npm install winston
+RUN npm install winston-papertrail
 RUN npm install url
-ADD proxyserver.js /root/proxyserver.js
+ADD proxy.js /root/proxy.js
 ADD index.js /root/index.js
 
 # EXPOSE 80

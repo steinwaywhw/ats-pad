@@ -20,15 +20,16 @@
       <section class="col-md-9">
         <div class="ats-pad-editor-container">
           <div id="ats-pad-editor" app-editor></div>
-          <div id="ats-pad-statusbar" app-status-bar>aaa</div>
+          <div id="ats-pad-statusbar" app-status-bar></div>
         </div>
       </section>
     </section>
 
     <section class="row">
       <div class="col-md-12">
-        <div class="ats-pad-terminal">
+        <div class="ats-pad-terminal" ng-controller="TerminalCtrl">
           <h4>Terminal</h4>
+          <button class="btn btn-default" ng-click="refresh()">Refresh</button>
           <div id="terminal" cols="140" rows="19" app-terminal></div>
         </div>
       </div>

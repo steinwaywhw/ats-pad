@@ -1,3 +1,11 @@
+winston = require "winston"
+papertrail = require "winston-papertrail"
+
+winston.add winston.transports.Papertrail,
+	host: 'logs.papertrailapp.com'
+	port: 20895
+	hostname: "worker"
+	colorize: "true"
 
 server = 
 	term   : null
@@ -15,7 +23,7 @@ server =
 
 	upTerm: (opts) ->
 		opts = @default(opts)
-
+		winston.info("Bringing up terminal server.")
 		term_opts = 
 			name : require('fs').existsSync('/usr/share/terminfo/x/xterm-256color') ? 'xterm-256color' : 'xterm'
 			cols : opts.cols
@@ -26,6 +34,7 @@ server =
 
 	upServer: (opts) ->
 		opts = @default(opts)
+		winston.info("Bringing up pirmus")
 
 		@primus = require('primus').createServer
 			pathname    : opts.pathname 
@@ -42,7 +51,7 @@ server =
 				@primus.write(data)
 
 		@primus.on "connection", (spark) =>
-
+			winston.info("New connection from %j %j", spark.address, spark.query, {})
 			while @buff.length
 				@primus.write(@buff.shift())
 
@@ -51,6 +60,7 @@ server =
 
 	up: (opts) ->
 		opts = @default(opts)
+		winston.info("Bringing up worker server with", opts)
 		@upTerm(opts)
 		@upServer(opts)
 

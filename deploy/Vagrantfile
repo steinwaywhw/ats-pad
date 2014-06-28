@@ -10,8 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "chef/ubuntu-14.04"
-  #config.vm.box = "digital_ocean"
+  #config.vm.box = "chef/ubuntu-14.04"
+  config.vm.box = "digital_ocean"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -21,9 +21,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8023, host: 8023
-  config.vm.network "forwarded_port", guest: 8082, host: 8082
+  #config.vm.network "forwarded_port", guest: 8080, host: 8080
+  #config.vm.network "forwarded_port", guest: 8023, host: 8023
+  #config.vm.network "forwarded_port", guest: 8082, host: 8082
 
 
   # Create a private network, which allows host-only access to the machine
@@ -65,7 +65,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     provider.api_key = "311ddb3af034dd2addb87aba8634e64b"
     provider.image = "Ubuntu 14.04 x64"
     provider.region = "New York 2"
-    provider.size = "2GB"
+    provider.size = "1GB"
   end
 
   # View the documentation for the provider you're using for more
@@ -135,11 +135,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
   
-  # config.vm.provision "file", source: "log_files.yml", destination: "/log_files.yml"
-  # config.vm.provision "file", source: "remote_syslog", destination: "/remote_syslog"
+  #config.vm.provision "file", source: "log_files.yml", destination: "/log_files.yml"
+  #config.vm.provision "file", source: "remote_syslog", destination: "/remote_syslog"
   config.vm.provision "file", source: "../target/atspad.war", destination: "/ROOT.war"
 
-  #config.vm.provision "shell", inline: "chmod 777 /"
   #config.vm.provision "shell", path: "provision.sh"
   config.vm.provision "shell", path: "deploy.sh"
 

@@ -1,0 +1,6 @@
+2014-06-26T14:24:43.149Z - info: Initializing proxy server.
+2014-06-26T14:24:43.151Z - info: Redis running at ip=127.0.0.1, prot=6379
+2014-06-26T14:24:43.165Z - info: Proxy server running on 8023
+2014-06-26T14:25:35.093Z - info: [request] /console/?wid=111
+2014-06-26T14:25:35.096Z - info: Keep alive 1403792735096
+2014-06-26T14:25:35.097Z - info: Bouncing to ip=127.0.0.1, port=8080, lastActive=1403791447471
